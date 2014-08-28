@@ -1,0 +1,14 @@
+E:\NewGITFolder\ChampionsLeagueDB\ChampionsLeague\ChampionsLeague.ConsoleClient\bin\Debug\ChampionsLeague.ConsoleClient.exe.config
+E:\NewGITFolder\ChampionsLeagueDB\ChampionsLeague\ChampionsLeague.ConsoleClient\bin\Debug\ChampionsLeague.ConsoleClient.exe
+E:\NewGITFolder\ChampionsLeagueDB\ChampionsLeague\ChampionsLeague.ConsoleClient\bin\Debug\ChampionsLeague.ConsoleClient.pdb
+E:\NewGITFolder\ChampionsLeagueDB\ChampionsLeague\ChampionsLeague.ConsoleClient\bin\Debug\ChampionsLeague.Data.dll
+E:\NewGITFolder\ChampionsLeagueDB\ChampionsLeague\ChampionsLeague.ConsoleClient\bin\Debug\ChampionsLeague.Model.dll
+E:\NewGITFolder\ChampionsLeagueDB\ChampionsLeague\ChampionsLeague.ConsoleClient\bin\Debug\EntityFramework.dll
+E:\NewGITFolder\ChampionsLeagueDB\ChampionsLeague\ChampionsLeague.ConsoleClient\bin\Debug\EntityFramework.SqlServer.dll
+E:\NewGITFolder\ChampionsLeagueDB\ChampionsLeague\ChampionsLeague.ConsoleClient\bin\Debug\ChampionsLeague.Data.pdb
+E:\NewGITFolder\ChampionsLeagueDB\ChampionsLeague\ChampionsLeague.ConsoleClient\bin\Debug\ChampionsLeague.Model.pdb
+E:\NewGITFolder\ChampionsLeagueDB\ChampionsLeague\ChampionsLeague.ConsoleClient\bin\Debug\EntityFramework.xml
+E:\NewGITFolder\ChampionsLeagueDB\ChampionsLeague\ChampionsLeague.ConsoleClient\bin\Debug\EntityFramework.SqlServer.xml
+E:\NewGITFolder\ChampionsLeagueDB\ChampionsLeague\ChampionsLeague.ConsoleClient\obj\Debug\ChampionsLeague.ConsoleClient.csprojResolveAssemblyReference.cache
+E:\NewGITFolder\ChampionsLeagueDB\ChampionsLeague\ChampionsLeague.ConsoleClient\obj\Debug\ChampionsLeague.ConsoleClient.exe
+E:\NewGITFolder\ChampionsLeagueDB\ChampionsLeague\ChampionsLeague.ConsoleClient\obj\Debug\ChampionsLeague.ConsoleClient.pdb
