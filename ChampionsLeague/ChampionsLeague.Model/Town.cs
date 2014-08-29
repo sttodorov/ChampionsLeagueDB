@@ -20,9 +20,9 @@
         [Required]
         public string TownName { get; set; }
 
-        public virtual ICollection<Stadium> Stadiums 
+        public virtual ICollection<Stadium> Stadiums
         {
-            get 
+            get
             {
                 return this.stadiums;
             }

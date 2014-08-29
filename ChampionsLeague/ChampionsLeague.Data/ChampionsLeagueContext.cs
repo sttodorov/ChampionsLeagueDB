@@ -25,5 +25,25 @@
         {
             return base.SaveChanges();
         }
+
+        protected override void OnModelCreating(DbModelBuilder modelBuilder)
+        {
+            //modelBuilder.Entity<Match>()
+            //    .HasRequired(s => s.Stadium)
+            //    .WithMany()
+            //    .WillCascadeOnDelete(false);
+
+            modelBuilder.Entity<Match>()
+                .HasRequired(t => t.HostTeam)
+                .WithMany(e => e.MatchesAsHost)
+                .HasForeignKey(m => m.HostTeamId)//m.HostTeam
+                .WillCascadeOnDelete(false);
+
+            modelBuilder.Entity<Match>()
+                .HasRequired(t => t.GuestTeam)
+                .WithMany(e => e.MatchesAsGuest)
+                .HasForeignKey(m => m.GuestTeamId)// m.GuestTeam
+                .WillCascadeOnDelete(false);
+        }
     }
 }

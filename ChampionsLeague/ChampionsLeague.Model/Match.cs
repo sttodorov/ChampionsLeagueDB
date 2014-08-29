@@ -1,7 +1,9 @@
-﻿using System;
-using System.ComponentModel.DataAnnotations;
-namespace ChampionsLeague.Model
+﻿namespace ChampionsLeague.Model
 {
+    using System;
+    using System.ComponentModel.DataAnnotations;
+    using System.ComponentModel.DataAnnotations.Schema;
+
     public class Match
     {
         public int MatchId { get; set; }
@@ -9,13 +11,21 @@ namespace ChampionsLeague.Model
         public DateTime Date { get; set; }
 
         [Required]
-        public int HostTeamId { get; set; }
-
-        public virtual Team HostTeam { get; set; }
+        public int StadiumId { get; set; }
 
         [Required]
+        public virtual Stadium Stadium { get; set; }
+
+
+        public int HostTeamId { get; set; }
+
+        [Required]
+        public virtual Team HostTeam { get; set; }
+
+
         public int GuestTeamId { get; set; }
 
+        [Required]
         public virtual Team GuestTeam { get; set; }
     }
 }

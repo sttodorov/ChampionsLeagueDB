@@ -3,6 +3,7 @@
     using System.Collections.Generic;
 
     using System.ComponentModel.DataAnnotations;
+    using System.ComponentModel.DataAnnotations.Schema;
 
     public class Team
     {
@@ -20,7 +21,6 @@
         public int TeamId { get; set; }
 
         [Required]
-        [MinLength(6)]
         public string TeamName { get; set; }
 
         [Required]
@@ -29,7 +29,7 @@
         [Required]
         public virtual Town Town { get; set; }
 
-        public ICollection<Player> Players
+        public virtual ICollection<Player> Players
         {
             get
             {
@@ -41,7 +41,7 @@
             }
         }
 
-        public ICollection<Match> MatchesAsHost
+        public virtual ICollection<Match> MatchesAsHost
         {
             get
             {
