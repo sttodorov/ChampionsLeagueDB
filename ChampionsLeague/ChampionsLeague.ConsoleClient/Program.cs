@@ -66,8 +66,6 @@
             {
                 Console.WriteLine(matchAsHost.Date);
             }
-
-            // test connection
         }
     }
 }
