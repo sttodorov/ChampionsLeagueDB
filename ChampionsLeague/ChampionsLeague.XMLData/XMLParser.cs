@@ -47,17 +47,18 @@
                                 break;
                             case HostTeamXMLProp:
                                 string hostTeamName = reader.ReadElementString();
-                                //currentMatch.HostTeamId = GetTeamId(hostTeamName);
-                                currentMatch.HostTeam = GetTeamId(hostTeamName);
+                                currentMatch.HostTeamId = GetTeamId(hostTeamName);
+                                //currentMatch.HostTeam = GetTeamId(hostTeamName);
                                 break;
                             case GuestTeamXMLProp:
                                 string guestTeamName = reader.ReadElementString();
-                                //currentMatch.GuestTeamId = GetTeamId(guestTeamName);
-                                currentMatch.GuestTeam = GetTeamId(guestTeamName);
+                                currentMatch.GuestTeamId = GetTeamId(guestTeamName);
+                                //currentMatch.GuestTeam = GetTeamId(guestTeamName);
                                 break;
                             case StadiumTeamXMLProp:
                                 string stadiumName = reader.ReadElementString();
                                 currentMatch.StadiumId = GetStadiumId(stadiumName);
+                                //currentMatch.Stadium = GetStadiumId(stadiumName);
                                 break;                                
                             default:                                
                                 break;
@@ -91,39 +92,43 @@
             xmlSerializedMatches.Save(filePath);
         }        
 
-        private Team GetTeamId(string name)
+        private int GetTeamId(string name)
         {
             int teamId = 0;
-            var team = new Team();
+            //var team = new Team();
 
             using (var db = new ChampionsLeagueContext())
             {
-                //var team = db.Teams.FirstOrDefault(x => x.TeamName == name);
-                team = db.Teams.FirstOrDefault(x => x.TeamName == name);
-
+                var team = db.Teams.FirstOrDefault(x => x.TeamName == name);
+                //team = db.Teams.FirstOrDefault(x => x.TeamName == name);
+                //team.Town = db.Towns.FirstOrDefault(x => x.TownId == team.TownId);
                 if (team == null)
                 {
                     throw new ArgumentNullException("Cannot find team in database");
                 }
                 teamId = team.TeamId;
             }
-            return team;
+            //return team;
+            return teamId;
         }
 
         private int GetStadiumId(string name)
         {
             int stadiumId = 0;
+            //var stadium = new Stadium();
 
             using (var db = new ChampionsLeagueContext())
             {
                 var stadium = db.Stadiums.FirstOrDefault(x => x.Name == name);
-
+                //stadium = db.Stadiums.FirstOrDefault(x => x.Name == name);
+                //stadium.Town = db.Towns.FirstOrDefault(x => x.TownId == stadium.TownId);
                 if (stadium == null)
                 {
                     throw new ArgumentNullException("Cannot find team in database");
                 }
                 stadiumId = stadium.StadiumId;
             }
+            //return stadium;
             return stadiumId;
         }
     }

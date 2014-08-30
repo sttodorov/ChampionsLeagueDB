@@ -13,19 +13,19 @@
         [Required]
         public int StadiumId { get; set; }
 
-        [Required]
+        //[Required]
         public virtual Stadium Stadium { get; set; }
 
 
         public int HostTeamId { get; set; }
 
-        [Required]
+        //[Required]
         public virtual Team HostTeam { get; set; }
 
 
         public int GuestTeamId { get; set; }
 
-        [Required]
+        //[Required]
         public virtual Team GuestTeam { get; set; }
     }
 }
