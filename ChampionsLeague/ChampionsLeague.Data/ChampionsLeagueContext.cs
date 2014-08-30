@@ -3,25 +3,34 @@
     using System.Data.Entity;
 
     using ChampionsLeague.Model;
+    using ChampionsLeague.Data.Migrations;
 
-    public class ChampionsLeagueContext : DbContext
+    public class ChampionsLeagueContext : DbContext, IChampionsLeagueContext
     {
         public ChampionsLeagueContext()
             : base("ChampionsLeagueDb")
         {
+
+            //Database.SetInitializer(new DropCreateDatabaseAlways<ChampionsLeagueContext>());
+            Database.SetInitializer(new MigrateDatabaseToLatestVersion<ChampionsLeagueContext, Configuration>());
         }
 
-        public DbSet<Town> Towns { get; set; }
+        public IDbSet<Town> Towns { get; set; }
 
-        public DbSet<Stadium> Stadiums { get; set; }
+        public IDbSet<Stadium> Stadiums { get; set; }
 
-        public DbSet<Team> Teams { get; set; }
+        public IDbSet<Team> Teams { get; set; }
 
-        public DbSet<Player> Players { get; set; }
+        public IDbSet<Player> Players { get; set; }
 
-        public DbSet<Match> Matches { get; set; }
+        public IDbSet<Match> Matches { get; set; }
 
-        public override int SaveChanges()
+        public new IDbSet<T> Set<T>() where T : class
+        {
+            return base.Set<T>();
+        }
+
+        public int SaveChanges()
         {
             return base.SaveChanges();
         }

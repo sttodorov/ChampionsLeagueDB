@@ -47,8 +47,13 @@
   </ItemGroup>
   <ItemGroup>
     <Compile Include="ChampionsLeagueContext.cs" />
+    <Compile Include="ChampionsLeagueData.cs" />
+    <Compile Include="IChamionsLeagueData.cs" />
+    <Compile Include="IChampionsLeagueContext.cs" />
     <Compile Include="Migrations\Configuration.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
+    <Compile Include="Repositories\GenericRepository.cs" />
+    <Compile Include="Repositories\IGenericRepository.cs" />
   </ItemGroup>
   <ItemGroup>
     <None Include="App.config" />
