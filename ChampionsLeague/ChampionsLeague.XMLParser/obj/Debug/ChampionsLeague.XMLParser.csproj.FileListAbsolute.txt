@@ -1,0 +1,14 @@
+E:\Telerik\07_TeamWorks\07_DB\ChampionsLeagueDB\ChampionsLeague\ChampionsLeague.XMLParser\obj\Debug\ChampionsLeague.XMLParser.csprojResolveAssemblyReference.cache
+E:\Telerik\07_TeamWorks\07_DB\ChampionsLeagueDB\ChampionsLeague\ChampionsLeague.XMLParser\bin\Debug\ChampionsLeague.XMLParser.dll
+E:\Telerik\07_TeamWorks\07_DB\ChampionsLeagueDB\ChampionsLeague\ChampionsLeague.XMLParser\bin\Debug\ChampionsLeague.XMLParser.pdb
+E:\Telerik\07_TeamWorks\07_DB\ChampionsLeagueDB\ChampionsLeague\ChampionsLeague.XMLParser\bin\Debug\ChampionsLeague.Model.dll
+E:\Telerik\07_TeamWorks\07_DB\ChampionsLeagueDB\ChampionsLeague\ChampionsLeague.XMLParser\bin\Debug\ChampionsLeague.Model.pdb
+E:\Telerik\07_TeamWorks\07_DB\ChampionsLeagueDB\ChampionsLeague\ChampionsLeague.XMLParser\obj\Debug\ChampionsLeague.XMLParser.dll
+E:\Telerik\07_TeamWorks\07_DB\ChampionsLeagueDB\ChampionsLeague\ChampionsLeague.XMLParser\obj\Debug\ChampionsLeague.XMLParser.pdb
+E:\Telerik\07_TeamWorks\07_DB\ChampionsLeagueDB\ChampionsLeague\ChampionsLeague.XMLParser\bin\Debug\ChampionsLeague.XMLParser.dll.config
+E:\Telerik\07_TeamWorks\07_DB\ChampionsLeagueDB\ChampionsLeague\ChampionsLeague.XMLParser\bin\Debug\ChampionsLeague.Data.dll
+E:\Telerik\07_TeamWorks\07_DB\ChampionsLeagueDB\ChampionsLeague\ChampionsLeague.XMLParser\bin\Debug\EntityFramework.dll
+E:\Telerik\07_TeamWorks\07_DB\ChampionsLeagueDB\ChampionsLeague\ChampionsLeague.XMLParser\bin\Debug\EntityFramework.SqlServer.dll
+E:\Telerik\07_TeamWorks\07_DB\ChampionsLeagueDB\ChampionsLeague\ChampionsLeague.XMLParser\bin\Debug\ChampionsLeague.Data.pdb
+E:\Telerik\07_TeamWorks\07_DB\ChampionsLeagueDB\ChampionsLeague\ChampionsLeague.XMLParser\bin\Debug\EntityFramework.xml
+E:\Telerik\07_TeamWorks\07_DB\ChampionsLeagueDB\ChampionsLeague\ChampionsLeague.XMLParser\bin\Debug\EntityFramework.SqlServer.xml

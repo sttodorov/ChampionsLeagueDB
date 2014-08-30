@@ -1,7 +1,7 @@
 ﻿using System;
 using System.Collections.Generic;
 using System.Linq;
-using ChampionsLeague.XMLDataParser;
+using ChampionsLeague.XMLData;
 using ChampionsLeague.Model;
 using ChampionsLeague.Data;
 
