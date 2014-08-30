@@ -1,17 +1,13 @@
 ﻿namespace ChampionsLeague.XMLData
 {
     using System;
-    using System.Linq;
-    using System.IO;
-    using System.Xml.Serialization;
+    using System.Linq;    
     using System.Xml;
     using System.Xml.Linq;
     using System.Collections.Generic;
 
     using ChampionsLeague.Model;
     using ChampionsLeague.Data;
-    
-
 
     public class XMLParser
     {
@@ -51,11 +47,13 @@
                                 break;
                             case HostTeamXMLProp:
                                 string hostTeamName = reader.ReadElementString();
-                                currentMatch.HostTeamId = GetTeamId(hostTeamName);
+                                //currentMatch.HostTeamId = GetTeamId(hostTeamName);
+                                currentMatch.HostTeam = GetTeamId(hostTeamName);
                                 break;
                             case GuestTeamXMLProp:
                                 string guestTeamName = reader.ReadElementString();
-                                currentMatch.GuestTeamId = GetTeamId(guestTeamName);
+                                //currentMatch.GuestTeamId = GetTeamId(guestTeamName);
+                                currentMatch.GuestTeam = GetTeamId(guestTeamName);
                                 break;
                             case StadiumTeamXMLProp:
                                 string stadiumName = reader.ReadElementString();
@@ -91,44 +89,17 @@
 
             var xmlSerializedMatches = new XElement("Matches", xmlMatches);
             xmlSerializedMatches.Save(filePath);
-        }
+        }        
 
-        //public void SaveReport(string filePath, Stadium stadium)
-        //{
-        //    throw new NotImplementedException("Stadium XML serialization not implelented");
-        //    var xmlMatches = new List<XElement>();
-
-        //    foreach (var match in stadium.Matches)
-        //    {
-        //        xmlMatches.Add(
-        //            new XElement("Match",
-        //                new XElement("MatchId", match.MatchId),
-        //                new XElement("Date", match.Date),
-        //                new XElement("HostTeam", match.HostTeam.TeamName),
-        //                new XElement("GuestTeam", match.GuestTeam.TeamName)
-        //                ));
-        //    }
-
-        //    XElement stadiumXML = new XElement("Stadium",
-        //   new XElement("StadiumId",
-        //       stadium.StadiumId
-        //   ),
-        //   new XElement("Name",
-        //       stadium.Name
-        //   ),
-        //   new XElement("Matches", xmlMatches
-        //   )
-        //     );
-        //    stadiumXML.Save(filePath);
-        //}
-
-        private int GetTeamId(string name)
+        private Team GetTeamId(string name)
         {
             int teamId = 0;
+            var team = new Team();
 
             using (var db = new ChampionsLeagueContext())
             {
-                var team = db.Teams.FirstOrDefault(x => x.TeamName == name);
+                //var team = db.Teams.FirstOrDefault(x => x.TeamName == name);
+                team = db.Teams.FirstOrDefault(x => x.TeamName == name);
 
                 if (team == null)
                 {
@@ -136,7 +107,7 @@
                 }
                 teamId = team.TeamId;
             }
-            return teamId;
+            return team;
         }
 
         private int GetStadiumId(string name)
