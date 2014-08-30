@@ -17,13 +17,14 @@
 
             var matches = parser.LoadMatchReport(filename);
 
-            using(var db = new ChampionsLeagueData())
-            {
+            var db = new ChampionsLeagueData();
+            //using(var db = new ChampionsLeagueData())
+            //{
                 foreach (var match in matches)
                 {
                     db.Matches.Add(match);
                 }
-            }
+            //}
             throw new NotImplementedException();
         }
 

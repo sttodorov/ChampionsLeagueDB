@@ -1,7 +1,7 @@
 ﻿
 Microsoft Visual Studio Solution File, Format Version 12.00
 # Visual Studio 2013
-VisualStudioVersion = 12.0.30501.0
+VisualStudioVersion = 12.0.30723.0
 MinimumVisualStudioVersion = 10.0.40219.1
 Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "ChampionsLeague.Model", "ChampionsLeague.Model\ChampionsLeague.Model.csproj", "{7DEA3435-7EF1-4BA9-9117-FC685E30E2CE}"
 EndProject
@@ -12,6 +12,10 @@ EndProject
 Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "ChampionsLeague.XMLData", "ChampionsLeague.XMLParser\ChampionsLeague.XMLData.csproj", "{984D8BA3-2F5A-4AAE-89BB-B908A19F2EDF}"
 EndProject
 Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "ChampionsLeague.XMLParserTest", "ChampionsLeague.XMLParserTest\ChampionsLeague.XMLParserTest.csproj", "{2BF8AA24-3A60-4CB3-9DE5-7D7BF7BE0F84}"
+EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "ChampionsLeague.Import", "ChampionsLeague.Import\ChampionsLeague.Import.csproj", "{B571B35D-FCF6-4852-B145-70D2F6C971E2}"
+EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "ChampionsLeague.JsonReports", "ChampionsLeague.JsonReports\ChampionsLeague.JsonReports.csproj", "{57672C9F-8202-4F4B-9D73-DE941A8F99FB}"
 EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
@@ -39,6 +43,14 @@ Global
 		{2BF8AA24-3A60-4CB3-9DE5-7D7BF7BE0F84}.Debug|Any CPU.Build.0 = Debug|Any CPU
 		{2BF8AA24-3A60-4CB3-9DE5-7D7BF7BE0F84}.Release|Any CPU.ActiveCfg = Release|Any CPU
 		{2BF8AA24-3A60-4CB3-9DE5-7D7BF7BE0F84}.Release|Any CPU.Build.0 = Release|Any CPU
+		{B571B35D-FCF6-4852-B145-70D2F6C971E2}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{B571B35D-FCF6-4852-B145-70D2F6C971E2}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{B571B35D-FCF6-4852-B145-70D2F6C971E2}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{B571B35D-FCF6-4852-B145-70D2F6C971E2}.Release|Any CPU.Build.0 = Release|Any CPU
+		{57672C9F-8202-4F4B-9D73-DE941A8F99FB}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{57672C9F-8202-4F4B-9D73-DE941A8F99FB}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{57672C9F-8202-4F4B-9D73-DE941A8F99FB}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{57672C9F-8202-4F4B-9D73-DE941A8F99FB}.Release|Any CPU.Build.0 = Release|Any CPU
 	EndGlobalSection
 	GlobalSection(SolutionProperties) = preSolution
 		HideSolutionNode = FALSE

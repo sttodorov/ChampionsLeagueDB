@@ -4,16 +4,15 @@
   <PropertyGroup>
     <Configuration Condition=" '$(Configuration)' == '' ">Debug</Configuration>
     <Platform Condition=" '$(Platform)' == '' ">AnyCPU</Platform>
-    <ProjectGuid>{D6A54EE3-5EFD-4316-9901-BD5E13367C56}</ProjectGuid>
-    <OutputType>Exe</OutputType>
+    <ProjectGuid>{B571B35D-FCF6-4852-B145-70D2F6C971E2}</ProjectGuid>
+    <OutputType>Library</OutputType>
     <AppDesignerFolder>Properties</AppDesignerFolder>
-    <RootNamespace>ChampionsLeague.ConsoleClient</RootNamespace>
-    <AssemblyName>ChampionsLeague.ConsoleClient</AssemblyName>
+    <RootNamespace>ChampionsLeague.Import</RootNamespace>
+    <AssemblyName>ChampionsLeague.Import</AssemblyName>
     <TargetFrameworkVersion>v4.5</TargetFrameworkVersion>
     <FileAlignment>512</FileAlignment>
   </PropertyGroup>
   <PropertyGroup Condition=" '$(Configuration)|$(Platform)' == 'Debug|AnyCPU' ">
-    <PlatformTarget>AnyCPU</PlatformTarget>
     <DebugSymbols>true</DebugSymbols>
     <DebugType>full</DebugType>
     <Optimize>false</Optimize>
@@ -23,7 +22,6 @@
     <WarningLevel>4</WarningLevel>
   </PropertyGroup>
   <PropertyGroup Condition=" '$(Configuration)|$(Platform)' == 'Release|AnyCPU' ">
-    <PlatformTarget>AnyCPU</PlatformTarget>
     <DebugType>pdbonly</DebugType>
     <Optimize>true</Optimize>
     <OutputPath>bin\Release\</OutputPath>
@@ -38,6 +36,9 @@
     <Reference Include="EntityFramework.SqlServer">
       <HintPath>..\packages\EntityFramework.6.1.1\lib\net45\EntityFramework.SqlServer.dll</HintPath>
     </Reference>
+    <Reference Include="Ionic.Zip">
+      <HintPath>..\packages\DotNetZip.1.9.3\lib\net20\Ionic.Zip.dll</HintPath>
+    </Reference>
     <Reference Include="System" />
     <Reference Include="System.ComponentModel.DataAnnotations" />
     <Reference Include="System.Core" />
@@ -48,8 +49,8 @@
     <Reference Include="System.Xml" />
   </ItemGroup>
   <ItemGroup>
-    <Compile Include="Program.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
+    <Compile Include="ZipReader.cs" />
   </ItemGroup>
   <ItemGroup>
     <None Include="App.config" />
@@ -60,21 +61,9 @@
       <Project>{4cb762e0-6987-4cc4-967e-a1b7e80da7e1}</Project>
       <Name>ChampionsLeague.Data</Name>
     </ProjectReference>
-    <ProjectReference Include="..\ChampionsLeague.Import\ChampionsLeague.Import.csproj">
-      <Project>{b571b35d-fcf6-4852-b145-70d2f6c971e2}</Project>
-      <Name>ChampionsLeague.Import</Name>
-    </ProjectReference>
-    <ProjectReference Include="..\ChampionsLeague.JsonReports\ChampionsLeague.JsonReports.csproj">
-      <Project>{57672c9f-8202-4f4b-9d73-de941a8f99fb}</Project>
-      <Name>ChampionsLeague.JsonReports</Name>
-    </ProjectReference>
     <ProjectReference Include="..\ChampionsLeague.Model\ChampionsLeague.Model.csproj">
       <Project>{7dea3435-7ef1-4ba9-9117-fc685e30e2ce}</Project>
       <Name>ChampionsLeague.Model</Name>
-    </ProjectReference>
-    <ProjectReference Include="..\ChampionsLeague.XMLParser\ChampionsLeague.XMLData.csproj">
-      <Project>{984d8ba3-2f5a-4aae-89bb-b908a19f2edf}</Project>
-      <Name>ChampionsLeague.XMLData</Name>
     </ProjectReference>
   </ItemGroup>
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
