@@ -2,21 +2,16 @@
 {
     using System;
     using System.Linq;
-    using System.Data.Entity;
 
     using ChampionsLeague.Data;
-    using ChampionsLeague.Data.Migrations;
     using ChampionsLeague.Model;
 
     public class Program
     {
         static void Main()
         {
-            //Database.SetInitializer(new DropCreateDatabaseAlways<ChampionsLeagueContext>());
-            Database.SetInitializer(new MigrateDatabaseToLatestVersion<ChampionsLeagueContext, Configuration>());
 
-            var db = new ChampionsLeagueContext();
-            
+            var db = new ChampionsLeagueData();
 
             var sofiaTown = new Town() { TownName = "Sofia" };
             var levskiStadium = new Stadium() { Name = "Vasil Levski", Town = sofiaTown, Capacity = 45000 };
@@ -28,22 +23,21 @@
             db.Teams.Add(levski);
             db.Players.Add(levskiPlayer);
 
-            db.SaveChanges();
 
-            var cskaStadium = new Stadium() { Name = "BG army", Town = sofiaTown, Capacity = 30000 };
-            var cska = new Team() { TeamName = "CSKA", Town = sofiaTown };
+            var plovdiv = new Town() { TownName = "Plovdiv" };
+            var cskaStadium = new Stadium() { Name = "BG army", Town = plovdiv, Capacity = 30000 };
+            var cska = new Team() { TeamName = "CSKA", Town = plovdiv };
             var cskaPlayer = new Player() { FirstName = "Spas", LastName = "Delev", Team = cska };
 
+            db.Towns.Add(plovdiv);
             db.Stadiums.Add(cskaStadium);
             db.Teams.Add(cska);
             db.Players.Add(cskaPlayer);
 
-            db.SaveChanges();
-
             var match = new Match()
             {
                 Stadium = levskiStadium,
-                Date = DateTime.Now, //new DateTime(2014,07,15),
+                Date = DateTime.Now,
                 HostTeam = levski,
                 GuestTeam = cska
             };
@@ -51,20 +45,33 @@
             db.Matches.Add(match);
 
             db.SaveChanges();
+            
+            var allPlayers = db.Players.All().Select(p => new { 
+                FirstName = p.FirstName,
+                LastName = p.LastName,
+                TeamName = p.Team.TeamName
+            });
+            foreach (var player  in allPlayers)
+            {            
+                Console.WriteLine(player.FirstName + " " + player.LastName + " is in " + player.TeamName);                    
+            }
 
-            var getPlayer = db.Players.FirstOrDefault();
-            Console.WriteLine(getPlayer.FirstName + " " + getPlayer.LastName + " is in " + getPlayer.Team.TeamName);
-
-            var firstMatch = db.Matches.FirstOrDefault();
+            var firstMatch = db.Matches.All().FirstOrDefault();
             Console.WriteLine(firstMatch.HostTeam.TeamName + " vs. " + firstMatch.GuestTeam.TeamName);
 
-            var firstTeam = db.Teams.FirstOrDefault();
-           
+            var levskiMatches = db.Teams.All().Where(t => t.TeamName == "Levski").Select(t => new { 
+                asHost = t.MatchesAsHost,
+                asGuest = t.MatchesAsGuest
+            });
+
             Console.WriteLine("Games:");
 
-            foreach (var matchAsHost in levski.MatchesAsHost)
+            foreach (var lavskiMatch in levskiMatches)
             {
-                Console.WriteLine(matchAsHost.Date);
+                foreach (var hostMatch in lavskiMatch.asHost)
+                {
+                    Console.WriteLine(hostMatch.Date);
+                }
             }
         }
     }

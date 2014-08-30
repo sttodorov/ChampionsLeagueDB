@@ -17,5 +17,7 @@
         public int TeamId { get; set; }
 
         public virtual Team Team { get; set; }
+
+        public decimal Salary { get; set; }
     }
 }
