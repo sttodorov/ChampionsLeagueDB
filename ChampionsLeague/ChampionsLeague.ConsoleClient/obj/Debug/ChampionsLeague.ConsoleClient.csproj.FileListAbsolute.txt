@@ -12,5 +12,3 @@ E:\Telerik\07_TeamWorks\07_DB\ChampionsLeagueDB\ChampionsLeague\ChampionsLeague.
 E:\Telerik\07_TeamWorks\07_DB\ChampionsLeagueDB\ChampionsLeague\ChampionsLeague.ConsoleClient\obj\Debug\ChampionsLeague.ConsoleClient.csprojResolveAssemblyReference.cache
 E:\Telerik\07_TeamWorks\07_DB\ChampionsLeagueDB\ChampionsLeague\ChampionsLeague.ConsoleClient\obj\Debug\ChampionsLeague.ConsoleClient.exe
 E:\Telerik\07_TeamWorks\07_DB\ChampionsLeagueDB\ChampionsLeague\ChampionsLeague.ConsoleClient\obj\Debug\ChampionsLeague.ConsoleClient.pdb
-E:\Telerik\07_TeamWorks\07_DB\ChampionsLeagueDB\ChampionsLeague\ChampionsLeague.ConsoleClient\bin\Debug\ChampionsLeague.XMLParser.dll
-E:\Telerik\07_TeamWorks\07_DB\ChampionsLeagueDB\ChampionsLeague\ChampionsLeague.ConsoleClient\bin\Debug\ChampionsLeague.XMLParser.pdb

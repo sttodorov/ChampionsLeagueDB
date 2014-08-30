@@ -9,7 +9,7 @@ Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "ChampionsLeague.Data", "Cha
 EndProject
 Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "ChampionsLeague.ConsoleClient", "ChampionsLeague.ConsoleClient\ChampionsLeague.ConsoleClient.csproj", "{D6A54EE3-5EFD-4316-9901-BD5E13367C56}"
 EndProject
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "ChampionsLeague.XMLData", "ChampionsLeague.XMLParser\ChampionsLeague.XMLData.csproj", "{984D8BA3-2F5A-4AAE-89BB-B908A19F2EDF}"
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "ChampionsLeague.XMLData", "ChampionsLeague.XMLData\ChampionsLeague.XMLData.csproj", "{984D8BA3-2F5A-4AAE-89BB-B908A19F2EDF}"
 EndProject
 Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "ChampionsLeague.XMLParserTest", "ChampionsLeague.XMLParserTest\ChampionsLeague.XMLParserTest.csproj", "{2BF8AA24-3A60-4CB3-9DE5-7D7BF7BE0F84}"
 EndProject
