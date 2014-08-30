@@ -4,16 +4,15 @@
   <PropertyGroup>
     <Configuration Condition=" '$(Configuration)' == '' ">Debug</Configuration>
     <Platform Condition=" '$(Platform)' == '' ">AnyCPU</Platform>
-    <ProjectGuid>{D6A54EE3-5EFD-4316-9901-BD5E13367C56}</ProjectGuid>
-    <OutputType>Exe</OutputType>
+    <ProjectGuid>{57672C9F-8202-4F4B-9D73-DE941A8F99FB}</ProjectGuid>
+    <OutputType>Library</OutputType>
     <AppDesignerFolder>Properties</AppDesignerFolder>
-    <RootNamespace>ChampionsLeague.ConsoleClient</RootNamespace>
-    <AssemblyName>ChampionsLeague.ConsoleClient</AssemblyName>
+    <RootNamespace>ChampionsLeague.JsonReports</RootNamespace>
+    <AssemblyName>ChampionsLeague.JsonReports</AssemblyName>
     <TargetFrameworkVersion>v4.5</TargetFrameworkVersion>
     <FileAlignment>512</FileAlignment>
   </PropertyGroup>
   <PropertyGroup Condition=" '$(Configuration)|$(Platform)' == 'Debug|AnyCPU' ">
-    <PlatformTarget>AnyCPU</PlatformTarget>
     <DebugSymbols>true</DebugSymbols>
     <DebugType>full</DebugType>
     <Optimize>false</Optimize>
@@ -23,7 +22,6 @@
     <WarningLevel>4</WarningLevel>
   </PropertyGroup>
   <PropertyGroup Condition=" '$(Configuration)|$(Platform)' == 'Release|AnyCPU' ">
-    <PlatformTarget>AnyCPU</PlatformTarget>
     <DebugType>pdbonly</DebugType>
     <Optimize>true</Optimize>
     <OutputPath>bin\Release\</OutputPath>
@@ -41,6 +39,7 @@
     <Reference Include="System" />
     <Reference Include="System.ComponentModel.DataAnnotations" />
     <Reference Include="System.Core" />
+    <Reference Include="System.Web.Extensions" />
     <Reference Include="System.Xml.Linq" />
     <Reference Include="System.Data.DataSetExtensions" />
     <Reference Include="Microsoft.CSharp" />
@@ -48,30 +47,22 @@
     <Reference Include="System.Xml" />
   </ItemGroup>
   <ItemGroup>
-    <Compile Include="Program.cs" />
+    <Compile Include="JsonReport.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
-  </ItemGroup>
-  <ItemGroup>
-    <None Include="App.config" />
-    <None Include="packages.config" />
   </ItemGroup>
   <ItemGroup>
     <ProjectReference Include="..\ChampionsLeague.Data\ChampionsLeague.Data.csproj">
       <Project>{4cb762e0-6987-4cc4-967e-a1b7e80da7e1}</Project>
       <Name>ChampionsLeague.Data</Name>
     </ProjectReference>
-    <ProjectReference Include="..\ChampionsLeague.Import\ChampionsLeague.Import.csproj">
-      <Project>{b571b35d-fcf6-4852-b145-70d2f6c971e2}</Project>
-      <Name>ChampionsLeague.Import</Name>
-    </ProjectReference>
-    <ProjectReference Include="..\ChampionsLeague.JsonReports\ChampionsLeague.JsonReports.csproj">
-      <Project>{57672c9f-8202-4f4b-9d73-de941a8f99fb}</Project>
-      <Name>ChampionsLeague.JsonReports</Name>
-    </ProjectReference>
     <ProjectReference Include="..\ChampionsLeague.Model\ChampionsLeague.Model.csproj">
       <Project>{7dea3435-7ef1-4ba9-9117-fc685e30e2ce}</Project>
       <Name>ChampionsLeague.Model</Name>
     </ProjectReference>
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="App.config" />
+    <None Include="packages.config" />
   </ItemGroup>
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
   <!-- To modify your build process, add your task inside one of the targets below and uncomment it. 

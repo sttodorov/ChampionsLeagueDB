@@ -5,6 +5,8 @@
 
     using ChampionsLeague.Data;
     using ChampionsLeague.Model;
+    using ChampionsLeague.Import;
+    using ChampionsLeague.JsonReports;
 
     public class Program
     {
@@ -73,6 +75,21 @@
                     Console.WriteLine(hostMatch.Date);
                 }
             }
+
+            // import zip
+            string tempDirectoryPath = @"..\..\Temp";
+            string importDirectoryPath = @"..\..\";
+            string zipFileName = "Sample-Sales-Reports.zip";
+
+            var zipReader = new ZipReader(db, importDirectoryPath, tempDirectoryPath);
+            var matches = zipReader.ReadFile(zipFileName);
+            Console.WriteLine("\t Zip file imported! {0} matches extracted", matches.Count);
+
+            // JSON Reports
+            string reportsDirectoryPath = @"..\..\JsonReports";
+            var json = new JsonReport(db, reportsDirectoryPath);
+            json.GenerateAllTeams();
+            Console.WriteLine("\t JSON reports generated!");
         }
     }
 }
