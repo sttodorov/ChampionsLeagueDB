@@ -1,13 +1,17 @@
 ﻿
 Microsoft Visual Studio Solution File, Format Version 12.00
 # Visual Studio 2013
-VisualStudioVersion = 12.0.21005.1
+VisualStudioVersion = 12.0.30501.0
 MinimumVisualStudioVersion = 10.0.40219.1
 Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "ChampionsLeague.Model", "ChampionsLeague.Model\ChampionsLeague.Model.csproj", "{7DEA3435-7EF1-4BA9-9117-FC685E30E2CE}"
 EndProject
 Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "ChampionsLeague.Data", "ChampionsLeague.Data\ChampionsLeague.Data.csproj", "{4CB762E0-6987-4CC4-967E-A1B7E80DA7E1}"
 EndProject
 Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "ChampionsLeague.ConsoleClient", "ChampionsLeague.ConsoleClient\ChampionsLeague.ConsoleClient.csproj", "{D6A54EE3-5EFD-4316-9901-BD5E13367C56}"
+EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "ChampionsLeague.XMLParser", "ChampionsLeague.XMLParser\ChampionsLeague.XMLParser.csproj", "{984D8BA3-2F5A-4AAE-89BB-B908A19F2EDF}"
+EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "ChampionsLeague.XMLParserTest", "ChampionsLeague.XMLParserTest\ChampionsLeague.XMLParserTest.csproj", "{2BF8AA24-3A60-4CB3-9DE5-7D7BF7BE0F84}"
 EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
@@ -27,6 +31,14 @@ Global
 		{D6A54EE3-5EFD-4316-9901-BD5E13367C56}.Debug|Any CPU.Build.0 = Debug|Any CPU
 		{D6A54EE3-5EFD-4316-9901-BD5E13367C56}.Release|Any CPU.ActiveCfg = Release|Any CPU
 		{D6A54EE3-5EFD-4316-9901-BD5E13367C56}.Release|Any CPU.Build.0 = Release|Any CPU
+		{984D8BA3-2F5A-4AAE-89BB-B908A19F2EDF}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{984D8BA3-2F5A-4AAE-89BB-B908A19F2EDF}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{984D8BA3-2F5A-4AAE-89BB-B908A19F2EDF}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{984D8BA3-2F5A-4AAE-89BB-B908A19F2EDF}.Release|Any CPU.Build.0 = Release|Any CPU
+		{2BF8AA24-3A60-4CB3-9DE5-7D7BF7BE0F84}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{2BF8AA24-3A60-4CB3-9DE5-7D7BF7BE0F84}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{2BF8AA24-3A60-4CB3-9DE5-7D7BF7BE0F84}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{2BF8AA24-3A60-4CB3-9DE5-7D7BF7BE0F84}.Release|Any CPU.Build.0 = Release|Any CPU
 	EndGlobalSection
 	GlobalSection(SolutionProperties) = preSolution
 		HideSolutionNode = FALSE
