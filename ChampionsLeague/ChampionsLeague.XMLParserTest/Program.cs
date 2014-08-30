@@ -1,7 +1,7 @@
 ﻿using System;
 using System.Collections.Generic;
 using System.Linq;
-using ChampionsLeague.XMLDataParser;
+using ChampionsLeague.XMLData;
 using ChampionsLeague.Model;
 using ChampionsLeague.Data;
 
@@ -15,21 +15,10 @@ namespace ChampionsLeague.XMLParserTest
 
             string path = @"..\..\matchReport.xml";
 
-            var parser = new XMLParser();                        
+            var reportManager = new XMLReportManager();
 
-            using(var db = new ChampionsLeagueContext())
-            {
-                var matches = db.Matches.ToList();                
-                parser.SaveMatchReport(path, matches);
-            }
-           
-
-            var m = parser.LoadMatchReport(path);
-            
-            foreach (var item in m)
-            {
-                Console.WriteLine(item.HostTeamId);
-            }
+            //reportManager.SaveMatchReportsFromDb(path);
+            reportManager.LoadMatchReportsInDb(path);
         }
     }
 }

@@ -66,6 +66,14 @@
       <Project>{4cb762e0-6987-4cc4-967e-a1b7e80da7e1}</Project>
       <Name>ChampionsLeague.Data</Name>
     </ProjectReference>
+    <ProjectReference Include="..\ChampionsLeague.Import\ChampionsLeague.Import.csproj">
+      <Project>{b571b35d-fcf6-4852-b145-70d2f6c971e2}</Project>
+      <Name>ChampionsLeague.Import</Name>
+    </ProjectReference>
+    <ProjectReference Include="..\ChampionsLeague.JsonReports\ChampionsLeague.JsonReports.csproj">
+      <Project>{57672c9f-8202-4f4b-9d73-de941a8f99fb}</Project>
+      <Name>ChampionsLeague.JsonReports</Name>
+    </ProjectReference>
     <ProjectReference Include="..\ChampionsLeague.Model\ChampionsLeague.Model.csproj">
       <Project>{7dea3435-7ef1-4ba9-9117-fc685e30e2ce}</Project>
       <Name>ChampionsLeague.Model</Name>

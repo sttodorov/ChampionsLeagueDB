@@ -1,0 +1,16 @@
+E:\Telerik\07_TeamWorks\07_DB\ChampionsLeagueDB\ChampionsLeague\ChampionsLeague.XMLParserTest\bin\Debug\ChampionsLeague.XMLParserTest.exe.config
+E:\Telerik\07_TeamWorks\07_DB\ChampionsLeagueDB\ChampionsLeague\ChampionsLeague.XMLParserTest\bin\Debug\ChampionsLeague.XMLParserTest.exe
+E:\Telerik\07_TeamWorks\07_DB\ChampionsLeagueDB\ChampionsLeague\ChampionsLeague.XMLParserTest\bin\Debug\ChampionsLeague.XMLParserTest.pdb
+E:\Telerik\07_TeamWorks\07_DB\ChampionsLeagueDB\ChampionsLeague\ChampionsLeague.XMLParserTest\bin\Debug\ChampionsLeague.Model.dll
+E:\Telerik\07_TeamWorks\07_DB\ChampionsLeagueDB\ChampionsLeague\ChampionsLeague.XMLParserTest\bin\Debug\ChampionsLeague.Model.pdb
+E:\Telerik\07_TeamWorks\07_DB\ChampionsLeagueDB\ChampionsLeague\ChampionsLeague.XMLParserTest\obj\Debug\ChampionsLeague.XMLParserTest.csprojResolveAssemblyReference.cache
+E:\Telerik\07_TeamWorks\07_DB\ChampionsLeagueDB\ChampionsLeague\ChampionsLeague.XMLParserTest\obj\Debug\ChampionsLeague.XMLParserTest.exe
+E:\Telerik\07_TeamWorks\07_DB\ChampionsLeagueDB\ChampionsLeague\ChampionsLeague.XMLParserTest\obj\Debug\ChampionsLeague.XMLParserTest.pdb
+E:\Telerik\07_TeamWorks\07_DB\ChampionsLeagueDB\ChampionsLeague\ChampionsLeague.XMLParserTest\bin\Debug\ChampionsLeague.Data.dll
+E:\Telerik\07_TeamWorks\07_DB\ChampionsLeagueDB\ChampionsLeague\ChampionsLeague.XMLParserTest\bin\Debug\EntityFramework.dll
+E:\Telerik\07_TeamWorks\07_DB\ChampionsLeagueDB\ChampionsLeague\ChampionsLeague.XMLParserTest\bin\Debug\ChampionsLeague.Data.pdb
+E:\Telerik\07_TeamWorks\07_DB\ChampionsLeagueDB\ChampionsLeague\ChampionsLeague.XMLParserTest\bin\Debug\EntityFramework.xml
+E:\Telerik\07_TeamWorks\07_DB\ChampionsLeagueDB\ChampionsLeague\ChampionsLeague.XMLParserTest\bin\Debug\EntityFramework.SqlServer.dll
+E:\Telerik\07_TeamWorks\07_DB\ChampionsLeagueDB\ChampionsLeague\ChampionsLeague.XMLParserTest\bin\Debug\EntityFramework.SqlServer.xml
+E:\Telerik\07_TeamWorks\07_DB\ChampionsLeagueDB\ChampionsLeague\ChampionsLeague.XMLParserTest\bin\Debug\ChampionsLeague.XMLData.dll
+E:\Telerik\07_TeamWorks\07_DB\ChampionsLeagueDB\ChampionsLeague\ChampionsLeague.XMLParserTest\bin\Debug\ChampionsLeague.XMLData.pdb
