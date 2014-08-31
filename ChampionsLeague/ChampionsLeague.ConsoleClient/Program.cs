@@ -10,6 +10,7 @@
 
     using ChampionsLeague.MongoDb.Model;
     using ChampionsLeague.MongoDb.Data;
+    using ChampionsLeague.ExcelReport;
 
     public class Program
     {
@@ -180,6 +181,23 @@
             var json = new JsonReport(db, reportsDirectoryPath);
             json.GenerateAllTeams();
             Console.WriteLine("\t JSON reports generated!");
+
+            var sqliteDb = new SQLiteDbData();
+
+            sqliteDb.AddRecord("levski", "Valeri", "Bojinov", 2);
+            sqliteDb.AddRecord("CSKA", "Spas", "Delev", 1);
+
+            foreach (var recc in sqliteDb.GetAll())
+            {
+                Console.WriteLine(recc.FirstName + " " + recc.CardsCount);
+            }
+
+            sqliteDb.Update("Valeri", "Bojinov", 3);
+
+            foreach (var recc in sqliteDb.GetAll())
+            {
+                Console.WriteLine(recc.FirstName + " " + recc.CardsCount);
+            }
 
         }
     }

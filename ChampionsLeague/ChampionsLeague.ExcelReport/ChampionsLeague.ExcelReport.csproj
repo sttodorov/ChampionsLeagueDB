@@ -4,16 +4,15 @@
   <PropertyGroup>
     <Configuration Condition=" '$(Configuration)' == '' ">Debug</Configuration>
     <Platform Condition=" '$(Platform)' == '' ">AnyCPU</Platform>
-    <ProjectGuid>{D6A54EE3-5EFD-4316-9901-BD5E13367C56}</ProjectGuid>
-    <OutputType>Exe</OutputType>
+    <ProjectGuid>{43AA2F0E-C122-4B8C-8FC7-D2552DAB365C}</ProjectGuid>
+    <OutputType>Library</OutputType>
     <AppDesignerFolder>Properties</AppDesignerFolder>
-    <RootNamespace>ChampionsLeague.ConsoleClient</RootNamespace>
-    <AssemblyName>ChampionsLeague.ConsoleClient</AssemblyName>
+    <RootNamespace>ChampionsLeague.ExcelReport</RootNamespace>
+    <AssemblyName>ChampionsLeague.ExcelReport</AssemblyName>
     <TargetFrameworkVersion>v4.5</TargetFrameworkVersion>
     <FileAlignment>512</FileAlignment>
   </PropertyGroup>
   <PropertyGroup Condition=" '$(Configuration)|$(Platform)' == 'Debug|AnyCPU' ">
-    <PlatformTarget>AnyCPU</PlatformTarget>
     <DebugSymbols>true</DebugSymbols>
     <DebugType>full</DebugType>
     <Optimize>false</Optimize>
@@ -23,7 +22,6 @@
     <WarningLevel>4</WarningLevel>
   </PropertyGroup>
   <PropertyGroup Condition=" '$(Configuration)|$(Platform)' == 'Release|AnyCPU' ">
-    <PlatformTarget>AnyCPU</PlatformTarget>
     <DebugType>pdbonly</DebugType>
     <Optimize>true</Optimize>
     <OutputPath>bin\Release\</OutputPath>
@@ -38,15 +36,18 @@
     <Reference Include="EntityFramework.SqlServer">
       <HintPath>..\packages\EntityFramework.6.1.1\lib\net45\EntityFramework.SqlServer.dll</HintPath>
     </Reference>
-    <Reference Include="MongoDB.Bson">
-      <HintPath>..\packages\mongocsharpdriver.1.9.2\lib\net35\MongoDB.Bson.dll</HintPath>
-    </Reference>
-    <Reference Include="MongoDB.Driver">
-      <HintPath>..\packages\mongocsharpdriver.1.9.2\lib\net35\MongoDB.Driver.dll</HintPath>
-    </Reference>
     <Reference Include="System" />
     <Reference Include="System.ComponentModel.DataAnnotations" />
     <Reference Include="System.Core" />
+    <Reference Include="System.Data.SQLite">
+      <HintPath>..\packages\System.Data.SQLite.Core.1.0.93.0\lib\net45\System.Data.SQLite.dll</HintPath>
+    </Reference>
+    <Reference Include="System.Data.SQLite.EF6">
+      <HintPath>..\packages\System.Data.SQLite.EF6.1.0.93.0\lib\net45\System.Data.SQLite.EF6.dll</HintPath>
+    </Reference>
+    <Reference Include="System.Data.SQLite.Linq">
+      <HintPath>..\packages\System.Data.SQLite.Linq.1.0.93.0\lib\net45\System.Data.SQLite.Linq.dll</HintPath>
+    </Reference>
     <Reference Include="System.Xml.Linq" />
     <Reference Include="System.Data.DataSetExtensions" />
     <Reference Include="Microsoft.CSharp" />
@@ -54,42 +55,21 @@
     <Reference Include="System.Xml" />
   </ItemGroup>
   <ItemGroup>
-    <Compile Include="Program.cs" />
+    <Compile Include="SQLiteDbData.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
+    <Compile Include="YellowCardsRecoord.cs" />
   </ItemGroup>
   <ItemGroup>
-    <None Include="App.config" />
+    <Content Include="x64\SQLite.Interop.dll">
+      <CopyToOutputDirectory>Always</CopyToOutputDirectory>
+    </Content>
+    <Content Include="x86\SQLite.Interop.dll">
+      <CopyToOutputDirectory>Always</CopyToOutputDirectory>
+    </Content>
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="app.config" />
     <None Include="packages.config" />
-  </ItemGroup>
-  <ItemGroup>
-    <ProjectReference Include="..\ChampionsLeague.Data\ChampionsLeague.Data.csproj">
-      <Project>{4cb762e0-6987-4cc4-967e-a1b7e80da7e1}</Project>
-      <Name>ChampionsLeague.Data</Name>
-    </ProjectReference>
-    <ProjectReference Include="..\ChampionsLeague.ExcelReport\ChampionsLeague.ExcelReport.csproj">
-      <Project>{43aa2f0e-c122-4b8c-8fc7-d2552dab365c}</Project>
-      <Name>ChampionsLeague.ExcelReport</Name>
-    </ProjectReference>
-    <ProjectReference Include="..\ChampionsLeague.Import\ChampionsLeague.Import.csproj">
-      <Project>{b571b35d-fcf6-4852-b145-70d2f6c971e2}</Project>
-      <Name>ChampionsLeague.Import</Name>
-    </ProjectReference>
-    <ProjectReference Include="..\ChampionsLeague.JsonReports\ChampionsLeague.JsonReports.csproj">
-      <Project>{57672c9f-8202-4f4b-9d73-de941a8f99fb}</Project>
-      <Name>ChampionsLeague.JsonReports</Name>
-    </ProjectReference>
-    <ProjectReference Include="..\ChampionsLeague.Model\ChampionsLeague.Model.csproj">
-      <Project>{7dea3435-7ef1-4ba9-9117-fc685e30e2ce}</Project>
-      <Name>ChampionsLeague.Model</Name>
-    </ProjectReference>
-    <ProjectReference Include="..\ChampionsLeague.MongoDb.Data\ChampionsLeague.MongoDb.Data.csproj">
-      <Project>{7864fc4c-a021-4cf1-b270-ac524051483d}</Project>
-      <Name>ChampionsLeague.MongoDb.Data</Name>
-    </ProjectReference>
-    <ProjectReference Include="..\ChampionsLeague.MongoDb.Model\ChampionsLeague.MongoDb.Model.csproj">
-      <Project>{898bc67f-5e78-46b2-bd5c-b04c4c9ff7a2}</Project>
-      <Name>ChampionsLeague.MongoDb.Model</Name>
-    </ProjectReference>
   </ItemGroup>
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
   <!-- To modify your build process, add your task inside one of the targets below and uncomment it. 
