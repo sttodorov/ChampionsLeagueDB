@@ -26,16 +26,14 @@
         {
             get
             {
-                //return this.GetRepository<MongoTown>();
-                return new MongoDbRepository<MongoTown>(this.database);
+                return this.GetRepository<MongoTown>();
             }
         }
         public IRepository<MongoStadium> Stadiums
         {
             get
             {
-                //return this.GetRepository<MongoStadium>();
-                return new MongoDbRepository<MongoStadium>(this.database);
+                return this.GetRepository<MongoStadium>();
             }
         }
 
@@ -44,10 +42,9 @@
             var typeOfModel = typeof(T);
             if (!this.repositories.ContainsKey(typeOfModel))
             {
-                var type = typeof(IRepository<T>);
+                var type = typeof(MongoDbRepository<T>);
 
-                //TODO: Fix Activator
-                this.repositories.Add(typeOfModel, Activator.CreateInstance(type));
+                this.repositories.Add(typeOfModel, Activator.CreateInstance(type,this.database));
             }
 
             return (IRepository<T>)this.repositories[typeOfModel];

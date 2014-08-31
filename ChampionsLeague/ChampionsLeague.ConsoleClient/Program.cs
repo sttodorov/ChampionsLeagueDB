@@ -10,7 +10,6 @@
 
     using ChampionsLeague.MongoDb.Model;
     using ChampionsLeague.MongoDb.Data;
-    using MongoDB.Bson;
 
     public class Program
     {
@@ -52,10 +51,13 @@
 
         static void Main()
         {
+            
             var mongoDb = new MongoDbData();
 
-            mongoDb.Towns.Insert(new MongoTown() { TownName = "Karlovo" });
-            mongoDb.Towns.Insert(new MongoTown() { TownName = "Burgas" });
+            //Test insert data in mongo
+
+            mongoDb.Towns.Insert(new MongoTown() { TownName = "Sofia" });
+            mongoDb.Towns.Insert(new MongoTown() { TownName = "Razgrad" });
 
             var stadSofia = new MongoStadium
             {
@@ -82,59 +84,62 @@
                 Console.WriteLine(stad.Name + " - " + stad.Town);
             }
 
-<<<<<<< HEAD
+            //---------------------------------------
+            
+            //Test Transfer data from Mongo to SQl
+            var db = new ChampionsLeagueData();
 
-            //var mongoClient = new MongoClient("mongodb://localhost/");
-            //var mongoServer = mongoClient.GetServer();
-            //var mongoDb = mongoServer.GetDatabase("ChampionsLeague");
+            // Work Slow
+            foreach (var town in mongoDb.Towns.GetAll())
+            {
+                Console.WriteLine(town.TownName);
+                var sqlTown = new Town()
+                {
+                    TownName = town.TownName
+                };
 
-            //var towns = mongoDb.GetCollection<MongoTown>("Towns");
-            //var stadiums = mongoDb.GetCollection<MongoStadium>("Stadiums");
+                db.Towns.Add(sqlTown);
 
-            ////Use to insert Towns into MongoDb
-            ////InsertDataInMongoDb(towns, stadiums);
+                var stadiumsInCurrTown = mongoDb.Stadiums.GetAll().Where(t => t.Town == sqlTown.TownName);
+                
+                foreach (var stad in stadiumsInCurrTown)
+                {
+                    Console.WriteLine("     " + stad.Name);
+                    var sqlStadium = new Stadium()
+                    {
+                        Name = stad.Name,
+                        Town = sqlTown,
+                        Capacity = stad.Capacity
+                    };
+                    db.Stadiums.Add(sqlStadium);
+                }
+            }
+
+            db.SaveChanges();
+
+            //------------------------------------
+            
+            //Test insert data in SQL Server
 
             //var db = new ChampionsLeagueData();
-
-            //foreach (var town in towns.FindAll())
-            //{
-            //    Console.WriteLine(town.TownName);
-            //    var sqlTown = new Town()
-            //    {
-            //        TownName = town.TownName
-            //    };
-            //    db.Towns.Add(sqlTown);
-
-
-            //    var stadiumsInCurrTown = stadiums.FindAs<MongoStadium>(Query.EQ("Town", town.TownName));
-            //    foreach (var stad in stadiumsInCurrTown)
-            //    {
-            //        Console.WriteLine("     " + stad.Name);
-            //        var sqlStadium = new Stadium()
-            //        {
-            //            Name = stad.Name,
-            //            Town = sqlTown,
-            //            Capacity = stad.Capacity
-            //        };
-            //        db.Stadiums.Add(sqlStadium);
-
-            //    }
-            //}
-
-            //db.SaveChanges();
-
             //Use to insert Data into SQL Server
             //InsetDataInSqlServer(db);
 
-            //    var allPlayers = db.Players.All().Select(p => new { 
-            //        FirstName = p.FirstName,
-            //        LastName = p.LastName,
-            //        TeamName = p.Team.TeamName
-            //    });
-            //    foreach (var player  in allPlayers)
-            //    {            
-            //        Console.WriteLine(player.FirstName + " " + player.LastName + " is in " + player.TeamName);                    
-            //    }
+            //------------------------------------
+
+            //Test load data From SQL
+            //TO DELETE
+
+            //var allPlayers = db.Players.All().Select(p => new
+            //{
+            //    FirstName = p.FirstName,
+            //    LastName = p.LastName,
+            //    TeamName = p.Team.TeamName
+            //});
+            //foreach (var player in allPlayers)
+            //{
+            //    Console.WriteLine(player.FirstName + " " + player.LastName + " is in " + player.TeamName);
+            //}
 
             //    var firstMatch = db.Matches.All().FirstOrDefault();
             //    Console.WriteLine(firstMatch.HostTeam.TeamName + " vs. " + firstMatch.GuestTeam.TeamName);
@@ -153,7 +158,7 @@
             //            Console.WriteLine(hostMatch.Date);
             //        }
             //    }
-=======
+
             // import zip
             string tempDirectoryPath = @"..\..\Temp";
             string importDirectoryPath = @"..\..\";
@@ -168,7 +173,7 @@
             var json = new JsonReport(db, reportsDirectoryPath);
             json.GenerateAllTeams();
             Console.WriteLine("\t JSON reports generated!");
->>>>>>> origin/master
+
         }
     }
 }

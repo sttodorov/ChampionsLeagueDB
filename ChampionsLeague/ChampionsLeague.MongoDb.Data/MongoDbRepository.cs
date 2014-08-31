@@ -18,6 +18,7 @@
         public MongoDatabase Database { get; private set; }
         public MongoCollection<TEntity> Collection { get; private set; }
 
+
         public MongoDbRepository(MongoDatabase db)
         {
             this.Database = db;
@@ -36,7 +37,7 @@
 
         public TEntity Delete(TEntity entity)
         {
-            //this.Collection.Remove(Query.EQ("id", entity.Id));
+            this.Collection.Remove(Query.EQ("id", entity.Id));
             return entity;
         }
 

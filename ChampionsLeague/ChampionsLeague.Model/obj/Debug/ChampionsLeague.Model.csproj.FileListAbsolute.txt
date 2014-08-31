@@ -8,3 +8,13 @@ E:\Telerik\07_TeamWorks\07_DB\ChampionsLeagueDB\ChampionsLeague\ChampionsLeague.
 E:\Telerik\07_TeamWorks\07_DB\ChampionsLeagueDB\ChampionsLeague\ChampionsLeague.Model\obj\Debug\ChampionsLeague.Model.csprojResolveAssemblyReference.cache
 E:\Telerik\07_TeamWorks\07_DB\ChampionsLeagueDB\ChampionsLeague\ChampionsLeague.Model\obj\Debug\ChampionsLeague.Model.dll
 E:\Telerik\07_TeamWorks\07_DB\ChampionsLeagueDB\ChampionsLeague\ChampionsLeague.Model\obj\Debug\ChampionsLeague.Model.pdb
+E:\NewGITFolder\ChampionsLeagueDB\ChampionsLeague\ChampionsLeague.Model\bin\Debug\ChampionsLeague.Model.dll.config
+E:\NewGITFolder\ChampionsLeagueDB\ChampionsLeague\ChampionsLeague.Model\bin\Debug\ChampionsLeague.Model.dll
+E:\NewGITFolder\ChampionsLeagueDB\ChampionsLeague\ChampionsLeague.Model\bin\Debug\ChampionsLeague.Model.pdb
+E:\NewGITFolder\ChampionsLeagueDB\ChampionsLeague\ChampionsLeague.Model\bin\Debug\EntityFramework.dll
+E:\NewGITFolder\ChampionsLeagueDB\ChampionsLeague\ChampionsLeague.Model\bin\Debug\EntityFramework.SqlServer.dll
+E:\NewGITFolder\ChampionsLeagueDB\ChampionsLeague\ChampionsLeague.Model\bin\Debug\EntityFramework.xml
+E:\NewGITFolder\ChampionsLeagueDB\ChampionsLeague\ChampionsLeague.Model\bin\Debug\EntityFramework.SqlServer.xml
+E:\NewGITFolder\ChampionsLeagueDB\ChampionsLeague\ChampionsLeague.Model\obj\Debug\ChampionsLeague.Model.csprojResolveAssemblyReference.cache
+E:\NewGITFolder\ChampionsLeagueDB\ChampionsLeague\ChampionsLeague.Model\obj\Debug\ChampionsLeague.Model.dll
+E:\NewGITFolder\ChampionsLeagueDB\ChampionsLeague\ChampionsLeague.Model\obj\Debug\ChampionsLeague.Model.pdb

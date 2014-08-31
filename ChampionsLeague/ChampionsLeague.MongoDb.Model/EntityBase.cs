@@ -7,6 +7,6 @@
     {
         [BsonId]
 
-        ObjectId Id { get; set; }
+        public ObjectId Id { get; set; }
     }
 }
