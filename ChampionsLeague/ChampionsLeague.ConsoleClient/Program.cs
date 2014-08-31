@@ -182,22 +182,28 @@
             json.GenerateAllTeams();
             Console.WriteLine("\t JSON reports generated!");
 
-            var sqliteDb = new SQLiteDbData();
 
-            sqliteDb.AddRecord("levski", "Valeri", "Bojinov", 2);
-            sqliteDb.AddRecord("CSKA", "Spas", "Delev", 1);
+            //Test SQLite DB
+            //var sqliteDb = new SQLiteDbData();
 
-            foreach (var recc in sqliteDb.GetAll())
-            {
-                Console.WriteLine(recc.FirstName + " " + recc.CardsCount);
-            }
+            //sqliteDb.AddRecord("levski", "Valeri", "Bojinov", 2);
+            //sqliteDb.AddRecord("CSKA", "Spas", "Delev", 1);
 
-            sqliteDb.Update("Valeri", "Bojinov", 3);
+            //foreach (var recc in sqliteDb.GetAll())
+            //{
+            //    Console.WriteLine(recc.FirstName + " " + recc.CardsCount);
+            //}
 
-            foreach (var recc in sqliteDb.GetAll())
-            {
-                Console.WriteLine(recc.FirstName + " " + recc.CardsCount);
-            }
+            //sqliteDb.Update("Valeri", "Bojinov", 3);
+
+            //foreach (var recc in sqliteDb.GetAll())
+            //{
+            //    Console.WriteLine(recc.FirstName + " " + recc.CardsCount);
+            //}
+
+            var mySqlDb = new MySqlDbData();
+
+            mySqlDb.ReadJsonReports();
 
         }
     }
