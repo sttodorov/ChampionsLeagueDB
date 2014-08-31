@@ -184,27 +184,25 @@
 
 
             //Test SQLite DB
-            //var sqliteDb = new SQLiteDbData();
+            var exl = new ExcelGenerator();
 
-            //sqliteDb.AddRecord("levski", "Valeri", "Bojinov", 2);
-            //sqliteDb.AddRecord("CSKA", "Spas", "Delev", 1);
+            //exl.SQLiteDb.AddRecord("levski", "Valeri", "Bojinov", 2);
+            //exl.SQLiteDb.AddRecord("CSKA", "Spas", "Delev", 1);
 
-            //foreach (var recc in sqliteDb.GetAll())
+            //foreach (var recc in exl.SQLiteDb.GetAll())
             //{
             //    Console.WriteLine(recc.FirstName + " " + recc.CardsCount);
             //}
 
-            //sqliteDb.Update("Valeri", "Bojinov", 3);
+            //exl.SQLiteDb.Update("Valeri", "Bojinov", 3);
 
-            //foreach (var recc in sqliteDb.GetAll())
+            //foreach (var recc in exl.SQLiteDb.GetAll())
             //{
             //    Console.WriteLine(recc.FirstName + " " + recc.CardsCount);
             //}
 
-            var mySqlDb = new MySqlDbData();
-
-            mySqlDb.ReadJsonReports();
-
+            //exl.MySqlDb.LoadJsonReportsInMySql();
+            exl.GenerateReport();
         }
     }
 }

@@ -23,10 +23,10 @@
         [Required]
         public string TeamName { get; set; }
 
-        [Required]
+        //[Required]
         public int TownId { get; set; }
 
-        [Required]
+        //[Required]
         public virtual Town Town { get; set; }
 
         public virtual ICollection<Player> Players
