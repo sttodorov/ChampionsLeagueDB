@@ -49,13 +49,8 @@
             db.SaveChanges();
         }
 
-        static void Main()
+        public static void InsertDataInMongo(MongoDbData mongoDb)
         {
-            
-            var mongoDb = new MongoDbData();
-
-            //Test insert data in mongo
-
             mongoDb.Towns.Insert(new MongoTown() { TownName = "Sofia" });
             mongoDb.Towns.Insert(new MongoTown() { TownName = "Razgrad" });
 
@@ -74,22 +69,10 @@
 
             mongoDb.Stadiums.Insert(stadSofia);
             mongoDb.Stadiums.Insert(stadRazgrad);
+        }
 
-            foreach (var town in mongoDb.Towns.GetAll())
-            {
-                Console.WriteLine(town.TownName);
-            }
-            foreach (var stad in mongoDb.Stadiums.GetAll())
-            {
-                Console.WriteLine(stad.Name + " - " + stad.Town);
-            }
-
-            //---------------------------------------
-            
-            //Test Transfer data from Mongo to SQl
-            var db = new ChampionsLeagueData();
-
-            // Work Slow
+        public static void TransferDataFromMongo(MongoDbData mongoDb, ChampionsLeagueData db)
+        {
             foreach (var town in mongoDb.Towns.GetAll())
             {
                 Console.WriteLine(town.TownName);
@@ -101,7 +84,7 @@
                 db.Towns.Add(sqlTown);
 
                 var stadiumsInCurrTown = mongoDb.Stadiums.GetAll().Where(t => t.Town == sqlTown.TownName);
-                
+
                 foreach (var stad in stadiumsInCurrTown)
                 {
                     Console.WriteLine("     " + stad.Name);
@@ -116,13 +99,37 @@
             }
 
             db.SaveChanges();
+        }
 
-            //------------------------------------
+        static void Main()
+        {
+            // Initialize DataBases
+            
+            var mongoDb = new MongoDbData();
+            var db = new ChampionsLeagueData();
+
+            //Test insert data in mongo
+            //InsertDataInMongo(mongoDb);
+
+
+            //Test load  data from Mongo
+            //var allTown = mongoDb.Towns.GetAll();
+            //var allStadiums = mongoDb.Stadiums.GetAll();
+
+            //foreach (var town in allTown)
+            //{
+            //    Console.WriteLine(town.TownName);
+            //}
+            //foreach (var stad in allStadiums)
+            //{
+            //    Console.WriteLine(stad.Name + " - " + stad.Town);
+            //}
+            
+            //Test Transfer data from Mongo to SQl
+            // Work Slow
+            //TransferDataFromMongo(mongoDb, db);
             
             //Test insert data in SQL Server
-
-            //var db = new ChampionsLeagueData();
-            //Use to insert Data into SQL Server
             //InsetDataInSqlServer(db);
 
             //------------------------------------
@@ -130,16 +137,16 @@
             //Test load data From SQL
             //TO DELETE
 
-            //var allPlayers = db.Players.All().Select(p => new
-            //{
-            //    FirstName = p.FirstName,
-            //    LastName = p.LastName,
-            //    TeamName = p.Team.TeamName
-            //});
-            //foreach (var player in allPlayers)
-            //{
-            //    Console.WriteLine(player.FirstName + " " + player.LastName + " is in " + player.TeamName);
-            //}
+            var allPlayers = db.Players.All().Select(p => new
+            {
+                FirstName = p.FirstName,
+                LastName = p.LastName,
+                TeamName = p.Team.TeamName
+            });
+            foreach (var player in allPlayers)
+            {
+                Console.WriteLine(player.FirstName + " " + player.LastName + " is in " + player.TeamName);
+            }
 
             //    var firstMatch = db.Matches.All().FirstOrDefault();
             //    Console.WriteLine(firstMatch.HostTeam.TeamName + " vs. " + firstMatch.GuestTeam.TeamName);
@@ -160,13 +167,13 @@
             //    }
 
             // import zip
-            string tempDirectoryPath = @"..\..\Temp";
-            string importDirectoryPath = @"..\..\";
-            string zipFileName = "Sample-Sales-Reports.zip";
+            //string tempDirectoryPath = @"..\..\Temp";
+            //string importDirectoryPath = @"..\..\";
+            //string zipFileName = "Sample-Sales-Reports.zip";
 
-            var zipReader = new ZipReader(db, importDirectoryPath, tempDirectoryPath);
-            var matches = zipReader.ReadFile(zipFileName);
-            Console.WriteLine("\t Zip file imported! {0} matches extracted", matches.Count);
+            //var zipReader = new ZipReader(db, importDirectoryPath, tempDirectoryPath);
+            //var matches = zipReader.ReadFile(zipFileName);
+            //Console.WriteLine("\t Zip file imported! {0} matches extracted", matches.Count);
 
             // JSON Reports
             string reportsDirectoryPath = @"..\..\JsonReports";

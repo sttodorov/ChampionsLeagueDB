@@ -27,7 +27,7 @@
                 ID = t.TeamId,
                 Team = t.TeamName,
                 Town = t.Town.TownName,
-                Players = t.Players.Select(p => new { p.FirstName, p.LastName })
+                Players = t.Players.Select(p => new { p.FirstName, p.LastName, p.Salary })
             });
 
             Directory.CreateDirectory(this.folderPath);
