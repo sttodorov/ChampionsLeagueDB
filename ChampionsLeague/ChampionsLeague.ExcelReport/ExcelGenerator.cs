@@ -20,6 +20,11 @@
             var worksheet = new Worksheet("Report");
             int i = 0;
             var allplayers = this.MySqlDb.GetAllPlayers();
+
+            for (int x = 0; x < 10000; x++)
+            {
+                worksheet.Cells[x, 0] = new Cell("");
+            }
             foreach (var team in this.MySqlDb.GetAllTeams())
             {
                 worksheet.Cells[i, 0]= new Cell(team.TeamName);
