@@ -182,25 +182,10 @@
             json.GenerateAllTeams();
             Console.WriteLine("\t JSON reports generated!");
 
-
-            //Test SQLite DB
+            //Use MySql and SQLite Databases
             var exl = new ExcelGenerator();
 
-            //exl.SQLiteDb.AddRecord("levski", "Valeri", "Bojinov", 2);
-            //exl.SQLiteDb.AddRecord("CSKA", "Spas", "Delev", 1);
-
-            //foreach (var recc in exl.SQLiteDb.GetAll())
-            //{
-            //    Console.WriteLine(recc.FirstName + " " + recc.CardsCount);
-            //}
-
-            //exl.SQLiteDb.Update("Valeri", "Bojinov", 3);
-
-            //foreach (var recc in exl.SQLiteDb.GetAll())
-            //{
-            //    Console.WriteLine(recc.FirstName + " " + recc.CardsCount);
-            //}
-
+            //Transfer data from JSON to MySql Database
             //exl.MySqlDb.LoadJsonReportsInMySql();
             exl.GenerateReport();
         }

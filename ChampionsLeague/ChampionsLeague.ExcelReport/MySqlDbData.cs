@@ -35,7 +35,7 @@
 
                 foreach (var player in team.Players)
                 {
-                    AddPlayer(player.FirstName, player.LastName, team.Id);
+                    AddPlayer(player.FirstName, player.LastName, team.Id, player.Salary);
                 }
             }
         }
@@ -50,13 +50,14 @@
             this.MySqlDb.Close();
         }
 
-        public void AddPlayer(string firstName, string lastName, int teamId)
+        public void AddPlayer(string firstName, string lastName, int teamId, decimal salary)
         {
-            var addPlayerCommand = new MySqlCommand(@"INSERT INTO players(FirstName, LastName, TeamId) VALUES (@fname, @lname, @teamId)",this.MySqlDb);
+            var addPlayerCommand = new MySqlCommand(@"INSERT INTO players(FirstName, LastName, TeamId, Salary) VALUES (@fname, @lname, @teamId,@salary)",this.MySqlDb);
             this.MySqlDb.Open();
             addPlayerCommand.Parameters.AddWithValue("@fname", firstName);
             addPlayerCommand.Parameters.AddWithValue("@lname", lastName);
             addPlayerCommand.Parameters.AddWithValue("@teamId", teamId);
+            addPlayerCommand.Parameters.AddWithValue("@salary", salary);
             addPlayerCommand.ExecuteNonQuery();
             this.MySqlDb.Close();
            
@@ -74,6 +75,7 @@
             {
                 allPLayers.Add(new Player()
                 {
+                    Salary = (decimal)reader["Salary"],
                     FirstName = (string)reader["FirstName"],
                     LastName = (string)reader["LastName"],
                     TeamId = (int)reader["TeamId"]
@@ -96,6 +98,7 @@
             {
                 allTeams.Add(new Team()
                 {
+                    TeamId = (int)reader["Id"],
                     TeamName = (string)reader["TeamName"],
                     Town = new Town(){TownName = (string)reader["TownName"]}
                 });
