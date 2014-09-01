@@ -47,6 +47,7 @@
   <ItemGroup>
     <Compile Include="EntityBase.cs" />
     <Compile Include="MongoStadium.cs" />
+    <Compile Include="MongoTeam.cs" />
     <Compile Include="MongoTown.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
   </ItemGroup>

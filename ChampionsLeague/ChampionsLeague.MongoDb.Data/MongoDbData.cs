@@ -37,6 +37,14 @@
             }
         }
 
+        public IRepository<MongoTeam> Teams
+        {
+            get
+            {
+                return this.GetRepository<MongoTeam>();
+            }
+        }
+
         private IRepository<T> GetRepository<T>() where T:EntityBase
         {
             var typeOfModel = typeof(T);
