@@ -90,6 +90,10 @@
       <Project>{898bc67f-5e78-46b2-bd5c-b04c4c9ff7a2}</Project>
       <Name>ChampionsLeague.MongoDb.Model</Name>
     </ProjectReference>
+    <ProjectReference Include="..\ChampionsLeague.XMLData\ChampionsLeague.XMLData.csproj">
+      <Project>{984d8ba3-2f5a-4aae-89bb-b908a19f2edf}</Project>
+      <Name>ChampionsLeague.XMLData</Name>
+    </ProjectReference>
   </ItemGroup>
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
   <!-- To modify your build process, add your task inside one of the targets below and uncomment it. 

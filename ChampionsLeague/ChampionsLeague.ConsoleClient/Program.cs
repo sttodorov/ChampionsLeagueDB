@@ -10,6 +10,7 @@
     using ChampionsLeague.MongoDb.Model;
     using ChampionsLeague.MongoDb.Data;
     using ChampionsLeague.ExcelReport;
+    using ChampionsLeague.XMLData;
 
     public class Program
     {
@@ -150,34 +151,61 @@
 
             var mongoDb = new MongoDbData();
             var db = new ChampionsLeagueData();
-            
+
             //Test insert data in mongo
-                //InsertDataInMongo(mongoDb);
+            //InsertDataInMongo(mongoDb);
 
             //Test Transfer data from Mongo to SQl
-                //TransferDataFromMongo(mongoDb, db);
+            //TransferDataFromMongo(mongoDb, db);
 
             // import zip
-                //string tempDirectoryPath = @"..\..\Temp";
-                //string importDirectoryPath = @"..\..\";
-                //string zipFileName = "Sample-Sales-Reports.zip";
+            //string tempDirectoryPath = @"..\..\Temp";
+            //string importDirectoryPath = @"..\..\";
+            //string zipFileName = "Sample-Sales-Reports.zip";
 
             //var zipReader = new ZipReader(db, importDirectoryPath, tempDirectoryPath);
-                //var matches = zipReader.ReadFile(zipFileName);
-                //Console.WriteLine("\t Zip file imported! {0} matches extracted", matches.Count);
+            //var matches = zipReader.ReadFile(zipFileName);
+            //Console.WriteLine("\t Zip file imported! {0} matches extracted", matches.Count);
 
             // JSON Reports
-                //string reportsDirectoryPath = @"..\..\JsonReports";
-                //var json = new JsonReport(db, reportsDirectoryPath);
-                //json.GenerateAllTeams();
-                //Console.WriteLine("\t JSON reports generated!");
+            //string reportsDirectoryPath = @"..\..\JsonReports";
+            //var json = new JsonReport(db, reportsDirectoryPath);
+            //json.GenerateAllTeams();
+            //Console.WriteLine("\t JSON reports generated!");
 
             //Use MySql and SQLite Databases
-                //var exl = new ExcelGenerator();
+            //var exl = new ExcelGenerator();
 
             //Transfer data from JSON to MySql Database
-                //exl.MySqlDb.LoadJsonReportsInMySql();
-                //exl.GenerateReport();
+            //exl.MySqlDb.LoadJsonReportsInMySql();
+            //exl.GenerateReport();
+
+            //Generate/Load From XML                
+            //string path = @"..\..\matchReport.xml";
+
+            //var reportManager = new XMLReportManager();
+            //var matchesFromXml = reportManager.GetMatchesFromXML(path);
+
+            //reportManager.SaveMatchReportsFromDb(path);
+            //reportManager.SaveMatchesInSQLDb(matchesFromXml);
+
+            //Add matches from XML to Mongo
+            //foreach (var match in matchesFromXml)
+            //{
+            //    mongoDb.Matches.Insert(new MongoMatch()
+            //    {
+            //        Date = match.Date.ToString(),
+            //        GuestTeam = match.GuestTeamId.ToString(),
+            //        HostTeam = match.HostTeamId.ToString(),
+            //        Stadium = match.StadiumId.ToString()
+            //    });
+            //}
+            //var fromMongo = mongoDb.Matches.GetAll();
+            //foreach (var match in fromMongo)
+            //{
+            //    Console.WriteLine(match.Date);
+            //}
+
         }
     }
 }

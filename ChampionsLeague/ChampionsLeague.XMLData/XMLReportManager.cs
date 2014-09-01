@@ -6,6 +6,7 @@
     using ChampionsLeague.Data;    
     using ChampionsLeague.Model;
     using System.Data.Entity.Validation;
+using System.Collections.Generic;
 
     public class XMLReportManager
     {
@@ -16,11 +17,15 @@
             this.parser = new XMLParser();
         }
 
-        public void LoadMatchReportsInDb(string filename)
+        public ICollection<Match> GetMatchesFromXML(string filename)
         {            
-            var matches = this.parser.LoadMatchReport(filename);
+            return this.parser.LoadMatchReport(filename);
+      
+        }
 
-            using(var db = new ChampionsLeagueContext())
+        public void SaveMatchesInSQLDb(ICollection<Match> matches)
+        {
+            using (var db = new ChampionsLeagueContext())
             {
                 foreach (var match in matches)
                 {
@@ -30,7 +35,7 @@
                 {
                     db.SaveChanges();
                 }
-                catch(DbEntityValidationException e)
+                catch (DbEntityValidationException e)
                 {
                     Console.WriteLine(e.Message);
 
@@ -42,9 +47,7 @@
                         }
                     }
                 }
-
-                
-            }            
+            }      
         }
 
         public void SaveMatchReportsFromDb(string filename)

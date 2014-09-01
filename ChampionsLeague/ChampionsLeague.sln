@@ -11,8 +11,6 @@ Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "ChampionsLeague.ConsoleClie
 EndProject
 Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "ChampionsLeague.XMLData", "ChampionsLeague.XMLData\ChampionsLeague.XMLData.csproj", "{984D8BA3-2F5A-4AAE-89BB-B908A19F2EDF}"
 EndProject
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "ChampionsLeague.XMLParserTest", "ChampionsLeague.XMLParserTest\ChampionsLeague.XMLParserTest.csproj", "{2BF8AA24-3A60-4CB3-9DE5-7D7BF7BE0F84}"
-EndProject
 Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "ChampionsLeague.MongoDb.Model", "ChampionsLeague.MongoDb.Model\ChampionsLeague.MongoDb.Model.csproj", "{898BC67F-5E78-46B2-BD5C-B04C4C9FF7A2}"
 EndProject
 Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "ChampionsLeague.MongoDb.Data", "ChampionsLeague.MongoDb.Data\ChampionsLeague.MongoDb.Data.csproj", "{7864FC4C-A021-4CF1-B270-AC524051483D}"
@@ -45,10 +43,6 @@ Global
 		{984D8BA3-2F5A-4AAE-89BB-B908A19F2EDF}.Debug|Any CPU.Build.0 = Debug|Any CPU
 		{984D8BA3-2F5A-4AAE-89BB-B908A19F2EDF}.Release|Any CPU.ActiveCfg = Release|Any CPU
 		{984D8BA3-2F5A-4AAE-89BB-B908A19F2EDF}.Release|Any CPU.Build.0 = Release|Any CPU
-		{2BF8AA24-3A60-4CB3-9DE5-7D7BF7BE0F84}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
-		{2BF8AA24-3A60-4CB3-9DE5-7D7BF7BE0F84}.Debug|Any CPU.Build.0 = Debug|Any CPU
-		{2BF8AA24-3A60-4CB3-9DE5-7D7BF7BE0F84}.Release|Any CPU.ActiveCfg = Release|Any CPU
-		{2BF8AA24-3A60-4CB3-9DE5-7D7BF7BE0F84}.Release|Any CPU.Build.0 = Release|Any CPU
 		{898BC67F-5E78-46B2-BD5C-B04C4C9FF7A2}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
 		{898BC67F-5E78-46B2-BD5C-B04C4C9FF7A2}.Debug|Any CPU.Build.0 = Debug|Any CPU
 		{898BC67F-5E78-46B2-BD5C-B04C4C9FF7A2}.Release|Any CPU.ActiveCfg = Release|Any CPU

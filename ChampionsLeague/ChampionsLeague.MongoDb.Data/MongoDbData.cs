@@ -44,6 +44,13 @@
                 return this.GetRepository<MongoTeam>();
             }
         }
+        public IRepository<MongoMatch> Matches
+        {
+            get
+            {
+                return this.GetRepository<MongoMatch>();
+            }
+        }
 
         private IRepository<T> GetRepository<T>() where T:EntityBase
         {
