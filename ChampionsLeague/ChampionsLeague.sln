@@ -1,7 +1,7 @@
 ﻿
 Microsoft Visual Studio Solution File, Format Version 12.00
 # Visual Studio 2013
-VisualStudioVersion = 12.0.21005.1
+VisualStudioVersion = 12.0.30501.0
 MinimumVisualStudioVersion = 10.0.40219.1
 Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "ChampionsLeague.Model", "ChampionsLeague.Model\ChampionsLeague.Model.csproj", "{7DEA3435-7EF1-4BA9-9117-FC685E30E2CE}"
 EndProject
@@ -20,6 +20,8 @@ EndProject
 Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "ChampionsLeague.JsonReports", "ChampionsLeague.JsonReports\ChampionsLeague.JsonReports.csproj", "{57672C9F-8202-4F4B-9D73-DE941A8F99FB}"
 EndProject
 Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "ChampionsLeague.ExcelReport", "ChampionsLeague.ExcelReport\ChampionsLeague.ExcelReport.csproj", "{43AA2F0E-C122-4B8C-8FC7-D2552DAB365C}"
+EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "ChampionsLeague.XMLPlayersGeneration", "ChampionsLeague.XMLPlayersGeneration\ChampionsLeague.XMLPlayersGeneration.csproj", "{BE750ACF-B436-4AD1-A7D7-F5CC6EDC58D2}"
 EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
@@ -63,6 +65,10 @@ Global
 		{43AA2F0E-C122-4B8C-8FC7-D2552DAB365C}.Debug|Any CPU.Build.0 = Debug|Any CPU
 		{43AA2F0E-C122-4B8C-8FC7-D2552DAB365C}.Release|Any CPU.ActiveCfg = Release|Any CPU
 		{43AA2F0E-C122-4B8C-8FC7-D2552DAB365C}.Release|Any CPU.Build.0 = Release|Any CPU
+		{BE750ACF-B436-4AD1-A7D7-F5CC6EDC58D2}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{BE750ACF-B436-4AD1-A7D7-F5CC6EDC58D2}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{BE750ACF-B436-4AD1-A7D7-F5CC6EDC58D2}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{BE750ACF-B436-4AD1-A7D7-F5CC6EDC58D2}.Release|Any CPU.Build.0 = Release|Any CPU
 	EndGlobalSection
 	GlobalSection(SolutionProperties) = preSolution
 		HideSolutionNode = FALSE
