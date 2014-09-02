@@ -29,7 +29,7 @@
                 foreach (var team in this.MySqlDb.GetAllTeams())
 	            {
                     OleDbCommand insertTeam = new OleDbCommand("INSERT INTO Salaries (Fullname) VALUES (@teamName)",conn);
-                    insertTeam.Parameters.AddWithValue("@teamname", team.TeamName);
+                    insertTeam.Parameters.AddWithValue("@teamname","Team: " + team.TeamName);
                     insertTeam.ExecuteNonQuery();
 
                     var playersInCurrentTeam = allplayers.Where(p => p.TeamId == team.TeamId);
@@ -40,7 +40,7 @@
                         int playertax = 0;
                         if(findPlayer != null)
                         {
-                            playertax = findPlayer.CardsCount * 50;
+                            playertax = findPlayer.CardsCount * 100;
                         }
 		                OleDbCommand insertInExcel = new OleDbCommand("INSERT INTO Salaries (FullName, InitialSalary, Tax, FinalSalary) VALUES (@name, @firstSalary, @tax, @finalSalary)", conn);
                         insertInExcel.Parameters.AddWithValue("@name", player.FirstName + " " + player.LastName);

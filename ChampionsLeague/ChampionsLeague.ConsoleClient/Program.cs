@@ -67,14 +67,16 @@
 
             //Test insert data in mongo
             //mongoDb.DataInitilizer();
+            //Console.WriteLine("\t Mongo has Data!");
 
             //Test Transfer data from Mongo to SQl
             //TransferDataFromMongo(mongoDb, db);
+            //Console.WriteLine("\t SQL Database Created");
 
             // import zip
-            string tempDirectoryPath = @"..\..\Temp";
-            string importDirectoryPath = @"..\..\";
-            string zipFileName = "Matches-Report.zip";
+            //string tempDirectoryPath = @"..\..\Temp";
+            //string importDirectoryPath = @"..\..\";
+            //string zipFileName = "Matches-Report.zip";
             //var zipReader = new ZipReader(db, importDirectoryPath, tempDirectoryPath);
             //zipReader.ReadFile(zipFileName,"B3:E50");
             //Console.WriteLine("\t Zip file imported!");
@@ -83,36 +85,44 @@
             var xmlManager = new XMLDataManager();
             //var players = xmlManager.GetPlayersFromXML(@"..\..\players.xml");
             //xmlManager.SavePlayersInSQLDb(players);
+            //Console.WriteLine("\t Players imported!");
 
             // JSON Reports
             string reportsDirectoryPath = @"..\..\JsonReports";
-            var json = new JsonReport(db, reportsDirectoryPath);
-            json.GenerateAllTeams();
-            Console.WriteLine("\t JSON reports generated!");
+            //var json = new JsonReport(db, reportsDirectoryPath);
+            //json.GenerateAllTeams();
+            //Console.WriteLine("\t JSON reports generated!");
 
             //Use MySql and SQLite Databases
             var exl = new ExcelGenerator(reportsDirectoryPath);
 
             //Transfer data from JSON to MySql Database
-
             //exl.MySqlDb.LoadJsonReportsInMySql();
+            //Console.WriteLine("Json reports loaded in Mysql");
+            
+            //Generate Xlsx file
             //exl.GenerateReport();
+            //Console.WriteLine("\t Excel Salary Report Created!");
 
              
             //Generate/Load From XML                
             string path = @"..\..\matchReport.xml";
-            //var matchesFromXml = xmlManager.GetMatchesFromXML(path);
+            var matchesFromXml = xmlManager.GetMatchesFromXML(path);
+            
             //xmlManager.GenerateMatchesReport(path);
+            //Console.WriteLine("\t XML Matches Report Generated!");
+            
             //xmlManager.SaveMatchesInSQLDb(matchesFromXml);
 
             //Add matches from XML to Mongo
+            
             //TODO: Get teams and stadiums names
             //foreach (var match in matchesFromXml)
             //{
             //   mongoDb.Matches.Insert(new MongoMatch()
             //  {
-			//
-            //        Date = match.Date.ToString(),
+
+            //        Date = match.Date.Day + "." + match.Date.Month + "." + match.Date.Year,
             //        GuestTeam = match.GuestTeamId.ToString(),
             //        HostTeam = match.HostTeamId.ToString(),
             //        Stadium = match.StadiumId.ToString()
@@ -122,15 +132,13 @@
             //var fromMongo = mongoDb.Matches.GetAll();
             //foreach (var match in fromMongo)
             //{
-            //    Console.WriteLine(match.Date);
-            //    Console.WriteLine(match.GuestTeam + " vs " + match.HostTeam);
+            //    Console.WriteLine(match.Date + " -> " + match.GuestTeam + " vs " + match.HostTeam);
             //}
 
             //PDFReports
             //var pdfReporter = new PdfReporter();
             //var matches = db.Matches.All().OrderBy(d => d.Date).GroupBy(d => d.Date).ToList();
-            //pdfReporter.CreateTableReport(matches);
-            // 
+            //pdfReporter.CreateTableReport(matches); 
         }
     }
 }

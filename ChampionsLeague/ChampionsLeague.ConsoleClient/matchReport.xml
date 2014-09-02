@@ -1,10 +1,275 @@
 ﻿<?xml version="1.0" encoding="utf-8"?>
 <Matches>
   <Match>
-    <Date>2012-12-12T00:00:00</Date>
-    <HostTeam>Real Sociedad</HostTeam>
-    <GuestTeam>Barcelona</GuestTeam>
+    <Date>2014-09-13T00:00:00</Date>
+    <HostTeam>Arsenal</HostTeam>
+    <GuestTeam>Manchester City</GuestTeam>
+    <Stadium>Emirates Stadium</Stadium>
+    <Town>London</Town>
+    <Attendance>23000</Attendance>
+  </Match>
+  <Match>
+    <Date>2014-09-13T00:00:00</Date>
+    <HostTeam>Chelsea</HostTeam>
+    <GuestTeam>Swansea</GuestTeam>
+    <Stadium>Stamford Bridge</Stadium>
+    <Town>London</Town>
+    <Attendance>15000</Attendance>
+  </Match>
+  <Match>
+    <Date>2014-09-13T00:00:00</Date>
+    <HostTeam>Liverpool</HostTeam>
+    <GuestTeam>Aston Villa</GuestTeam>
     <Stadium>Anfield</Stadium>
     <Town>Liverpool</Town>
+    <Attendance>18579</Attendance>
+  </Match>
+  <Match>
+    <Date>2014-09-13T00:00:00</Date>
+    <HostTeam>Barcelona</HostTeam>
+    <GuestTeam>Ath Bilbao</GuestTeam>
+    <Stadium>Camp Nou</Stadium>
+    <Town>Barcelona</Town>
+    <Attendance>22000</Attendance>
+  </Match>
+  <Match>
+    <Date>2014-09-13T00:00:00</Date>
+    <HostTeam>Real Madrid</HostTeam>
+    <GuestTeam>Atl. Madrid</GuestTeam>
+    <Stadium>Santiago Bernabeu</Stadium>
+    <Town>Madrid</Town>
+    <Attendance>28000</Attendance>
+  </Match>
+  <Match>
+    <Date>2014-09-13T00:00:00</Date>
+    <HostTeam>Celta Vigo</HostTeam>
+    <GuestTeam>Real Sociedad</GuestTeam>
+    <Stadium>Balaidos</Stadium>
+    <Town>San Sebastián</Town>
+    <Attendance>17200</Attendance>
+  </Match>
+  <Match>
+    <Date>2014-09-14T00:00:00</Date>
+    <HostTeam>Manchester United</HostTeam>
+    <GuestTeam>QPR</GuestTeam>
+    <Stadium>Old Trafford</Stadium>
+    <Town>Manchester</Town>
+    <Attendance>22000</Attendance>
+  </Match>
+  <Match>
+    <Date>2014-09-14T00:00:00</Date>
+    <HostTeam>Valencia</HostTeam>
+    <GuestTeam>Espanyol</GuestTeam>
+    <Stadium>Mestalla Stadium</Stadium>
+    <Town>Valencia</Town>
+    <Attendance>20222</Attendance>
+  </Match>
+  <Match>
+    <Date>2014-09-14T00:00:00</Date>
+    <HostTeam>Granada</HostTeam>
+    <GuestTeam>Villarreal</GuestTeam>
+    <Stadium>Estadio Nuevo Los Carmenes</Stadium>
+    <Town>Madrid</Town>
+    <Attendance>17555</Attendance>
+  </Match>
+  <Match>
+    <Date>2014-09-14T00:00:00</Date>
+    <HostTeam>Sevilla</HostTeam>
+    <GuestTeam>Getafe</GuestTeam>
+    <Stadium>Ramon Sanchez Pizjuan Stadium</Stadium>
+    <Town>Sevilla</Town>
+    <Attendance>11222</Attendance>
+  </Match>
+  <Match>
+    <Date>2014-09-14T00:00:00</Date>
+    <HostTeam>Parma</HostTeam>
+    <GuestTeam>Ac Milan</GuestTeam>
+    <Stadium>Stadio Ennio Tardini</Stadium>
+    <Town>Parma</Town>
+    <Attendance>22244</Attendance>
+  </Match>
+  <Match>
+    <Date>2014-09-14T00:00:00</Date>
+    <HostTeam>Juventus</HostTeam>
+    <GuestTeam>Udinese</GuestTeam>
+    <Stadium>Juventus Stadium</Stadium>
+    <Town>Torino</Town>
+    <Attendance>24000</Attendance>
+  </Match>
+  <Match>
+    <Date>2014-09-14T00:00:00</Date>
+    <HostTeam>Inter</HostTeam>
+    <GuestTeam>Sassuolo</GuestTeam>
+    <Stadium>San Siro</Stadium>
+    <Town>Milan</Town>
+    <Attendance>18900</Attendance>
+  </Match>
+  <Match>
+    <Date>2014-09-20T00:00:00</Date>
+    <HostTeam>Aston Villa</HostTeam>
+    <GuestTeam>Arsenal</GuestTeam>
+    <Stadium>Villa Park</Stadium>
+    <Town>Birmingham</Town>
+    <Attendance>22300</Attendance>
+  </Match>
+  <Match>
+    <Date>2014-09-20T00:00:00</Date>
+    <HostTeam>Tottenham</HostTeam>
+    <GuestTeam>West Brom</GuestTeam>
+    <Stadium>White Hart Lane</Stadium>
+    <Town>London</Town>
+    <Attendance>21000</Attendance>
+  </Match>
+  <Match>
+    <Date>2014-09-20T00:00:00</Date>
+    <HostTeam>Swansea</HostTeam>
+    <GuestTeam>Southampton</GuestTeam>
+    <Stadium>Liberty Stadium</Stadium>
+    <Town>Swansea</Town>
+    <Attendance>18500</Attendance>
+  </Match>
+  <Match>
+    <Date>2014-09-20T00:00:00</Date>
+    <HostTeam>Espanyol</HostTeam>
+    <GuestTeam>Malaga</GuestTeam>
+    <Stadium>Estadi Cornella-El Prat</Stadium>
+    <Town>Villarreal</Town>
+    <Attendance>17000</Attendance>
+  </Match>
+  <Match>
+    <Date>2014-09-20T00:00:00</Date>
+    <HostTeam>Dep.La Coruna</HostTeam>
+    <GuestTeam>Real Madrid</GuestTeam>
+    <Stadium>Estadio Riazor</Stadium>
+    <Town>La Coruña</Town>
+    <Attendance>25000</Attendance>
+  </Match>
+  <Match>
+    <Date>2014-09-20T00:00:00</Date>
+    <HostTeam>Ath Bilbao</HostTeam>
+    <GuestTeam>Granada</GuestTeam>
+    <Stadium>San Mames Stadium</Stadium>
+    <Town>Bilbao</Town>
+    <Attendance>19000</Attendance>
+  </Match>
+  <Match>
+    <Date>2014-09-21T00:00:00</Date>
+    <HostTeam>Manchester City</HostTeam>
+    <GuestTeam>Chelsea</GuestTeam>
+    <Stadium>Etihad Stadium</Stadium>
+    <Town>Witton</Town>
+    <Attendance>35000</Attendance>
+  </Match>
+  <Match>
+    <Date>2014-09-21T00:00:00</Date>
+    <HostTeam>Liverpool</HostTeam>
+    <GuestTeam>Everton</GuestTeam>
+    <Stadium>Anfield</Stadium>
+    <Town>Liverpool</Town>
+    <Attendance>32000</Attendance>
+  </Match>
+  <Match>
+    <Date>2014-09-21T00:00:00</Date>
+    <HostTeam>Leicester</HostTeam>
+    <GuestTeam>Manchester United</GuestTeam>
+    <Stadium>King Power Stadium</Stadium>
+    <Town>Leicester</Town>
+    <Attendance>25000</Attendance>
+  </Match>
+  <Match>
+    <Date>2014-09-21T00:00:00</Date>
+    <HostTeam>Villarreal</HostTeam>
+    <GuestTeam>Rayo Vallecano</GuestTeam>
+    <Stadium>Estadio El Madrigal</Stadium>
+    <Town>Villarreal</Town>
+    <Attendance>24500</Attendance>
+  </Match>
+  <Match>
+    <Date>2014-09-21T00:00:00</Date>
+    <HostTeam>Real Sociedad</HostTeam>
+    <GuestTeam>Almeria</GuestTeam>
+    <Stadium>Anoeta Stadium</Stadium>
+    <Town>San Sebastián</Town>
+    <Attendance>22000</Attendance>
+  </Match>
+  <Match>
+    <Date>2014-09-21T00:00:00</Date>
+    <HostTeam>Levante</HostTeam>
+    <GuestTeam>Barcelona</GuestTeam>
+    <Stadium>Ciutat de Valencia</Stadium>
+    <Town>Valencia</Town>
+    <Attendance>25000</Attendance>
+  </Match>
+  <Match>
+    <Date>2014-09-21T00:00:00</Date>
+    <HostTeam>Udinese</HostTeam>
+    <GuestTeam>Napoli</GuestTeam>
+    <Stadium>Stadio Friuli</Stadium>
+    <Town>Udine</Town>
+    <Attendance>22244</Attendance>
+  </Match>
+  <Match>
+    <Date>2014-09-21T00:00:00</Date>
+    <HostTeam>Palermo</HostTeam>
+    <GuestTeam>Inter</GuestTeam>
+    <Stadium>Stadio Renzo Barbera</Stadium>
+    <Town>Palermo</Town>
+    <Attendance>25000</Attendance>
+  </Match>
+  <Match>
+    <Date>2014-09-21T00:00:00</Date>
+    <HostTeam>Ac Milan</HostTeam>
+    <GuestTeam>Juventus</GuestTeam>
+    <Stadium>San Siro</Stadium>
+    <Town>Milan</Town>
+    <Attendance>30000</Attendance>
+  </Match>
+  <Match>
+    <Date>2014-08-31T00:00:00</Date>
+    <HostTeam>Aston Villa</HostTeam>
+    <GuestTeam>Hull City</GuestTeam>
+    <Stadium>Villa Park</Stadium>
+    <Town>Birmingham</Town>
+    <Attendance>17000</Attendance>
+  </Match>
+  <Match>
+    <Date>2014-08-31T00:00:00</Date>
+    <HostTeam>Tottenham</HostTeam>
+    <GuestTeam>Liverpool</GuestTeam>
+    <Stadium>White Hart Lane</Stadium>
+    <Town>London</Town>
+    <Attendance>30000</Attendance>
+  </Match>
+  <Match>
+    <Date>2014-08-31T00:00:00</Date>
+    <HostTeam>Leicester</HostTeam>
+    <GuestTeam>Arsenal</GuestTeam>
+    <Stadium>King Power Stadium</Stadium>
+    <Town>Leicester</Town>
+    <Attendance>24000</Attendance>
+  </Match>
+  <Match>
+    <Date>2014-08-31T00:00:00</Date>
+    <HostTeam>Villarreal</HostTeam>
+    <GuestTeam>Barcelona</GuestTeam>
+    <Stadium>Estadio El Madrigal</Stadium>
+    <Town>Villarreal</Town>
+    <Attendance>17000</Attendance>
+  </Match>
+  <Match>
+    <Date>2014-08-31T00:00:00</Date>
+    <HostTeam>Real Sociedad</HostTeam>
+    <GuestTeam>Real Madrid</GuestTeam>
+    <Stadium>Anoeta Stadium</Stadium>
+    <Town>San Sebastián</Town>
+    <Attendance>30000</Attendance>
+  </Match>
+  <Match>
+    <Date>2014-08-31T00:00:00</Date>
+    <HostTeam>Elche</HostTeam>
+    <GuestTeam>Granada</GuestTeam>
+    <Stadium>Estadio Manuel Martinez Valero</Stadium>
+    <Town>Elche</Town>
+    <Attendance>24000</Attendance>
   </Match>
 </Matches>

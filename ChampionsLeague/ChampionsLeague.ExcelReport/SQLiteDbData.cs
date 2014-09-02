@@ -18,6 +18,20 @@ namespace ChampionsLeague.ExcelReport
             this.SQLiteDb.Open();
             createTable.ExecuteNonQuery();
             this.SQLiteDb.Close();
+            this.InsertRecords();
+        }
+
+        private void InsertRecords()
+        {
+            this.AddRecord("Liverpool", "Orlando", "Greer", 3);
+            this.AddRecord("Liverpool", "Gabriel", "Rivera", 2);
+            this.AddRecord("Liverpool", "Jeremy", "Cohen", 1);
+            this.AddRecord("Liverpool", "Jeffery", "Horton", 5);
+
+            this.AddRecord("Real Sociedad", "Everett", "Carr", 1);
+            this.AddRecord("Real Sociedad", "Dan", "Dunn", 2);
+            this.AddRecord("Real Sociedad", "Jerald", "Wise", 1);
+            this.AddRecord("Real Sociedad", "Rogelio", "Flowers", 3);
         }
 
         public void AddRecord(string teamName, string firstName, string lastName, int yellowCardsCount)
