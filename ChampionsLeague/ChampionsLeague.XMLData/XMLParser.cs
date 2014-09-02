@@ -1,7 +1,7 @@
 ﻿namespace ChampionsLeague.XMLData
 {
     using System;
-    using System.Linq;    
+    using System.Linq;
     using System.Xml;
     using System.Xml.Linq;
     using System.Collections.Generic;
@@ -10,13 +10,23 @@
     using ChampionsLeague.Data; 
 
     public class XMLParser
-    {
+    { 
         private const string MatchXMLProp = "Match";
-        private const string DateTimeXMLProp = "Date";        
+        private const string DateTimeXMLProp = "Date";
         private const string HostTeamXMLProp = "HostTeam";
         private const string GuestTeamXMLProp = "GuestTeam";
+<<<<<<< HEAD
         private const string StadiumXMLProp = "Stadium";
         private const string TownXMLProp = "Town";        
+=======
+        private const string StadiumTeamXMLProp = "Stadium";
+
+        private const string PlayerXMLProp = "Player";
+        private const string PlayerFirstNameXMLProp = "FirstName";
+        private const string PlayerLastNameXMLProp = "LastName";
+        private const string PlayerSalaryNameXMLProp = "Salary";
+        private const string PlayerTeamIdNameXMLProp = "TeamId";
+>>>>>>> origin/master
 
         public XMLParser()
         {
@@ -31,7 +41,7 @@
                 var currentMatch = new Match();
 
                 while (reader.Read())
-                {  
+                {
                     if (reader.NodeType == XmlNodeType.Element)
                     {
                         switch (reader.Name)
@@ -41,7 +51,7 @@
                                 {
                                     matches.Add(currentMatch);
                                     currentMatch = new Match();
-                                }                                                              
+                                }
                                 break;
                             case DateTimeXMLProp:
                                 currentMatch.Date = DateTime.Parse(reader.ReadElementString());
@@ -62,6 +72,7 @@
                                 break;
                             case StadiumXMLProp:
                                 string stadiumName = reader.ReadElementString();
+<<<<<<< HEAD
                                 var stadiumFromDb = GetStadium(stadiumName);
                                 //currentMatch.Stadium = stadiumFromDb;
                                 currentMatch.StadiumId = stadiumFromDb.StadiumId;
@@ -72,15 +83,66 @@
                                 //currentMatch.Stadium.Town = townFromDb;
                                 break;
                             default:                                
+=======
+                                currentMatch.StadiumId = GetStadiumId(stadiumName);
+                                //currentMatch.Stadium = GetStadiumId(stadiumName);
+                                break;
+                            default:
+>>>>>>> origin/master
                                 break;
                         }
-                    }                    
+                    }
                 }
 
                 matches.Add(currentMatch);
             }
 
             return matches;
+        }
+
+        public ICollection<Player> LoadPlayers(string filePath)
+        {
+            var players = new HashSet<Player>();            
+
+            using (XmlReader reader = XmlReader.Create(filePath))
+            {
+                var currentPlayer = new Player();
+
+                while (reader.Read())
+                {
+                    if (reader.NodeType == XmlNodeType.Element)
+                    {
+                        switch (reader.Name)
+                        {
+                            case PlayerXMLProp:
+                                if (!string.IsNullOrEmpty(currentPlayer.FirstName))
+                                {
+                                    players.Add(currentPlayer);
+                                    currentPlayer = new Player();
+                                }
+                                break;
+                            case PlayerFirstNameXMLProp:
+                                currentPlayer.FirstName = reader.ReadElementString();
+                                break;
+                            case PlayerLastNameXMLProp:
+                                currentPlayer.LastName = reader.ReadElementString();
+                                break;
+                            case PlayerSalaryNameXMLProp:
+                                currentPlayer.Salary = decimal.Parse(reader.ReadElementString());
+                                break;
+                            case PlayerTeamIdNameXMLProp:
+                                currentPlayer.TeamId = int.Parse(reader.ReadElementString());
+                                break;
+                            default:
+                                break;
+                        }
+                    }
+                }
+
+                players.Add(currentPlayer);
+            }
+
+            return players;
         }
 
         public void SaveMatchReport(string filePath, ICollection<Match> matches)
@@ -101,7 +163,7 @@
 
             var xmlSerializedMatches = new XElement("Matches", xmlMatches);
             xmlSerializedMatches.Save(filePath);
-        }        
+        }
 
         private Stadium GetStadium(string name){
             using (var db = new ChampionsLeagueContext())
