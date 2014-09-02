@@ -14,12 +14,12 @@
         private JavaScriptSerializer jsnoSerializer;
         private string pathToFile;
 
-        public MySqlDbData()
+        public MySqlDbData(string path)
         {
             //this.MySqlDb = new MySqlConnection(@"Server=localhost;Port=3306;Database=championsleague;IntegratedSecurity=yes;Uid=auth_windows;");
             this.MySqlDb = new MySqlConnection(@"Server=localhost;Port=3306;Database=championsleague;Uid=root;Pwd=9410094420aA;");
             this.jsnoSerializer = new JavaScriptSerializer();
-            this.pathToFile = @"..\..\JsonReports";
+            this.pathToFile = path;
         }
 
         public void LoadJsonReportsInMySql()
