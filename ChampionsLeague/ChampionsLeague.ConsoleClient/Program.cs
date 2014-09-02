@@ -4,6 +4,7 @@
     using System.Linq;
 
     using ChampionsLeague.Data;
+    using ChampionsLeague.Data.Migrations;
     using ChampionsLeague.Model;
     using ChampionsLeague.Import;
     using ChampionsLeague.JsonReports;
@@ -11,6 +12,7 @@
     using ChampionsLeague.MongoDb.Data;
     using ChampionsLeague.ExcelReport;
     using ChampionsLeague.XMLData;
+    using ChampionsLeague.PdfReporter;
 
     public class Program
     {
@@ -148,7 +150,6 @@
         static void Main()
         {
             // Initialize DataBases
-
             var mongoDb = new MongoDbData();
             var db = new ChampionsLeagueData();
 
@@ -205,6 +206,11 @@
             //{
             //    Console.WriteLine(match.Date);
             //}
+
+            //PDFReports
+            //var pdfReporter = new PdfReporter();
+            //var matches = db.Matches.All().OrderBy(d => d.Date).GroupBy(d => d.Date).ToList();
+            //pdfReporter.CreateTableReport(matches);
 
         }
     }
