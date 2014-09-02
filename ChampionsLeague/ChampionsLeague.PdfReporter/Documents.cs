@@ -47,16 +47,9 @@ namespace ChampionsLeague.PdfReporter
             document.Info.Subject = "Reports of all the matches of the major leagues in Europe";
             document.Info.Author = "Team \"Fire Elemental\"";
 
-            //Styles.DefineStyles(document);
-
-            //Cover.DefineCover(document);
-            //TableOfContents.DefineTableOfContents(document);
-
             DefineContentSection(document);
 
-            //Paragraphs.DefineParagraphs(document);
             Tables.DefineTables(document, matches);
-            //Charts.DefineCharts(document);
 
             return document;
         }
@@ -66,8 +59,6 @@ namespace ChampionsLeague.PdfReporter
         /// </summary>
         static void DefineContentSection(Document document)
         {
-
-
             Section section = document.AddSection();
             section.PageSetup.OddAndEvenPagesHeaderFooter = true;
             section.PageSetup.StartingNumber = 1;
