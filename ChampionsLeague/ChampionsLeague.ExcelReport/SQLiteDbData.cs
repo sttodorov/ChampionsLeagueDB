@@ -14,7 +14,7 @@ namespace ChampionsLeague.ExcelReport
 
         private void InitializeTable()
         {
-            var createTable = new SQLiteCommand("CREATE IF NOT EXISTS TABLE YellowCards(id int PRIMARY KEY, Team nvarchar(50), FirstName nvarchar(50), LastName nvarchar(50),YellowCardsCount int)", this.SQLiteDb);
+            var createTable = new SQLiteCommand("CREATE TABLE IF NOT EXISTS YellowCards(id int PRIMARY KEY, Team nvarchar(50), FirstName nvarchar(50), LastName nvarchar(50),YellowCardsCount int)", this.SQLiteDb);
             this.SQLiteDb.Open();
             createTable.ExecuteNonQuery();
             this.SQLiteDb.Close();

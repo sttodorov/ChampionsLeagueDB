@@ -16,7 +16,6 @@
     public class Program
     {
 
-
         public static void TransferDataFromMongo(MongoDbData mongoDb, ChampionsLeagueData db)
         {
             var allStadiums = mongoDb.Stadiums.GetAll();
@@ -82,8 +81,8 @@
             
             //Loads XML into db
             var xmlManager = new XMLDataManager();
-            var players = xmlManager.GetPlayersFromXML(@"..\..\players.xml");
-            xmlManager.SavePlayersInSQLDb(players);
+            //var players = xmlManager.GetPlayersFromXML(@"..\..\players.xml");
+            //xmlManager.SavePlayersInSQLDb(players);
 
             // JSON Reports
             string reportsDirectoryPath = @"..\..\JsonReports";
@@ -96,16 +95,14 @@
 
             //Transfer data from JSON to MySql Database
 
-            
-
             //exl.MySqlDb.LoadJsonReportsInMySql();
             //exl.GenerateReport();
 
              
             //Generate/Load From XML                
             string path = @"..\..\matchReport.xml";
-            var matchesFromXml = xmlManager.GetMatchesFromXML(path);
-            xmlManager.GenerateMatchesReport(path);
+            //var matchesFromXml = xmlManager.GetMatchesFromXML(path);
+            //xmlManager.GenerateMatchesReport(path);
             //xmlManager.SaveMatchesInSQLDb(matchesFromXml);
 
             //Add matches from XML to Mongo
