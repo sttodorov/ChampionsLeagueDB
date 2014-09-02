@@ -136,6 +136,7 @@
             //var pdfReporter = new PdfReporter();
             //var matches = db.Matches.All().OrderBy(d => d.Date).GroupBy(d => d.Date).ToList();
             //pdfReporter.CreateTableReport(matches);
+             */
         }
     }
 }
