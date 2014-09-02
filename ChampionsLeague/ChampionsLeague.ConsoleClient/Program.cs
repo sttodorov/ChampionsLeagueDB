@@ -11,6 +11,7 @@
     using ChampionsLeague.MongoDb.Data;
     using ChampionsLeague.ExcelReport;
     using ChampionsLeague.XMLData;
+    using ChampionsLeague.PdfReporter;
 
     public class Program
     {
@@ -123,6 +124,10 @@
             //    Console.WriteLine(match.GuestTeam + " vs " + match.HostTeam);
             //}
 
+            //PDFReports
+            //var pdfReporter = new PdfReporter();
+            //var matches = db.Matches.All().OrderBy(d => d.Date).GroupBy(d => d.Date).ToList();
+            //pdfReporter.CreateTableReport(matches);
         }
     }
 }
