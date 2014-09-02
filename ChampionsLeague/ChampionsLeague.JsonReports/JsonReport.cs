@@ -43,6 +43,10 @@
 
         private void SaveToFile(string name, string content)
         {
+            if(name.Length<2)
+            {
+                name = '0' + name;
+            }
             string path = Path.Combine(this.folderPath, name + ".json");
 
             File.WriteAllText(path, content);

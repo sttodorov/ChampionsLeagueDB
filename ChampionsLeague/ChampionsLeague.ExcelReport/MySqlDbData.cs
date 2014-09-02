@@ -20,6 +20,37 @@
             this.MySqlDb = new MySqlConnection(@"Server=localhost;Port=3306;Database=championsleague;Uid=root;Pwd=9410094420aA;");
             this.jsnoSerializer = new JavaScriptSerializer();
             this.pathToFile = path;
+            this.InitializeMySqlDb();
+        }
+
+        private void InitializeMySqlDb()
+        {
+            string createDb = @"CREATE DATABASE  IF NOT EXISTS `championsleague` /*!40100 DEFAULT CHARACTER SET utf8 */;
+                                USE `championsleague`;
+                                DROP TABLE IF EXISTS `players`;
+                                CREATE TABLE `players` (
+                                  `Id` int(11) NOT NULL AUTO_INCREMENT,
+                                  `FirstName` varchar(45) NOT NULL,
+                                  `LastName` varchar(45) NOT NULL,
+                                  `TeamId` int(11) DEFAULT NULL,
+                                  `Salary` decimal(10,0) DEFAULT NULL,
+                                  PRIMARY KEY (`Id`),
+                                  KEY `TeamId_idx` (`TeamId`),
+                                  CONSTRAINT `TeamId` FOREIGN KEY (`TeamId`) REFERENCES `teams` (`Id`) ON DELETE NO ACTION ON UPDATE NO ACTION
+                                ) ENGINE=InnoDB AUTO_INCREMENT=0 DEFAULT CHARSET=utf8;
+
+                                DROP TABLE IF EXISTS `teams`;
+
+                                CREATE TABLE `teams` (
+                                  `Id` int(11) NOT NULL AUTO_INCREMENT,
+                                  `TeamName` varchar(45) NOT NULL,
+                                  `TownName` varchar(45) NOT NULL,
+                                  PRIMARY KEY (`Id`)
+                                ) ENGINE=InnoDB AUTO_INCREMENT=0 DEFAULT CHARSET=utf8;";
+            var createCommand = new MySqlCommand(createDb);
+            this.MySqlDb.Open();
+            createCommand.ExecuteNonQuery();
+            this.MySqlDb.Close();
         }
 
         public void LoadJsonReportsInMySql()
@@ -35,7 +66,6 @@
 
                 foreach (var player in team.Players)
                 {
-                    System.Console.WriteLine(player.FirstName);
                     AddPlayer(player.FirstName, player.LastName, team.Id, player.Salary);
                 }
             }

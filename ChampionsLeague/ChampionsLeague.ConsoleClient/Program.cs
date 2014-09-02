@@ -88,15 +88,12 @@
             Console.WriteLine("\t JSON reports generated!");
 
             //Use MySql and SQLite Databases
-            //var exl = new ExcelGenerator(reportsDirectoryPath);
-
-            //Create table in SQLite
-            //Run only first tume
-            //exl.SQLiteDb.InitializeTable();
+            var exl = new ExcelGenerator(reportsDirectoryPath);
 
             //Transfer data from JSON to MySql Database
-            //exl.MySqlDb.LoadJsonReportsInMySql();
-            //exl.GenerateReport();
+            exl.MySqlDb.LoadJsonReportsInMySql();
+            exl.GenerateReport();
+            
             /*
             //Generate/Load From XML                
             string path = @"..\..\matchReport.xml";
