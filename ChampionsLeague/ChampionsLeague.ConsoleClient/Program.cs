@@ -116,12 +116,12 @@
             //        //Town = match.Stadium.TownId.ToString()
             //    });
             //}
-            var fromMongo = mongoDb.Matches.GetAll();
-            foreach (var match in fromMongo)
-            {
-                Console.WriteLine(match.Date);
-                Console.WriteLine(match.GuestTeam + " vs " + match.HostTeam);
-            }
+            //var fromMongo = mongoDb.Matches.GetAll();
+            //foreach (var match in fromMongo)
+            //{
+            //    Console.WriteLine(match.Date);
+            //    Console.WriteLine(match.GuestTeam + " vs " + match.HostTeam);
+            //}
 
         }
     }

@@ -2,20 +2,17 @@
 {
     using System;
     using System.Linq;
-<<<<<<< HEAD:ChampionsLeague/ChampionsLeague.XMLData/XMLReportManager.cs
     using System.Collections.Generic;
     
     using ChampionsLeague.Data;    
     using ChampionsLeague.Model;
     using System.Data.Entity.Validation;
 
-=======
 
     using ChampionsLeague.Data;
     using ChampionsLeague.Model;
     using System.Data.Entity.Validation;
     using System.Collections.Generic;
->>>>>>> origin/master:ChampionsLeague/ChampionsLeague.XMLData/XMLDataManager.cs
 
     public class XMLDataManager
     {
@@ -60,15 +57,9 @@
             }
         }
 
-<<<<<<< HEAD:ChampionsLeague/ChampionsLeague.XMLData/XMLReportManager.cs
         public void GenerateMatchesReport(string filename)
-        { 
-            using(var db = new ChampionsLeagueContext())
-=======
-        public void SaveMatchReportsFromDb(string filename)
         {
             using (var db = new ChampionsLeagueContext())
->>>>>>> origin/master:ChampionsLeague/ChampionsLeague.XMLData/XMLDataManager.cs
             {
                 var matches = db.Matches;
                 this.parser.SaveMatchReport(filename, matches.ToList());

@@ -15,10 +15,8 @@
         private const string DateTimeXMLProp = "Date";
         private const string HostTeamXMLProp = "HostTeam";
         private const string GuestTeamXMLProp = "GuestTeam";
-<<<<<<< HEAD
         private const string StadiumXMLProp = "Stadium";
         private const string TownXMLProp = "Town";        
-=======
         private const string StadiumTeamXMLProp = "Stadium";
 
         private const string PlayerXMLProp = "Player";
@@ -26,7 +24,6 @@
         private const string PlayerLastNameXMLProp = "LastName";
         private const string PlayerSalaryNameXMLProp = "Salary";
         private const string PlayerTeamIdNameXMLProp = "TeamId";
->>>>>>> origin/master
 
         public XMLParser()
         {
@@ -72,7 +69,7 @@
                                 break;
                             case StadiumXMLProp:
                                 string stadiumName = reader.ReadElementString();
-<<<<<<< HEAD
+
                                 var stadiumFromDb = GetStadium(stadiumName);
                                 //currentMatch.Stadium = stadiumFromDb;
                                 currentMatch.StadiumId = stadiumFromDb.StadiumId;
@@ -82,13 +79,7 @@
                                 var townFromDb = GetTown(townName);
                                 //currentMatch.Stadium.Town = townFromDb;
                                 break;
-                            default:                                
-=======
-                                currentMatch.StadiumId = GetStadiumId(stadiumName);
-                                //currentMatch.Stadium = GetStadiumId(stadiumName);
-                                break;
                             default:
->>>>>>> origin/master
                                 break;
                         }
                     }
