@@ -96,7 +96,7 @@
             //Generate/Load From XML                
             //string path = @"..\..\matchReport.xml";
 
-            //var reportManager = new XMLReportManager();
+            //var reportManager = new XMLDataManager();
             //var matchesFromXml = reportManager.GetMatchesFromXML(path);
 
             //reportManager.GenerateMatchesReport(path);
@@ -116,7 +116,7 @@
             //        //Town = match.Stadium.TownId.ToString()
             //    });
             //}
-            //var fromMongo = mongoDb.Matches.GetAll();
+            var fromMongo = mongoDb.Matches.GetAll();
             //foreach (var match in fromMongo)
             //{
             //    Console.WriteLine(match.Date);

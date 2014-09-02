@@ -12,3 +12,17 @@ E:\Telerik\07_TeamWorks\07_DB\ChampionsLeagueDB\ChampionsLeague\ChampionsLeague.
 E:\Telerik\07_TeamWorks\07_DB\ChampionsLeagueDB\ChampionsLeague\ChampionsLeague.JsonReports\obj\Debug\ChampionsLeague.JsonReports.csprojResolveAssemblyReference.cache
 E:\Telerik\07_TeamWorks\07_DB\ChampionsLeagueDB\ChampionsLeague\ChampionsLeague.JsonReports\obj\Debug\ChampionsLeague.JsonReports.dll
 E:\Telerik\07_TeamWorks\07_DB\ChampionsLeagueDB\ChampionsLeague\ChampionsLeague.JsonReports\obj\Debug\ChampionsLeague.JsonReports.pdb
+E:\NewGITFolder\ChampionsLeagueDB\ChampionsLeague\ChampionsLeague.JsonReports\bin\Debug\ChampionsLeague.JsonReports.dll.config
+E:\NewGITFolder\ChampionsLeagueDB\ChampionsLeague\ChampionsLeague.JsonReports\bin\Debug\ChampionsLeague.JsonReports.dll
+E:\NewGITFolder\ChampionsLeagueDB\ChampionsLeague\ChampionsLeague.JsonReports\bin\Debug\ChampionsLeague.JsonReports.pdb
+E:\NewGITFolder\ChampionsLeagueDB\ChampionsLeague\ChampionsLeague.JsonReports\bin\Debug\ChampionsLeague.Data.dll
+E:\NewGITFolder\ChampionsLeagueDB\ChampionsLeague\ChampionsLeague.JsonReports\bin\Debug\ChampionsLeague.Model.dll
+E:\NewGITFolder\ChampionsLeagueDB\ChampionsLeague\ChampionsLeague.JsonReports\bin\Debug\EntityFramework.dll
+E:\NewGITFolder\ChampionsLeagueDB\ChampionsLeague\ChampionsLeague.JsonReports\bin\Debug\EntityFramework.SqlServer.dll
+E:\NewGITFolder\ChampionsLeagueDB\ChampionsLeague\ChampionsLeague.JsonReports\bin\Debug\ChampionsLeague.Data.pdb
+E:\NewGITFolder\ChampionsLeagueDB\ChampionsLeague\ChampionsLeague.JsonReports\bin\Debug\ChampionsLeague.Model.pdb
+E:\NewGITFolder\ChampionsLeagueDB\ChampionsLeague\ChampionsLeague.JsonReports\bin\Debug\EntityFramework.xml
+E:\NewGITFolder\ChampionsLeagueDB\ChampionsLeague\ChampionsLeague.JsonReports\bin\Debug\EntityFramework.SqlServer.xml
+E:\NewGITFolder\ChampionsLeagueDB\ChampionsLeague\ChampionsLeague.JsonReports\obj\Debug\ChampionsLeague.JsonReports.csprojResolveAssemblyReference.cache
+E:\NewGITFolder\ChampionsLeagueDB\ChampionsLeague\ChampionsLeague.JsonReports\obj\Debug\ChampionsLeague.JsonReports.dll
+E:\NewGITFolder\ChampionsLeagueDB\ChampionsLeague\ChampionsLeague.JsonReports\obj\Debug\ChampionsLeague.JsonReports.pdb
