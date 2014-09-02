@@ -7,10 +7,10 @@
         public SQLiteDbData SQLiteDb { get; private set; }
         public MySqlDbData MySqlDb { get; private set; }
 
-        public ExcelGenerator()
+        public ExcelGenerator(string pathToJson)
         {
             this.SQLiteDb = new SQLiteDbData();
-            this.MySqlDb = new MySqlDbData();
+            this.MySqlDb = new MySqlDbData(pathToJson);
 
         }
 

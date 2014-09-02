@@ -2,11 +2,12 @@
 {
     using System;    
     using System.Linq;
+    using System.Collections.Generic;
     
     using ChampionsLeague.Data;    
     using ChampionsLeague.Model;
     using System.Data.Entity.Validation;
-using System.Collections.Generic;
+
 
     public class XMLReportManager
     {
@@ -50,7 +51,7 @@ using System.Collections.Generic;
             }      
         }
 
-        public void SaveMatchReportsFromDb(string filename)
+        public void GenerateMatchesReport(string filename)
         { 
             using(var db = new ChampionsLeagueContext())
             {

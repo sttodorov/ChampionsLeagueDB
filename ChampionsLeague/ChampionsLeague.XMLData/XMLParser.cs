@@ -7,7 +7,7 @@
     using System.Collections.Generic;
 
     using ChampionsLeague.Model;
-    using ChampionsLeague.Data;
+    using ChampionsLeague.Data; 
 
     public class XMLParser
     {
@@ -15,7 +15,8 @@
         private const string DateTimeXMLProp = "Date";        
         private const string HostTeamXMLProp = "HostTeam";
         private const string GuestTeamXMLProp = "GuestTeam";
-        private const string StadiumTeamXMLProp = "Stadium";        
+        private const string StadiumXMLProp = "Stadium";
+        private const string TownXMLProp = "Town";        
 
         public XMLParser()
         {
@@ -47,19 +48,29 @@
                                 break;
                             case HostTeamXMLProp:
                                 string hostTeamName = reader.ReadElementString();
-                                currentMatch.HostTeamId = GetTeamId(hostTeamName);
-                                //currentMatch.HostTeam = GetTeamId(hostTeamName);
+                                var hostFromDb = GetTeam(hostTeamName);
+
+                                //currentMatch.HostTeam = hostFromDb;
+                                currentMatch.HostTeamId = hostFromDb.TeamId;
                                 break;
                             case GuestTeamXMLProp:
                                 string guestTeamName = reader.ReadElementString();
-                                currentMatch.GuestTeamId = GetTeamId(guestTeamName);
-                                //currentMatch.GuestTeam = GetTeamId(guestTeamName);
+                                var guestFromDb = GetTeam(guestTeamName);
+
+                                //currentMatch.GuestTeam = guestFromDb;
+                                currentMatch.GuestTeamId = guestFromDb.TeamId;
                                 break;
-                            case StadiumTeamXMLProp:
+                            case StadiumXMLProp:
                                 string stadiumName = reader.ReadElementString();
-                                currentMatch.StadiumId = GetStadiumId(stadiumName);
-                                //currentMatch.Stadium = GetStadiumId(stadiumName);
+                                var stadiumFromDb = GetStadium(stadiumName);
+                                //currentMatch.Stadium = stadiumFromDb;
+                                currentMatch.StadiumId = stadiumFromDb.StadiumId;
                                 break;                                
+                            case TownXMLProp:
+                                string townName = reader.ReadElementString();
+                                var townFromDb = GetTown(townName);
+                                //currentMatch.Stadium.Town = townFromDb;
+                                break;
                             default:                                
                                 break;
                         }
@@ -80,56 +91,55 @@
             {
                 xmlMatches.Add(
                     new XElement("Match",
-                        new XElement("Date", match.Date),
-                        new XElement("HostTeam", match.HostTeam.TeamName),
-                        new XElement("GuestTeam", match.GuestTeam.TeamName),
-                        new XElement("Stadium", match.Stadium.Name),
-                        new XElement("Town", match.Stadium.Town.TownName)
-                        ));
+                    new XElement("Date", match.Date),
+                    new XElement("HostTeam", match.HostTeam.TeamName),
+                    new XElement("GuestTeam", match.GuestTeam.TeamName),
+                    new XElement("Stadium", match.Stadium.Name),
+                    new XElement("Town", match.Stadium.Town.TownName)
+                    ));
             }
 
             var xmlSerializedMatches = new XElement("Matches", xmlMatches);
             xmlSerializedMatches.Save(filePath);
         }        
 
-        private int GetTeamId(string name)
-        {
-            int teamId = 0;
-            //var team = new Team();
-
-            using (var db = new ChampionsLeagueContext())
-            {
-                var team = db.Teams.FirstOrDefault(x => x.TeamName == name);
-                //team = db.Teams.FirstOrDefault(x => x.TeamName == name);
-                //team.Town = db.Towns.FirstOrDefault(x => x.TownId == team.TownId);
-                if (team == null)
-                {
-                    throw new ArgumentNullException("Cannot find team in database");
-                }
-                teamId = team.TeamId;
-            }
-            //return team;
-            return teamId;
-        }
-
-        private int GetStadiumId(string name)
-        {
-            int stadiumId = 0;
-            //var stadium = new Stadium();
-
+        private Stadium GetStadium(string name){
             using (var db = new ChampionsLeagueContext())
             {
                 var stadium = db.Stadiums.FirstOrDefault(x => x.Name == name);
-                //stadium = db.Stadiums.FirstOrDefault(x => x.Name == name);
-                //stadium.Town = db.Towns.FirstOrDefault(x => x.TownId == stadium.TownId);
                 if (stadium == null)
                 {
-                    throw new ArgumentNullException("Cannot find team in database");
+                    Console.WriteLine("Create NEW stadium"); 
+                    stadium = new Stadium() { Name = name };
                 }
-                stadiumId = stadium.StadiumId;
+                return stadium;
             }
-            //return stadium;
-            return stadiumId;
+        }
+        private Team  GetTeam(string name)
+        {
+            using (var db = new ChampionsLeagueContext())
+            {
+                var team = db.Teams.FirstOrDefault(x => x.TeamName == name);
+                if (team == null)
+                {
+                    Console.WriteLine("Create NEW Team");
+                    team = new Team() { TeamName = name };
+                }
+                return team;
+            }
+        }
+        private Town GetTown(string name)
+        {
+            using (var db = new ChampionsLeagueContext())
+            {
+                var town = db.Towns.FirstOrDefault(x => x.TownName == name);
+                if (town == null)
+                {
+                    Console.WriteLine("Create NEW Town");
+                    town = new Town() { TownName = name};
+                }
+                return town;
+            }
         }
     }
 }
