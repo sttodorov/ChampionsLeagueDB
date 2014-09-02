@@ -82,41 +82,49 @@
             //Console.WriteLine("\t Zip file imported! {0} matches extracted", matches.Count);
 
             // JSON Reports
-            //string reportsDirectoryPath = @"..\..\JsonReports";
-            //var json = new JsonReport(db, reportsDirectoryPath);
-            //json.GenerateAllTeams();
-            //Console.WriteLine("\t JSON reports generated!");
+            string reportsDirectoryPath = @"..\..\JsonReports";
+            var json = new JsonReport(db, reportsDirectoryPath);
+            json.GenerateAllTeams();
+            Console.WriteLine("\t JSON reports generated!");
 
             //Use MySql and SQLite Databases
             //var exl = new ExcelGenerator(reportsDirectoryPath);
 
+            //Create table in SQLite
+            //Run only first tume
+            //exl.SQLiteDb.InitializeTable();
+
             //Transfer data from JSON to MySql Database
             //exl.MySqlDb.LoadJsonReportsInMySql();
             //exl.GenerateReport();
-
+            /*
             //Generate/Load From XML                
-            //string path = @"..\..\matchReport.xml";
+            string path = @"..\..\matchReport.xml";
 
-            //var reportManager = new XMLDataManager();
-            //var matchesFromXml = reportManager.GetMatchesFromXML(path);
+            var xmlManager = new XMLDataManager();
+            var matchesFromXml = xmlManager.GetMatchesFromXML(path);
 
-            //reportManager.GenerateMatchesReport(path);
-            //reportManager.SaveMatchesInSQLDb(matchesFromXml);
+            xmlManager.GenerateMatchesReport(path);
+            //xmlManager.SaveMatchesInSQLDb(matchesFromXml);
+
+            //Loads XML into db
+            var players = xmlManager.GetPlayersFromXML(@"..\..\players.xml");
+            xmlManager.SavePlayersInSQLDb(players);
 
             //Add matches from XML to Mongo
             //TODO: Get teams and stadiums names
-            //foreach (var match in matchesFromXml)
-            //{
-            //    mongoDb.Matches.Insert(new MongoMatch()
-            //    {
+            foreach (var match in matchesFromXml)
+            {
+                mongoDb.Matches.Insert(new MongoMatch()
+                {
 
-            //        Date = match.Date.ToString(),
-            //        GuestTeam = match.GuestTeamId.ToString(),
-            //        HostTeam = match.HostTeamId.ToString(),
-            //        Stadium = match.StadiumId.ToString()
-            //        //Town = match.Stadium.TownId.ToString()
-            //    });
-            //}
+                    Date = match.Date.ToString(),
+                    GuestTeam = match.GuestTeamId.ToString(),
+                    HostTeam = match.HostTeamId.ToString(),
+                    Stadium = match.StadiumId.ToString()
+                    //Town = match.Stadium.TownId.ToString()
+                });
+            }
             var fromMongo = mongoDb.Matches.GetAll();
             //foreach (var match in fromMongo)
             //{
@@ -128,6 +136,7 @@
             //var pdfReporter = new PdfReporter();
             //var matches = db.Matches.All().OrderBy(d => d.Date).GroupBy(d => d.Date).ToList();
             //pdfReporter.CreateTableReport(matches);
+             */
         }
     }
 }
