@@ -27,5 +27,7 @@
 
         //[Required]
         public virtual Team GuestTeam { get; set; }
+
+        public int Attendance { get; set; }
     }
 }
