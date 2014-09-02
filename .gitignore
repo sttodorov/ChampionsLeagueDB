@@ -36,3 +36,5 @@ Icon
 .Trashes
 
 ChampionsLeague/ChampionsLeague.v12.suo
+*.json
+*.dll
