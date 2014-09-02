@@ -59,7 +59,6 @@ namespace ChampionsLeague.XMLData
                         new XElement("TeamId",random.Next(1, lastTeamId))                        
                         ));
             }
-
             var xmlSerializedPlayers = new XElement("Players", xmlPlayers);
             xmlSerializedPlayers.Save(filePath);
         }

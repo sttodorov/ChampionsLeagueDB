@@ -27,6 +27,7 @@
             //var xmlManager = new XMLDataManager();
             //var matches = xmlManager.GetMatchesFromXML(@"..\..\matchesReport.xml");
             //xmlManager.SaveMatchesInSQLDb(matches);
+			
         }
     }
 }

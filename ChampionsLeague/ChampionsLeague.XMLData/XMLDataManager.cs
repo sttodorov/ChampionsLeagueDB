@@ -8,7 +8,6 @@
     using ChampionsLeague.Model;
     using System.Data.Entity.Validation;
 
-
     using ChampionsLeague.Data;
     using ChampionsLeague.Model;
     using System.Data.Entity.Validation;

@@ -130,7 +130,6 @@
 
                 players.Add(currentPlayer);
             }
-
             return players;
         }
 
