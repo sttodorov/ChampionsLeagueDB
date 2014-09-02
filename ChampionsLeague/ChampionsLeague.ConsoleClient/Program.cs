@@ -73,13 +73,17 @@
             //TransferDataFromMongo(mongoDb, db);
 
             // import zip
-            //string tempDirectoryPath = @"..\..\Temp";
-            //string importDirectoryPath = @"..\..\";
-            //string zipFileName = "Sample-Sales-Reports.zip";
-
+            string tempDirectoryPath = @"..\..\Temp";
+            string importDirectoryPath = @"..\..\";
+            string zipFileName = "Matches-Report.zip";
             //var zipReader = new ZipReader(db, importDirectoryPath, tempDirectoryPath);
-            //var matches = zipReader.ReadFile(zipFileName);
-            //Console.WriteLine("\t Zip file imported! {0} matches extracted", matches.Count);
+            //zipReader.ReadFile(zipFileName,"B3:E50");
+            //Console.WriteLine("\t Zip file imported!");
+            
+            //Loads XML into db
+            var xmlManager = new XMLDataManager();
+            var players = xmlManager.GetPlayersFromXML(@"..\..\players.xml");
+            xmlManager.SavePlayersInSQLDb(players);
 
             // JSON Reports
             string reportsDirectoryPath = @"..\..\JsonReports";
@@ -91,38 +95,34 @@
             var exl = new ExcelGenerator(reportsDirectoryPath);
 
             //Transfer data from JSON to MySql Database
-            exl.MySqlDb.LoadJsonReportsInMySql();
-            exl.GenerateReport();
+
             
-            /*
+
+            //exl.MySqlDb.LoadJsonReportsInMySql();
+            //exl.GenerateReport();
+
+             
             //Generate/Load From XML                
             string path = @"..\..\matchReport.xml";
-
-            var xmlManager = new XMLDataManager();
             var matchesFromXml = xmlManager.GetMatchesFromXML(path);
-
             xmlManager.GenerateMatchesReport(path);
             //xmlManager.SaveMatchesInSQLDb(matchesFromXml);
 
-            //Loads XML into db
-            var players = xmlManager.GetPlayersFromXML(@"..\..\players.xml");
-            xmlManager.SavePlayersInSQLDb(players);
-
             //Add matches from XML to Mongo
             //TODO: Get teams and stadiums names
-            foreach (var match in matchesFromXml)
-            {
-                mongoDb.Matches.Insert(new MongoMatch()
-                {
-
-                    Date = match.Date.ToString(),
-                    GuestTeam = match.GuestTeamId.ToString(),
-                    HostTeam = match.HostTeamId.ToString(),
-                    Stadium = match.StadiumId.ToString()
-                    //Town = match.Stadium.TownId.ToString()
-                });
-            }
-            var fromMongo = mongoDb.Matches.GetAll();
+            //foreach (var match in matchesFromXml)
+            //{
+            //   mongoDb.Matches.Insert(new MongoMatch()
+            //  {
+			//
+            //        Date = match.Date.ToString(),
+            //        GuestTeam = match.GuestTeamId.ToString(),
+            //        HostTeam = match.HostTeamId.ToString(),
+            //        Stadium = match.StadiumId.ToString()
+            //        //Town = match.Stadium.TownId.ToString()
+            //    });
+            //}
+            //var fromMongo = mongoDb.Matches.GetAll();
             //foreach (var match in fromMongo)
             //{
             //    Console.WriteLine(match.Date);
@@ -133,7 +133,7 @@
             //var pdfReporter = new PdfReporter();
             //var matches = db.Matches.All().OrderBy(d => d.Date).GroupBy(d => d.Date).ToList();
             //pdfReporter.CreateTableReport(matches);
-             */
+            // 
         }
     }
 }

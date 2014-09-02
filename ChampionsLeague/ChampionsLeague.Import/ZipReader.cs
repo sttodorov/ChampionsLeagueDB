@@ -24,20 +24,22 @@
             this.importPath = importPath;
         }
 
-        public ICollection<Match> ReadFile(string fileName)
+        public void ReadFile(string fileName, string cellRange)
         {
             string path = Path.Combine(this.importPath, fileName);
-
-            ICollection<Match> result = new List<Match>();
 
             if (!File.Exists(path))
             {
                 Console.WriteLine("File {0} do not exist", fileName);
-                return result;
             }
 
             using (ZipFile zip = ZipFile.Read(path))
             {
+                if (Directory.Exists(this.tempFolderPath))
+                {
+                    Directory.Delete(this.tempFolderPath, true);
+                }
+
                 Directory.CreateDirectory(this.tempFolderPath);
 
                 foreach (ZipEntry entry in zip)
@@ -46,18 +48,10 @@
                     {
                         string fullName = entry.FileName;
                         string filePath = Path.Combine(this.tempFolderPath, fullName);
-                        if (!File.Exists(filePath))
-                        {
-                            var excelFile = zip[fullName];
-                            excelFile.Extract(this.tempFolderPath);
-                        }
 
-                        var fileResult = this.ReadExcelFile(fullName, "B3:E50");
-
-                        foreach (var match in fileResult)
-                        {
-                            result.Add(match);
-                        }
+                        var excelFile = zip[fullName];
+                        excelFile.Extract(this.tempFolderPath);
+                        this.ReadExcelFile(fullName, cellRange);
 
                         File.Delete(filePath);
                     }
@@ -66,14 +60,13 @@
                 Directory.Delete(this.tempFolderPath, true);
             }
 
-            return result;
+            dbContext.SaveChanges();
         }
 
-        public ICollection<Match> ReadExcelFile(string fileName, string range)
+        public void ReadExcelFile(string fileName, string cellRange)
         {
             string filePath = Path.Combine(this.tempFolderPath, fileName);
-
-            ICollection<Match> result = new List<Match>();
+            string leagueName = ParseLeague(fileName);
 
             // Connection String for Excel 97-2003 Format (.XLS)
             string connectionString = string.Format(@" Provider = Microsoft.Jet.OLEDB.4.0; Data Source= {0};  Extended Properties = 'Excel 8.0; HDR=Yes' ", filePath);
@@ -86,7 +79,7 @@
                 var sheets = dbConnection.GetOleDbSchemaTable(OleDbSchemaGuid.Tables, new Object[] { null, null, null, "TABLE" });
                 string sheetName = sheets.Rows[0]["TABLE_NAME"].ToString();
 
-                string sqlCommand = string.Format("SELECT * FROM [{0}{1}]", sheetName, range);
+                string sqlCommand = string.Format("SELECT * FROM [{0}{1}]", sheetName, cellRange);
                 OleDbCommand command = new OleDbCommand(sqlCommand, dbConnection);
                 OleDbDataReader reader = command.ExecuteReader();
 
@@ -94,31 +87,58 @@
                 {
                     while (reader.Read())
                     {
-                        var firstColumn = reader["ProductID"];
-                        if (firstColumn == DBNull.Value)
+                        var currentMatch = ReadExcelLine(reader, fileName);
+                        if (currentMatch == null)
                         {
                             break;
                         }
 
-                        int id = (int)(double)firstColumn;
-                        int name = (int)(double)reader["Quantity"];
-                        decimal score = (decimal)(double)reader["Sum"];
-
-                        DateTime date = this.ParseDate(fileName);
-
-                        // Console.WriteLine("{0} | {1} | {2}", id, name, score);
-
-                        var currentMatch = new Match()
-                        {
-                            Date = date
-                        };                        
-
-                        result.Add(currentMatch);
+                        dbContext.Matches.Add(currentMatch);
                     }
                 }
             }
-            
-            return result;
+        }
+ 
+        private Match ReadExcelLine(OleDbDataReader reader, string fileName)
+        {
+            var stadiumNameObj = reader["Stadium Name"];
+            if (stadiumNameObj == DBNull.Value)
+            {
+                return null;
+            }
+
+            string stadiumName = ((string)stadiumNameObj).Trim();
+            string hostTeamName = ((string)reader["Host team"]).Trim();
+            string awayTeamName = ((string)reader["Away team"]).Trim();
+            int attendance = (int)(double)reader["Attendance"];
+
+            DateTime date = this.ParseDate(fileName);
+
+            var stadiumId = dbContext.Stadiums
+                                     .SearchFor(s => s.Name == stadiumName)
+                                     .Select(s => s.StadiumId)
+                                     .First();
+
+            var hostTeamId = dbContext.Teams
+                                      .SearchFor(t => t.TeamName == hostTeamName)
+                                      .Select(t => t.TeamId)
+                                      .First();
+
+            var awayTeamId = dbContext.Teams
+                                      .SearchFor(t => t.TeamName == awayTeamName)
+                                      .Select(t => t.TeamId)
+                                      .First();
+
+            var currentMatch = new Match()
+            {
+                HostTeamId = hostTeamId,
+                GuestTeamId = awayTeamId,
+                StadiumId = stadiumId,
+                Attendance = attendance,
+                Date = date
+            };
+
+            return currentMatch;
         }
 
         private DateTime ParseDate(string path)
@@ -133,6 +153,19 @@
             string folder = nameParts[0];
             DateTime date = DateTime.Parse(folder);
             return date;
+        }
+
+        private string ParseLeague(string filename)
+        {
+            string[] nameParts = filename.Split(new string[] { "Matches", "/" }, StringSplitOptions.RemoveEmptyEntries);
+
+            if (nameParts.Length != 3)
+            {
+                throw new ArgumentException(string.Format("Invalid file name \"{0}\"", filename));
+            }
+
+            string leagueName = nameParts[1].Replace("-", " ").Trim();
+            return leagueName;
         }
     }
 }

@@ -86,16 +86,25 @@
             this.Towns.Insert(new MongoTown() { TownName = "Madrid" });
             this.Towns.Insert(new MongoTown() { TownName = "Parma" });
             this.Towns.Insert(new MongoTown() { TownName = "Udine" });
-            this.Towns.Insert(new MongoTown() { TownName = "Plaermo" });
+            this.Towns.Insert(new MongoTown() { TownName = "Palermo" });
             this.Towns.Insert(new MongoTown() { TownName = "London" });
             this.Towns.Insert(new MongoTown() { TownName = "Birmingham" });
             this.Towns.Insert(new MongoTown() { TownName = "Vigo" });
             this.Towns.Insert(new MongoTown() { TownName = "Turin" });
+            this.Towns.Insert(new MongoTown() { TownName = "Getafe" });
+            this.Towns.Insert(new MongoTown() { TownName = "Sassuolo" });
+            this.Towns.Insert(new MongoTown() { TownName = "West Bromwich" });
+            this.Towns.Insert(new MongoTown() { TownName = "Southampton" });
+            this.Towns.Insert(new MongoTown() { TownName = "Malaga" });
+            this.Towns.Insert(new MongoTown() { TownName = "Almeria" });
+            this.Towns.Insert(new MongoTown() { TownName = "Naples" });
+            this.Towns.Insert(new MongoTown() { TownName = "Kingston upon Hull" });
             
             this.Stadiums.Insert(new MongoStadium { Name = "Anfield", Town = "Liverpool", Capacity = 45000 });
             this.Stadiums.Insert(new MongoStadium { Name = "Anoeta Stadium", Town = "San Sebastián", Capacity = 45000 });
             this.Stadiums.Insert(new MongoStadium { Name = "Balaidos", Town = "San Sebastián", Capacity = 45000 });
             this.Stadiums.Insert(new MongoStadium { Name = "Ciutat de Valencia", Town = "Valencia", Capacity = 45000 });
+            this.Stadiums.Insert(new MongoStadium { Name = "Camp Nou", Town = "Barcelona", Capacity = 45000 });
             this.Stadiums.Insert(new MongoStadium { Name = "Emirates Stadium", Town = "London", Capacity = 45000 });
             this.Stadiums.Insert(new MongoStadium { Name = "Estadi Cornella-El Prat", Town = "Villarreal", Capacity = 45000 });
             this.Stadiums.Insert(new MongoStadium { Name = "Estadio El Madrigal", Town = "Villarreal", Capacity = 45000 });
@@ -108,7 +117,7 @@
             this.Stadiums.Insert(new MongoStadium { Name = "Liberty Stadium", Town = "Swansea", Capacity = 45000 });
             this.Stadiums.Insert(new MongoStadium { Name = "Mestalla Stadium", Town = "Valencia", Capacity = 45000 });
             this.Stadiums.Insert(new MongoStadium { Name = "Old Trafford", Town = "Manchester", Capacity = 45000 });
-            this.Stadiums.Insert(new MongoStadium { Name = "Ramon Sanchez Pizjuan Stadium", Town = "Sevila", Capacity = 45000 });
+            this.Stadiums.Insert(new MongoStadium { Name = "Ramon Sanchez Pizjuan Stadium", Town = "Sevilla", Capacity = 45000 });
             this.Stadiums.Insert(new MongoStadium { Name = "San Mames Stadium", Town = "Bilbao", Capacity = 45000 });
             this.Stadiums.Insert(new MongoStadium { Name = "San Siro", Town = "Milan", Capacity = 45000 });
             this.Stadiums.Insert(new MongoStadium { Name = "Santiago Bernabeu", Town = "Madrid", Capacity = 45000 });
@@ -124,7 +133,7 @@
             this.Teams.Insert(new MongoTeam() { Name = "Barcelona", Town = "Barcelona" });
             this.Teams.Insert(new MongoTeam() { Name = "Espanyol", Town = "Barcelona" });
             this.Teams.Insert(new MongoTeam() { Name = "Valencia", Town = "Valencia" });
-            this.Teams.Insert(new MongoTeam() { Name = "Granada CF", Town = "Valencia" });
+            this.Teams.Insert(new MongoTeam() { Name = "Granada", Town = "Valencia" });
             this.Teams.Insert(new MongoTeam() { Name = "Levante", Town = "Valencia" });
             this.Teams.Insert(new MongoTeam() { Name = "Levski", Town = "Islington" });
             this.Teams.Insert(new MongoTeam() { Name = "Villarreal", Town = "Villarreal" });
@@ -144,12 +153,25 @@
             this.Teams.Insert(new MongoTeam() { Name = "Real Madrid", Town = "Madrid" });
             this.Teams.Insert(new MongoTeam() { Name = "Parma", Town = "Parma" });
             this.Teams.Insert(new MongoTeam() { Name = "Udinese", Town = "Udine" });
-            this.Teams.Insert(new MongoTeam() { Name = "Palermo", Town = "Plaermo" });
+            this.Teams.Insert(new MongoTeam() { Name = "Palermo", Town = "Palermo" });
             this.Teams.Insert(new MongoTeam() { Name = "Chelsea", Town = "London" });
             this.Teams.Insert(new MongoTeam() { Name = "Tottenham", Town = "London" });
             this.Teams.Insert(new MongoTeam() { Name = "Celta Vigo", Town = "Vigo" });
             this.Teams.Insert(new MongoTeam() { Name = "Levski", Town = "Birmingham" });
-            this.Teams.Insert(new MongoTeam() { Name = "Uventus", Town = "Turin" });
+            this.Teams.Insert(new MongoTeam() { Name = "Juventus", Town = "Turin" });
+
+            this.Teams.Insert(new MongoTeam() { Name = "QPR", Town = "London" });
+            this.Teams.Insert(new MongoTeam() { Name = "Getafe", Town = "Getafe" });
+            this.Teams.Insert(new MongoTeam() { Name = "Atl. Madrid", Town = "Madrid" });
+            this.Teams.Insert(new MongoTeam() { Name = "Sassuolo", Town = "Sassuolo" });
+            this.Teams.Insert(new MongoTeam() { Name = "West Brom", Town = "West Bromwich" });
+            this.Teams.Insert(new MongoTeam() { Name = "Southampton", Town = "Southampton" });
+            this.Teams.Insert(new MongoTeam() { Name = "Malaga", Town = "Malaga" });
+            this.Teams.Insert(new MongoTeam() { Name = "Everton", Town = "Liverpool" });
+            this.Teams.Insert(new MongoTeam() { Name = "Rayo Vallecano", Town = "Madrid" });
+            this.Teams.Insert(new MongoTeam() { Name = "Almeria", Town = "Almeria" });
+            this.Teams.Insert(new MongoTeam() { Name = "Napoli", Town = "Naples" });
+            this.Teams.Insert(new MongoTeam() { Name = "Hull City", Town = "Kingston upon Hull" });
         }
     }
 }

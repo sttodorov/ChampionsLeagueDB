@@ -59,6 +59,7 @@
   </ItemGroup>
   <ItemGroup>
     <None Include="App.config" />
+    <None Include="Matches-Report.zip" />
     <None Include="packages.config" />
   </ItemGroup>
   <ItemGroup>
