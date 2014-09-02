@@ -35,6 +35,7 @@
 
                 foreach (var player in team.Players)
                 {
+                    System.Console.WriteLine(player.FirstName);
                     AddPlayer(player.FirstName, player.LastName, team.Id, player.Salary);
                 }
             }
