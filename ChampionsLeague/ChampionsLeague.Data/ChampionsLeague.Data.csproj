@@ -48,6 +48,7 @@
   <ItemGroup>
     <Compile Include="ChampionsLeagueContext.cs" />
     <Compile Include="ChampionsLeagueData.cs" />
+    <Compile Include="ChampionsLeagueListData.cs" />
     <Compile Include="IChamionsLeagueData.cs" />
     <Compile Include="IChampionsLeagueContext.cs" />
     <Compile Include="Migrations\Configuration.cs" />
