@@ -2,20 +2,19 @@
 {
     using System.Linq;
     using System.IO;
-    using System.Web.Script.Serialization;
+
+    using Newtonsoft.Json;
 
     using ChampionsLeague.Data;
     using ChampionsLeague.Model;
 
     public class JsonReport
     {
-        private JavaScriptSerializer jsonSerializer;
         private ChampionsLeagueData dbContext;
         private string folderPath;
 
         public JsonReport(ChampionsLeagueData context, string path)
         {
-            this.jsonSerializer = new JavaScriptSerializer();
             this.dbContext = context;
             this.folderPath = path;
         }
@@ -34,7 +33,7 @@
 
             foreach (var team in teams)
             {
-                string result = this.jsonSerializer.Serialize(team);
+                string result = JsonConvert.SerializeObject(team);
                 string fileName = team.ID.ToString();
 
                 SaveToFile(fileName, result);
