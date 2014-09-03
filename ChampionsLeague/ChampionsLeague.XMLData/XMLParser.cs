@@ -53,7 +53,8 @@
                                 }
                                 break;
                             case DateTimeXMLProp:
-                                currentMatch.Date = reader.ReadElementString();
+                                var date = DateTime.Parse(reader.ReadElementString());
+                                currentMatch.Date = date.Day +"."+date.Month + "."+date.Year;
                                 break;
                             case HostTeamXMLProp:
                                 currentMatch.HostTeam = reader.ReadElementString();

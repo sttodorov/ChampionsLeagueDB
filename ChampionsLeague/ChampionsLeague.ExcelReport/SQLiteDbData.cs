@@ -15,7 +15,7 @@ namespace ChampionsLeague.ExcelReport
 
         private void InitializeTable()
         {
-            string createTableQuery = "CREATE TABLE IF NOT EXISTS YellowCards(id int PRIMARY KEY, Team nvarchar(50), FirstName nvarchar(50), LastName nvarchar(50),YellowCardsCount int)";
+            string createTableQuery = "CREATE TABLE IF NOT EXISTS YellowCards(id int PRIMARY KEY, FirstName nvarchar(50), LastName nvarchar(50),YellowCardsCount int)";
             var createTable = new SQLiteCommand(createTableQuery, this.SQLiteDb);
             this.SQLiteDb.Open();
             createTable.ExecuteNonQuery();
@@ -25,25 +25,36 @@ namespace ChampionsLeague.ExcelReport
 
         private void InsertRecords()
         {
-            this.AddRecord("Liverpool", "Orlando", "Greer", 3);
-            this.AddRecord("Liverpool", "Gabriel", "Rivera", 2);
-            this.AddRecord("Liverpool", "Jeremy", "Cohen", 1);
-            this.AddRecord("Liverpool", "Jeffery", "Horton", 5);
+            this.AddRecord("Ronnie", "Hammond", 3);
+            this.AddRecord("Phillip", "Potter", 2);
+            this.AddRecord("Perry", "Hunt", 1);
+            this.AddRecord("Orlando", "Greer", 5);
+            this.AddRecord("Joey", "Burton", 1);
+            this.AddRecord("George", "Boyd", 2);
+            this.AddRecord("Freddie", "Knight", 1);
+            this.AddRecord("Bert", "Nunez", 3);
+            this.AddRecord("Luther", "Chavez", 3);
+            this.AddRecord("Alvin", "Porter", 2);
+            this.AddRecord("Israel", "Garner", 1);
+            this.AddRecord("Antonio", "Jefferson", 5);
+            this.AddRecord("Clay ", "Parker", 1);
+            this.AddRecord("Hector", "Barrett", 2);
+            this.AddRecord("Rafael", "Hoffman", 1);
+            this.AddRecord("Jermaine", "Frank", 3);
+            this.AddRecord("Byron", "Mathis", 3);
+            this.AddRecord("Julian", "Mcdaniel", 1);
+            this.AddRecord("Sam", "Estrada", 3);
+            this.AddRecord("Arnold", "Price", 3);   
 
-            this.AddRecord("Real Sociedad", "Everett", "Carr", 1);
-            this.AddRecord("Real Sociedad", "Dan", "Dunn", 2);
-            this.AddRecord("Real Sociedad", "Jerald", "Wise", 1);
-            this.AddRecord("Real Sociedad", "Rogelio", "Flowers", 3);
         }
 
-        public void AddRecord(string teamName, string firstName, string lastName, int yellowCardsCount)
+        public void AddRecord(string firstName, string lastName, int yellowCardsCount)
         {
-            string insertIntoYellowCardsQuery = @"INSERT INTO YellowCards (Team, FirstName, LastName, YellowCardsCount)
-                                                            VALUES (@teamName, @firstName, @lastName, @cardsCount)";
+            string insertIntoYellowCardsQuery = @"INSERT INTO YellowCards (FirstName, LastName, YellowCardsCount)
+                                                            VALUES (@firstName, @lastName, @cardsCount)";
 
             SQLiteCommand insertCommand = new SQLiteCommand(insertIntoYellowCardsQuery, this.SQLiteDb);
             this.SQLiteDb.Open();
-            insertCommand.Parameters.AddWithValue("@teamName",teamName);
             insertCommand.Parameters.AddWithValue("@firstName",firstName);
             insertCommand.Parameters.AddWithValue("@lastName",lastName);
             insertCommand.Parameters.AddWithValue("@cardsCount",yellowCardsCount);
@@ -64,7 +75,6 @@ namespace ChampionsLeague.ExcelReport
             {
                 reccords.Add(new YellowCardsRecoord
                 {
-                    TeamName= (string)reader["Team"],
                     FirstName = (string)reader["FirstName"],
                     LastName = (string)reader["LastName"],
                     CardsCount = (int)reader["YellowCardsCount"]

@@ -30,7 +30,7 @@
             renderer.RenderDocument();
 
             // Save the document...
-            string filename = Guid.NewGuid().ToString("N").ToUpper() + ".pdf";
+            string filename = @"..\..\" +  Guid.NewGuid().ToString("N").ToUpper() + ".pdf";
 
             renderer.PdfDocument.Save(filename);
             // ...and start a viewer.

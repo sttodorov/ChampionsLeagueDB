@@ -13,7 +13,7 @@
     using ChampionsLeague.XMLData;
     using ChampionsLeague.PdfReporter;
 
-    public class Program
+    public class ConsoleClientEntryPoint
     {
         public static void Main()
         {
@@ -77,7 +77,8 @@
             var exl = new ExcelGenerator(reportsDirectoryPath);
 
             //Transfer data from JSON to MySql Database
-            string jsonToMySQLSuccessMsg = "Json reports loaded in Mysql";
+            string jsonToMySQLSuccessMsg = "\t Json reports loaded in Mysql";
+            
             if (exl.MySqlDb.GetAllTeams().Count == 0)
             {
                 exl.MySqlDb.LoadJsonReportsInMySql();
@@ -87,7 +88,7 @@
             //Generate Xlsx file
 
             //If Excel file exists throw exception 
-            //exl.GenerateReport();
+            exl.GenerateReport();
             string excelSuccessMsg = "\t Excel Salary Report Created!";
             Console.WriteLine(excelSuccessMsg);
 
@@ -98,19 +99,22 @@
             Console.WriteLine(xmlSuccessMsg);
 
             //Add matches from XML to Mongo            
-            var matchesFromXml = xmlManager.GetMatchesFromXML(path);
-            xmlManager.SaveMatchesInMongoDb(matchesFromXml, mongoDb);
-
             var fromMongo = mongoDb.Matches.GetAll();
+            
+            if(fromMongo.Count == 0)
+            {
+                var matchesFromXml = xmlManager.GetMatchesFromXML(path);
+                xmlManager.SaveMatchesInMongoDb(matchesFromXml, mongoDb);
+            }
             foreach (var match in fromMongo)
             {
                 Console.WriteLine("{0} -> {1} vs {2} Attendance: {3}", match.Date, match.GuestTeam, match.HostTeam, match.Attendance);
             }
 
             //PDFReports
-            //var pdfReporter = new PdfReporter();
-            //var matches = db.Matches.All().OrderBy(d => d.Date).GroupBy(d => d.Date).ToList();
-            //pdfReporter.CreateTableReport(matches); 
+            var pdfReporter = new PdfReporter();
+            var matches = db.Matches.All().OrderBy(d => d.Date).GroupBy(d => d.Date).ToList();
+            pdfReporter.CreateTableReport(matches); 
         }
 
         public static void TransferDataFromMongo(MongoDbData mongoDb, ChampionsLeagueData db)
