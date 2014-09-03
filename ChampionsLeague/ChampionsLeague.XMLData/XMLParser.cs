@@ -8,6 +8,7 @@
 
     using ChampionsLeague.Model;
     using ChampionsLeague.Data;
+    using ChampionsLeague.MongoDb.Model;
 
     public class XMLParser
     {
@@ -30,13 +31,13 @@
         {
         }
 
-        public ICollection<Match> LoadMatchReport(string filePath)
+        public ICollection<MongoMatch> LoadMatchReport(string filePath)
         {
-            var matches = new HashSet<Match>();
+            var matches = new HashSet<MongoMatch>();
 
             using (XmlReader reader = XmlReader.Create(filePath))
             {
-                var currentMatch = new Match();
+                var currentMatch = new MongoMatch();
 
                 while (reader.Read())
                 {
@@ -45,37 +46,29 @@
                         switch (reader.Name)
                         {
                             case MatchXMLProp:
-                                if (currentMatch.HostTeamId != 0)
+                                if (currentMatch.Attendance != 0)
                                 {
                                     matches.Add(currentMatch);
-                                    currentMatch = new Match();
+                                    currentMatch = new MongoMatch();
                                 }
                                 break;
                             case DateTimeXMLProp:
-                                currentMatch.Date = DateTime.Parse(reader.ReadElementString());
+                                currentMatch.Date = reader.ReadElementString();
                                 break;
                             case HostTeamXMLProp:
-                                string hostTeamName = reader.ReadElementString();
-                                var hostFromDb = GetTeam(hostTeamName);                                
-                                currentMatch.HostTeamId = hostFromDb.TeamId;
+                                currentMatch.HostTeam =reader.ReadElementString();
                                 break;
                             case GuestTeamXMLProp:
-                                string guestTeamName = reader.ReadElementString();
-                                var guestFromDb = GetTeam(guestTeamName);                               
-                                currentMatch.GuestTeamId = guestFromDb.TeamId;
+                                currentMatch.GuestTeam = reader.ReadElementString();
                                 break;
                             case StadiumXMLProp:
-                                string stadiumName = reader.ReadElementString();
-
-                                var stadiumFromDb = GetStadium(stadiumName);                                
-                                currentMatch.StadiumId = stadiumFromDb.StadiumId;
+                                currentMatch.Stadium = reader.ReadElementString();
                                 break;
                             case TownXMLProp:
                                 string townName = reader.ReadElementString();   
                                 break;
-                            case AttendanceXMLProp:
-                                string attendance = reader.ReadElementString();                                
-                                currentMatch.Attendance = int.Parse(attendance);
+                            case AttendanceXMLProp:         
+                                currentMatch.Attendance = int.Parse(reader.ReadElementString());
                                 break;
                             default:
                                 break;
@@ -136,7 +129,6 @@
         public void SaveMatchReport(string filePath, ICollection<Match> matches)
         {
             var xmlMatches = new List<XElement>();
-
             foreach (var match in matches)
             {
                 xmlMatches.Add(

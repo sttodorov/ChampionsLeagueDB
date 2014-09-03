@@ -12,6 +12,8 @@
     using ChampionsLeague.Model;
     using System.Data.Entity.Validation;
     using System.Collections.Generic;
+    using ChampionsLeague.MongoDb.Model;
+using ChampionsLeague.MongoDb.Data;
 
     public class XMLDataManager
     {
@@ -24,36 +26,48 @@
             this.parser = new XMLParser();
         }
 
-        public ICollection<Match> GetMatchesFromXML(string filename)
+        public ICollection<MongoMatch> GetMatchesFromXML(string filename)
         {
             return this.parser.LoadMatchReport(filename);
         }
 
-        public void SaveMatchesInSQLDb(ICollection<Match> matches)
+        public void SaveMatchesInMongoDb(ICollection<MongoMatch> matches, MongoDbData mongoDb)
         {
-            using (var db = new ChampionsLeagueContext())
+            foreach (var match in matches)
             {
-                foreach (var match in matches)
+                mongoDb.Matches.Insert(new MongoMatch()
                 {
-                    db.Matches.Add(match);
-                }
-                try
-                {
-                    db.SaveChanges();
-                }
-                catch (DbEntityValidationException e)
-                {
-                    Console.WriteLine(e.Message);
-
-                    foreach (var item in e.EntityValidationErrors)
-                    {
-                        foreach (var err in item.ValidationErrors)
-                        {
-                            Console.WriteLine(err.ErrorMessage);
-                        }
-                    }
-                }
+                    Date = match.Date,
+                    GuestTeam = match.GuestTeam,
+                    HostTeam = match.HostTeam,
+                    Stadium = match.Stadium,
+                    Attendance = match.Attendance
+                });
             }
+
+            //using (var db = new ChampionsLeagueContext())
+            //{
+            //    foreach (var match in matches)
+            //    {
+            //        db.Matches.Add(match);
+            //    }
+            //    try
+            //    {
+            //        db.SaveChanges();
+            //    }
+            //    catch (DbEntityValidationException e)
+            //    {
+            //        Console.WriteLine(e.Message);
+
+            //        foreach (var item in e.EntityValidationErrors)
+            //        {
+            //            foreach (var err in item.ValidationErrors)
+            //            {
+            //                Console.WriteLine(err.ErrorMessage);
+            //            }
+            //        }
+            //    }
+            //}
         }
 
         public void GenerateMatchesReport(string filename)

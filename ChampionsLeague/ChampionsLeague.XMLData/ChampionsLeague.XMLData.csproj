@@ -60,6 +60,14 @@
       <Project>{7dea3435-7ef1-4ba9-9117-fc685e30e2ce}</Project>
       <Name>ChampionsLeague.Model</Name>
     </ProjectReference>
+    <ProjectReference Include="..\ChampionsLeague.MongoDb.Data\ChampionsLeague.MongoDb.Data.csproj">
+      <Project>{7864fc4c-a021-4cf1-b270-ac524051483d}</Project>
+      <Name>ChampionsLeague.MongoDb.Data</Name>
+    </ProjectReference>
+    <ProjectReference Include="..\ChampionsLeague.MongoDb.Model\ChampionsLeague.MongoDb.Model.csproj">
+      <Project>{898bc67f-5e78-46b2-bd5c-b04c4c9ff7a2}</Project>
+      <Name>ChampionsLeague.MongoDb.Model</Name>
+    </ProjectReference>
   </ItemGroup>
   <ItemGroup>
     <None Include="App.config" />
