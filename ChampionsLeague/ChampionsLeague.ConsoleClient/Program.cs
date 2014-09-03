@@ -21,7 +21,6 @@
             var mongoDb = new MongoDbData();
             var db = new ChampionsLeagueData();
             
-            //mongoDb.Matches.Insert(new MongoMatch() { Date = DateTime.Now.ToString(), HostTeam = "asd", GuestTeam = "asaa" });
             //Test insert data in mongo
             int mongoTeamsCount = mongoDb.Teams.GetAll().Count;
             if (mongoTeamsCount == 0)
@@ -71,14 +70,16 @@
             var exl = new ExcelGenerator(reportsDirectoryPath);
 
             //Transfer data from JSON to MySql Database
-            if(exl.MySqlDb.GetAllTeams().Count != 0)
+            if(exl.MySqlDb.GetAllTeams().Count == 0)
             {
                 exl.MySqlDb.LoadJsonReportsInMySql();
                 Console.WriteLine("Json reports loaded in Mysql");
             }
             
             //Generate Xlsx file
-            exl.GenerateReport();
+
+            //If Excel file exists throw exception 
+            //exl.GenerateReport();
             Console.WriteLine("\t Excel Salary Report Created!");
 
             //Generate/Load From XML                
