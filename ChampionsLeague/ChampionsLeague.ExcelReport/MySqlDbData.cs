@@ -17,7 +17,8 @@
         public MySqlDbData(string path)
         {
             //this.MySqlDb = new MySqlConnection(@"Server=localhost;Port=3306;Database=championsleague;IntegratedSecurity=yes;Uid=auth_windows;");
-            this.MySqlDb = new MySqlConnection(@"Server=localhost;Port=3306;Uid=root;Pwd=9410094420aA;");
+            string connectionString = @"Server=localhost;Port=3306;Uid=root;Pwd=9410094420aA;";
+            this.MySqlDb = new MySqlConnection(connectionString);
             this.jsnoSerializer = new JavaScriptSerializer();
             this.pathToFile = path;
             this.InitializeMySqlDb();
@@ -25,7 +26,7 @@
 
         private void InitializeMySqlDb()
         {
-            string createDb = @"CREATE DATABASE  IF NOT EXISTS `championsleague` /*!40100 DEFAULT CHARACTER SET utf8 */;
+            string createDbQuery = @"CREATE DATABASE  IF NOT EXISTS `championsleague` /*!40100 DEFAULT CHARACTER SET utf8 */;
                                 USE `championsleague`;
 
                                 CREATE TABLE IF NOT EXISTS `teams` (
@@ -46,7 +47,7 @@
                                   CONSTRAINT `TeamId` FOREIGN KEY (`TeamId`) REFERENCES `teams` (`Id`) ON DELETE NO ACTION ON UPDATE NO ACTION
                                 ) ENGINE=InnoDB AUTO_INCREMENT=0 DEFAULT CHARSET=utf8;";
 
-            var createCommand = new  MySqlCommand(createDb,this.MySqlDb);
+            var createCommand = new  MySqlCommand(createDbQuery,this.MySqlDb);
             this.MySqlDb.Open();
             createCommand.ExecuteNonQuery();
             this.MySqlDb.Close();
@@ -72,7 +73,9 @@
 
         public void AddTeam(string teamName, string townName)
         {
-            var addTeamCommand = new MySqlCommand(@"INSERT INTO teams(TeamName, TownName) VALUES (@team, @town)", this.MySqlDb);
+            string insertIntoTeamsQuery = @"INSERT INTO teams(TeamName, TownName) VALUES (@team, @town)";
+            var addTeamCommand = new MySqlCommand(insertIntoTeamsQuery, this.MySqlDb);
+
             this.MySqlDb.Open();
             addTeamCommand.Parameters.AddWithValue("@team", teamName);
             addTeamCommand.Parameters.AddWithValue("@town", townName);
@@ -82,7 +85,9 @@
 
         public void AddPlayer(string firstName, string lastName, int teamId, decimal salary)
         {
-            var addPlayerCommand = new MySqlCommand(@"INSERT INTO players(FirstName, LastName, TeamId, Salary) VALUES (@fname, @lname, @teamId,@salary)",this.MySqlDb);
+            string insertIntoPlayersQuery = @"INSERT INTO players(FirstName, LastName, TeamId, Salary) VALUES (@fname, @lname, @teamId,@salary)";
+            var addPlayerCommand = new MySqlCommand(insertIntoPlayersQuery,this.MySqlDb);
+            
             this.MySqlDb.Open();
             addPlayerCommand.Parameters.AddWithValue("@fname", firstName);
             addPlayerCommand.Parameters.AddWithValue("@lname", lastName);
@@ -96,7 +101,8 @@
         public IList<Player> GetAllPlayers()
         {
             var allPLayers = new List<Player>();
-            var allPlayersCommand = new MySqlCommand("Select * FROM players", this.MySqlDb);
+            string selectPlayersQuery = "Select * FROM players";
+            var allPlayersCommand = new MySqlCommand(selectPlayersQuery, this.MySqlDb);
             this.MySqlDb.Open();
 
             var reader = allPlayersCommand.ExecuteReader();
@@ -118,7 +124,8 @@
         public IList<Team> GetAllTeams()
         {
             var allTeams = new List<Team>();
-            var allPlayersCommand = new MySqlCommand("Select * FROM teams", this.MySqlDb);
+            string selectTeamsQuery = "Select * FROM teams";
+            var allPlayersCommand = new MySqlCommand(selectTeamsQuery, this.MySqlDb);
 
             this.MySqlDb.Open();
 
