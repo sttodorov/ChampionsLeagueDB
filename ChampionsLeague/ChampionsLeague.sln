@@ -21,6 +21,8 @@ Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "ChampionsLeague.JsonReports
 EndProject
 Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "ChampionsLeague.ExcelReport", "ChampionsLeague.ExcelReport\ChampionsLeague.ExcelReport.csproj", "{43AA2F0E-C122-4B8C-8FC7-D2552DAB365C}"
 EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "ChampionsLeague.PdfReporter", "ChampionsLeague.PdfReporter\ChampionsLeague.PdfReporter.csproj", "{3811F1F2-CFA4-45AF-BA5F-891FAE0E130F}"
+EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
 		Debug|Any CPU = Debug|Any CPU
@@ -63,6 +65,10 @@ Global
 		{43AA2F0E-C122-4B8C-8FC7-D2552DAB365C}.Debug|Any CPU.Build.0 = Debug|Any CPU
 		{43AA2F0E-C122-4B8C-8FC7-D2552DAB365C}.Release|Any CPU.ActiveCfg = Release|Any CPU
 		{43AA2F0E-C122-4B8C-8FC7-D2552DAB365C}.Release|Any CPU.Build.0 = Release|Any CPU
+		{3811F1F2-CFA4-45AF-BA5F-891FAE0E130F}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{3811F1F2-CFA4-45AF-BA5F-891FAE0E130F}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{3811F1F2-CFA4-45AF-BA5F-891FAE0E130F}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{3811F1F2-CFA4-45AF-BA5F-891FAE0E130F}.Release|Any CPU.Build.0 = Release|Any CPU
 	EndGlobalSection
 	GlobalSection(SolutionProperties) = preSolution
 		HideSolutionNode = FALSE

@@ -11,96 +11,96 @@
     using ChampionsLeague.MongoDb.Data;
     using ChampionsLeague.ExcelReport;
     using ChampionsLeague.XMLData;
+    using ChampionsLeague.PdfReporter;
 
     public class Program
     {
-
-        public static void InsertDataInMongo(MongoDbData mongoDb)
+        public static void Main()
         {
-            mongoDb.Towns.Insert(new MongoTown() { TownName = "Liverpool" });
-            mongoDb.Towns.Insert(new MongoTown() { TownName = "San Sebastián" });
-            mongoDb.Towns.Insert(new MongoTown() { TownName = "Barcelona" });
-            mongoDb.Towns.Insert(new MongoTown() { TownName = "Valencia" });
-            mongoDb.Towns.Insert(new MongoTown() { TownName = "Islington" });
-            mongoDb.Towns.Insert(new MongoTown() { TownName = "Villarreal" });
-            mongoDb.Towns.Insert(new MongoTown() { TownName = "Elche" });
-            mongoDb.Towns.Insert(new MongoTown() { TownName = "La Coruña" });
-            mongoDb.Towns.Insert(new MongoTown() { TownName = "Witton" });
-            mongoDb.Towns.Insert(new MongoTown() { TownName = "Torino" });
-            mongoDb.Towns.Insert(new MongoTown() { TownName = "Leicester" });
-            mongoDb.Towns.Insert(new MongoTown() { TownName = "Swansea" });
-            mongoDb.Towns.Insert(new MongoTown() { TownName = "Manchester" });
-            mongoDb.Towns.Insert(new MongoTown() { TownName = "Sevilla" });
-            mongoDb.Towns.Insert(new MongoTown() { TownName = "Bilbao" });
-            mongoDb.Towns.Insert(new MongoTown() { TownName = "Milan" });
-            mongoDb.Towns.Insert(new MongoTown() { TownName = "Madrid" });
-            mongoDb.Towns.Insert(new MongoTown() { TownName = "Parma" });
-            mongoDb.Towns.Insert(new MongoTown() { TownName = "Udine" });
-            mongoDb.Towns.Insert(new MongoTown() { TownName = "Plaermo" });
-            mongoDb.Towns.Insert(new MongoTown() { TownName = "London" });
-            mongoDb.Towns.Insert(new MongoTown() { TownName = "Birmingham" });
-            mongoDb.Towns.Insert(new MongoTown() { TownName = "Vigo" });
-            mongoDb.Towns.Insert(new MongoTown() { TownName = "Turin" });
+            // Initialize DataBases
+            var mongoDb = new MongoDbData();
+            var db = new ChampionsLeagueData();
+            
+            //Test insert data in mongo
+            int mongoTeamsCount = mongoDb.Teams.GetAll().Count;
+            if (mongoTeamsCount == 0)
+            {
+                mongoDb.DataInitilizer();
+                Console.WriteLine("\t Mongo has Data!");
+            }
 
-            mongoDb.Stadiums.Insert(new MongoStadium { Name = "Anfield", Town = "Liverpool", Capacity = 45000 });
-            mongoDb.Stadiums.Insert(new MongoStadium { Name = "Anoeta Stadium", Town = "San Sebastián", Capacity = 45000 });
-            mongoDb.Stadiums.Insert(new MongoStadium { Name = "Balaidos", Town = "San Sebastián", Capacity = 45000 });
-            mongoDb.Stadiums.Insert(new MongoStadium { Name = "Ciutat de Valencia", Town = "Valencia", Capacity = 45000 });
-            mongoDb.Stadiums.Insert(new MongoStadium { Name = "Emirates Stadium", Town = "London", Capacity = 45000 });
-            mongoDb.Stadiums.Insert(new MongoStadium { Name = "Estadi Cornella-El Prat", Town = "Villarreal", Capacity = 45000 });
-            mongoDb.Stadiums.Insert(new MongoStadium { Name = "Estadio El Madrigal", Town = "Villarreal", Capacity = 45000 });
-            mongoDb.Stadiums.Insert(new MongoStadium { Name = "Estadio Manuel Martinez Valero", Town = "Elche", Capacity = 45000 });
-            mongoDb.Stadiums.Insert(new MongoStadium { Name = "Estadio Nuevo Los Carmenes", Town = "Madrid", Capacity = 45000 });
-            mongoDb.Stadiums.Insert(new MongoStadium { Name = "Estadio Riazor", Town = "La Coruña", Capacity = 45000 });
-            mongoDb.Stadiums.Insert(new MongoStadium { Name = "Etihad Stadium", Town = "Witton", Capacity = 45000 });
-            mongoDb.Stadiums.Insert(new MongoStadium { Name = "Juventus Stadium", Town = "Torino", Capacity = 45000 });
-            mongoDb.Stadiums.Insert(new MongoStadium { Name = "King Power Stadium", Town = "Leicester", Capacity = 45000 });
-            mongoDb.Stadiums.Insert(new MongoStadium { Name = "Liberty Stadium", Town = "Swansea", Capacity = 45000 });
-            mongoDb.Stadiums.Insert(new MongoStadium { Name = "Mestalla Stadium", Town = "Valencia", Capacity = 45000 });
-            mongoDb.Stadiums.Insert(new MongoStadium { Name = "Old Trafford", Town = "Manchester", Capacity = 45000 });
-            mongoDb.Stadiums.Insert(new MongoStadium { Name = "Ramon Sanchez Pizjuan Stadium", Town = "Sevila", Capacity = 45000 });
-            mongoDb.Stadiums.Insert(new MongoStadium { Name = "San Mames Stadium", Town = "Bilbao", Capacity = 45000 });
-            mongoDb.Stadiums.Insert(new MongoStadium { Name = "San Siro", Town = "Milan", Capacity = 45000 });
-            mongoDb.Stadiums.Insert(new MongoStadium { Name = "Santiago Bernabeu", Town = "Madrid", Capacity = 45000 });
-            mongoDb.Stadiums.Insert(new MongoStadium { Name = "Stadio Ennio Tardini", Town = "Parma", Capacity = 45000 });
-            mongoDb.Stadiums.Insert(new MongoStadium { Name = "Stadio Friuli", Town = "Udine", Capacity = 45000 });
-            mongoDb.Stadiums.Insert(new MongoStadium { Name = "Stadio Renzo Barbera", Town = "Palermo", Capacity = 45000 });
-            mongoDb.Stadiums.Insert(new MongoStadium { Name = "Stamford Bridge", Town = "London", Capacity = 45000 });
-            mongoDb.Stadiums.Insert(new MongoStadium { Name = "Villa Park", Town = "Birmingham", Capacity = 45000 });
-            mongoDb.Stadiums.Insert(new MongoStadium { Name = "White Hart Lane", Town = "London", Capacity = 45000 });
+            //Test Transfer data from Mongo to SQl
+            int sqlTeamsCount = db.Teams.All().Count();
+            if (sqlTeamsCount == 0)
+            {
+                TransferDataFromMongo(mongoDb, db);
+                Console.WriteLine("\t SQL Database Created!");
+            }
 
-            mongoDb.Teams.Insert(new MongoTeam() { Name = "Liverpool", Town = "Liverpool" });
-            mongoDb.Teams.Insert(new MongoTeam() { Name = "Real Sociedad", Town = "San Sebastián" });
-            mongoDb.Teams.Insert(new MongoTeam() { Name = "Barcelona", Town = "Barcelona" });
-            mongoDb.Teams.Insert(new MongoTeam() { Name = "Espanyol", Town = "Barcelona" });
-            mongoDb.Teams.Insert(new MongoTeam() { Name = "Valencia", Town = "Valencia" });
-            mongoDb.Teams.Insert(new MongoTeam() { Name = "Granada CF", Town = "Valencia" });
-            mongoDb.Teams.Insert(new MongoTeam() { Name = "Levante", Town = "Valencia" });
-            mongoDb.Teams.Insert(new MongoTeam() { Name = "Levski", Town = "Islington" });
-            mongoDb.Teams.Insert(new MongoTeam() { Name = "Villarreal", Town = "Villarreal" });
-            mongoDb.Teams.Insert(new MongoTeam() { Name = "Elche", Town = "Elche" });
-            mongoDb.Teams.Insert(new MongoTeam() { Name = "Dep.La Coruna", Town = "La Coruña" });
-            mongoDb.Teams.Insert(new MongoTeam() { Name = "Aston Villa", Town = "Witton" });
-            mongoDb.Teams.Insert(new MongoTeam() { Name = "Levski", Town = "Torino" });
-            mongoDb.Teams.Insert(new MongoTeam() { Name = "Arsenal", Town = "Leicester" });
-            mongoDb.Teams.Insert(new MongoTeam() { Name = "Leicester", Town = "Leicester" });
-            mongoDb.Teams.Insert(new MongoTeam() { Name = "Swansea", Town = "Swansea" });
-            mongoDb.Teams.Insert(new MongoTeam() { Name = "Manchester City", Town = "Manchester" });
-            mongoDb.Teams.Insert(new MongoTeam() { Name = "Manchester United", Town = "Manchester" });
-            mongoDb.Teams.Insert(new MongoTeam() { Name = "Sevilla", Town = "Sevilla" });
-            mongoDb.Teams.Insert(new MongoTeam() { Name = "Ath Bilbao", Town = "Bilbao" });
-            mongoDb.Teams.Insert(new MongoTeam() { Name = "Ac Milan", Town = "Milan" });
-            mongoDb.Teams.Insert(new MongoTeam() { Name = "Inter", Town = "Milan" });
-            mongoDb.Teams.Insert(new MongoTeam() { Name = "Real Madrid", Town = "Madrid" });
-            mongoDb.Teams.Insert(new MongoTeam() { Name = "Parma", Town = "Parma" });
-            mongoDb.Teams.Insert(new MongoTeam() { Name = "Udinese", Town = "Udine" });
-            mongoDb.Teams.Insert(new MongoTeam() { Name = "Palermo", Town = "Plaermo" });
-            mongoDb.Teams.Insert(new MongoTeam() { Name = "Chelsea", Town = "London" });
-            mongoDb.Teams.Insert(new MongoTeam() { Name = "Tottenham", Town = "London" });
-            mongoDb.Teams.Insert(new MongoTeam() { Name = "Celta Vigo", Town = "Vigo" });
-            mongoDb.Teams.Insert(new MongoTeam() { Name = "Levski", Town = "Birmingham" });
-            mongoDb.Teams.Insert(new MongoTeam() { Name = "Uventus", Town = "Turin" });
+            // import zip
+            int matchesCount = db.Matches.All().Count();
+            if (matchesCount == 0)
+            {
+                string tempDirectoryPath = @"..\..\Temp";
+                string importDirectoryPath = @"..\..\";
+                string zipFileName = "Matches-Report.zip";
+                var zipReader = new ZipReader(db, importDirectoryPath, tempDirectoryPath);
+                zipReader.ReadFile(zipFileName, "B3:F50");
+                Console.WriteLine("\t Zip file imported!");
+            }
 
+            //Loads XML into db
+            var xmlManager = new XMLDataManager();
+
+            int playersCount = db.Players.All().Count();
+            if (playersCount == 0)
+            {
+                var players = xmlManager.GetPlayersFromXML(@"..\..\players.xml");
+                xmlManager.SavePlayersInSQLDb(players);
+                Console.WriteLine("\t Players imported!");
+            }
+            
+            // JSON Reports
+            string reportsDirectoryPath = @"..\..\JsonReports";
+            var json = new JsonReport(db, reportsDirectoryPath);
+            json.GenerateAllTeams();
+            Console.WriteLine("\t JSON reports generated!");
+
+            //Use MySql and SQLite Databases
+            var exl = new ExcelGenerator(reportsDirectoryPath);
+
+            //Transfer data from JSON to MySql Database
+            if(exl.MySqlDb.GetAllTeams().Count == 0)
+            {
+                exl.MySqlDb.LoadJsonReportsInMySql();
+                Console.WriteLine("Json reports loaded in Mysql");
+            }
+            
+            //Generate Xlsx file
+
+            //If Excel file exists throw exception 
+            //exl.GenerateReport();
+            Console.WriteLine("\t Excel Salary Report Created!");
+
+            //Generate/Load From XML                
+            string path = @"..\..\matchReport.xml";
+            xmlManager.GenerateMatchesReport(path);
+            Console.WriteLine("\t XML Matches Report Generated!");
+
+            //Add matches from XML to Mongo            
+            var matchesFromXml = xmlManager.GetMatchesFromXML(path);
+            xmlManager.SaveMatchesInMongoDb(matchesFromXml, mongoDb);
+
+            var fromMongo = mongoDb.Matches.GetAll();
+            foreach (var match in fromMongo)
+            {
+                Console.WriteLine(match.Date + " -> " + match.GuestTeam + " vs " + match.HostTeam + " Attendance: " + match.Attendance);
+            }
+
+            //PDFReports
+            //var pdfReporter = new PdfReporter();
+            //var matches = db.Matches.All().OrderBy(d => d.Date).GroupBy(d => d.Date).ToList();
+            //pdfReporter.CreateTableReport(matches); 
         }
 
         public static void TransferDataFromMongo(MongoDbData mongoDb, ChampionsLeagueData db)
@@ -143,69 +143,6 @@
             }
 
             db.SaveChanges();
-        }
-
-        static void Main()
-        {
-            // Initialize DataBases
-
-            var mongoDb = new MongoDbData();
-            var db = new ChampionsLeagueData();
-
-            //Test insert data in mongo
-            //InsertDataInMongo(mongoDb);
-
-            //Test Transfer data from Mongo to SQl
-            //TransferDataFromMongo(mongoDb, db);
-
-            // import zip
-            //string tempDirectoryPath = @"..\..\Temp";
-            //string importDirectoryPath = @"..\..\";
-            //string zipFileName = "Sample-Sales-Reports.zip";
-
-            //var zipReader = new ZipReader(db, importDirectoryPath, tempDirectoryPath);
-            //var matches = zipReader.ReadFile(zipFileName);
-            //Console.WriteLine("\t Zip file imported! {0} matches extracted", matches.Count);
-
-            // JSON Reports
-            //string reportsDirectoryPath = @"..\..\JsonReports";
-            //var json = new JsonReport(db, reportsDirectoryPath);
-            //json.GenerateAllTeams();
-            //Console.WriteLine("\t JSON reports generated!");
-
-            //Use MySql and SQLite Databases
-            //var exl = new ExcelGenerator();
-
-            //Transfer data from JSON to MySql Database
-            //exl.MySqlDb.LoadJsonReportsInMySql();
-            //exl.GenerateReport();
-
-            //Generate/Load From XML                
-            //string path = @"..\..\matchReport.xml";
-
-            //var reportManager = new XMLReportManager();
-            //var matchesFromXml = reportManager.GetMatchesFromXML(path);
-
-            //reportManager.SaveMatchReportsFromDb(path);
-            //reportManager.SaveMatchesInSQLDb(matchesFromXml);
-
-            //Add matches from XML to Mongo
-            //foreach (var match in matchesFromXml)
-            //{
-            //    mongoDb.Matches.Insert(new MongoMatch()
-            //    {
-            //        Date = match.Date.ToString(),
-            //        GuestTeam = match.GuestTeamId.ToString(),
-            //        HostTeam = match.HostTeamId.ToString(),
-            //        Stadium = match.StadiumId.ToString()
-            //    });
-            //}
-            //var fromMongo = mongoDb.Matches.GetAll();
-            //foreach (var match in fromMongo)
-            //{
-            //    Console.WriteLine(match.Date);
-            //}
-
         }
     }
 }

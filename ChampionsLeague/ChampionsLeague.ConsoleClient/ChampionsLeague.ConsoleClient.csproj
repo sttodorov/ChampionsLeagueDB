@@ -59,6 +59,7 @@
   </ItemGroup>
   <ItemGroup>
     <None Include="App.config" />
+    <None Include="Matches-Report.zip" />
     <None Include="packages.config" />
   </ItemGroup>
   <ItemGroup>
@@ -89,6 +90,10 @@
     <ProjectReference Include="..\ChampionsLeague.MongoDb.Model\ChampionsLeague.MongoDb.Model.csproj">
       <Project>{898bc67f-5e78-46b2-bd5c-b04c4c9ff7a2}</Project>
       <Name>ChampionsLeague.MongoDb.Model</Name>
+    </ProjectReference>
+    <ProjectReference Include="..\ChampionsLeague.PdfReporter\ChampionsLeague.PdfReporter.csproj">
+      <Project>{3811f1f2-cfa4-45af-ba5f-891fae0e130f}</Project>
+      <Name>ChampionsLeague.PdfReporter</Name>
     </ProjectReference>
     <ProjectReference Include="..\ChampionsLeague.XMLData\ChampionsLeague.XMLData.csproj">
       <Project>{984d8ba3-2f5a-4aae-89bb-b908a19f2edf}</Project>

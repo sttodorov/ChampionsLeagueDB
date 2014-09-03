@@ -8,6 +8,8 @@
         public string HostTeam { get; set; }
         public string GuestTeam { get; set; }
         public string Stadium { get; set; }
+
+        public int Attendance { get; set; }
         public string Town { get; set; }
     }
 }

@@ -1,1 +1,0 @@
-D:\Programming\Telerik_Academy\TeamProjectDataBases\ChampionsLeagueDB\ChampionsLeague\ChampionsLeague.ConsoleClient\bin\Debug\ChampionsLeague.ConsoleClient.exe.config

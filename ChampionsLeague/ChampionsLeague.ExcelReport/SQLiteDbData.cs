@@ -9,15 +9,29 @@ namespace ChampionsLeague.ExcelReport
         public SQLiteDbData()
         {
             this.SQLiteDb = new SQLiteConnection(@"Data Source=..\..\PlayersAdditionalInfo.db; Version=3;");
-            //this.InitializeTable();
+            this.InitializeTable();
         }
 
         private void InitializeTable()
         {
-            var createTable = new SQLiteCommand("CREATE TABLE YellowCards(id int PRIMARY KEY, Team nvarchar(50), FirstName nvarchar(50), LastName nvarchar(50),YellowCardsCount int)", this.SQLiteDb);
+            var createTable = new SQLiteCommand("CREATE TABLE IF NOT EXISTS YellowCards(id int PRIMARY KEY, Team nvarchar(50), FirstName nvarchar(50), LastName nvarchar(50),YellowCardsCount int)", this.SQLiteDb);
             this.SQLiteDb.Open();
             createTable.ExecuteNonQuery();
             this.SQLiteDb.Close();
+            this.InsertRecords();
+        }
+
+        private void InsertRecords()
+        {
+            this.AddRecord("Liverpool", "Orlando", "Greer", 3);
+            this.AddRecord("Liverpool", "Gabriel", "Rivera", 2);
+            this.AddRecord("Liverpool", "Jeremy", "Cohen", 1);
+            this.AddRecord("Liverpool", "Jeffery", "Horton", 5);
+
+            this.AddRecord("Real Sociedad", "Everett", "Carr", 1);
+            this.AddRecord("Real Sociedad", "Dan", "Dunn", 2);
+            this.AddRecord("Real Sociedad", "Jerald", "Wise", 1);
+            this.AddRecord("Real Sociedad", "Rogelio", "Flowers", 3);
         }
 
         public void AddRecord(string teamName, string firstName, string lastName, int yellowCardsCount)
