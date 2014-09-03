@@ -32,7 +32,7 @@
                 {
                     string inserTeamWithSalaryQuery = "INSERT INTO Salaries (Fullname) VALUES (@teamName)";
                     OleDbCommand insertTeam = new OleDbCommand(inserTeamWithSalaryQuery, conn);
-                    insertTeam.Parameters.AddWithValue("@teamname", "Team: " + team.TeamName);
+                    insertTeam.Parameters.AddWithValue("@teamName", "Team: " + team.TeamName);
                     insertTeam.ExecuteNonQuery();
 
                     var playersInCurrentTeam = allplayers.Where(p => p.TeamId == team.TeamId);
