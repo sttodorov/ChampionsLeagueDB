@@ -8,13 +8,15 @@ namespace ChampionsLeague.ExcelReport
 
         public SQLiteDbData()
         {
-            this.SQLiteDb = new SQLiteConnection(@"Data Source=..\..\PlayersAdditionalInfo.db; Version=3;");
+            string SQLiteConnectionString = @"Data Source=..\..\PlayersAdditionalInfo.db; Version=3;";
+            this.SQLiteDb = new SQLiteConnection(SQLiteConnectionString);
             this.InitializeTable();
         }
 
         private void InitializeTable()
         {
-            var createTable = new SQLiteCommand("CREATE TABLE IF NOT EXISTS YellowCards(id int PRIMARY KEY, Team nvarchar(50), FirstName nvarchar(50), LastName nvarchar(50),YellowCardsCount int)", this.SQLiteDb);
+            string createTableQuery = "CREATE TABLE IF NOT EXISTS YellowCards(id int PRIMARY KEY, Team nvarchar(50), FirstName nvarchar(50), LastName nvarchar(50),YellowCardsCount int)";
+            var createTable = new SQLiteCommand(createTableQuery, this.SQLiteDb);
             this.SQLiteDb.Open();
             createTable.ExecuteNonQuery();
             this.SQLiteDb.Close();
@@ -36,8 +38,10 @@ namespace ChampionsLeague.ExcelReport
 
         public void AddRecord(string teamName, string firstName, string lastName, int yellowCardsCount)
         {
-            SQLiteCommand insertCommand = new SQLiteCommand(@"INSERT INTO YellowCards (Team, FirstName, LastName, YellowCardsCount)
-                                                            VALUES (@teamName, @firstName, @lastName, @cardsCount)", this.SQLiteDb);
+            string insertIntoYellowCardsQuery = @"INSERT INTO YellowCards (Team, FirstName, LastName, YellowCardsCount)
+                                                            VALUES (@teamName, @firstName, @lastName, @cardsCount)";
+
+            SQLiteCommand insertCommand = new SQLiteCommand(insertIntoYellowCardsQuery, this.SQLiteDb);
             this.SQLiteDb.Open();
             insertCommand.Parameters.AddWithValue("@teamName",teamName);
             insertCommand.Parameters.AddWithValue("@firstName",firstName);
@@ -50,7 +54,8 @@ namespace ChampionsLeague.ExcelReport
         public IList<YellowCardsRecoord> GetAll()
         {
             var reccords = new List<YellowCardsRecoord>();
-            SQLiteCommand getAllCommand = new SQLiteCommand("Select * From YellowCards", this.SQLiteDb);
+            string selectFromYellowCardsQuery = "Select * From YellowCards";
+            SQLiteCommand getAllCommand = new SQLiteCommand(selectFromYellowCardsQuery, this.SQLiteDb);
             this.SQLiteDb.Open();
 
             var reader = getAllCommand.ExecuteReader();
@@ -71,7 +76,8 @@ namespace ChampionsLeague.ExcelReport
 
         public void Update(string firstName, string lastName,int cardsCount)
         {
-            var updateCommand = new SQLiteCommand("UPDATE YellowCards SET YellowCardsCount = @cardsCount WHERE FirstName = @firstname AND LastName = @lastName", this.SQLiteDb);
+            string updateYellowCardsQuery = "UPDATE YellowCards SET YellowCardsCount = @cardsCount WHERE FirstName = @firstname AND LastName = @lastName";
+            var updateCommand = new SQLiteCommand(updateYellowCardsQuery, this.SQLiteDb);
             this.SQLiteDb.Open();
 
             updateCommand.Parameters.AddWithValue("@cardsCount", cardsCount);

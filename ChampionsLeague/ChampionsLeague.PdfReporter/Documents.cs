@@ -42,10 +42,15 @@ namespace ChampionsLeague.PdfReporter
         public static Document CreateDocument(List<IGrouping<DateTime, Match>> matches)
         {
             // Create a new MigraDoc document
+
+            string docTitle = "Champions League Reports";
+            string docSubject = "Reports of all the matches of the major leagues in Europe";
+            string docAuthor = "Team \"Fire Elemental\"";
             Document document = new Document();
-            document.Info.Title = "Champions League Reports";
-            document.Info.Subject = "Reports of all the matches of the major leagues in Europe";
-            document.Info.Author = "Team \"Fire Elemental\"";
+
+            document.Info.Title = docTitle;
+            document.Info.Subject = docSubject;
+            document.Info.Author = docAuthor;
 
             DefineContentSection(document);
 

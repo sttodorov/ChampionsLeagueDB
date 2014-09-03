@@ -17,16 +17,22 @@
     {
         public static void Main()
         {
+            const string MONGO_ACKNOWLEDGEMENT = "\t Mongo has Data!";
+            const string SQL_ACKNOWLEDGEMENT = "\t SQL Database Created!";
+            const string ZIP_ACKNOWLEDGEMENT = "\t Zip file imported!";
+            const string PLAYERS_DATA_IMPORTED = "\t Players imported!";
+            const string JSON_ACKNOWLEDGEMENT = "\t JSON reports generated!";
+
             // Initialize DataBases
             var mongoDb = new MongoDbData();
             var db = new ChampionsLeagueData();
-            
+
             //Test insert data in mongo
             int mongoTeamsCount = mongoDb.Teams.GetAll().Count;
             if (mongoTeamsCount == 0)
             {
                 mongoDb.DataInitilizer();
-                Console.WriteLine("\t Mongo has Data!");
+                Console.WriteLine(MONGO_ACKNOWLEDGEMENT);
             }
 
             //Test Transfer data from Mongo to SQl
@@ -34,7 +40,7 @@
             if (sqlTeamsCount == 0)
             {
                 TransferDataFromMongo(mongoDb, db);
-                Console.WriteLine("\t SQL Database Created!");
+                Console.WriteLine(SQL_ACKNOWLEDGEMENT);
             }
 
             // import zip
@@ -46,46 +52,50 @@
                 string zipFileName = "Matches-Report.zip";
                 var zipReader = new ZipReader(db, importDirectoryPath, tempDirectoryPath);
                 zipReader.ReadFile(zipFileName, "B3:F50");
-                Console.WriteLine("\t Zip file imported!");
+                Console.WriteLine(ZIP_ACKNOWLEDGEMENT);
             }
 
             //Loads XML into db
             var xmlManager = new XMLDataManager();
+            var xmlFilePath = @"..\..\players.xml";
 
             int playersCount = db.Players.All().Count();
             if (playersCount == 0)
             {
-                var players = xmlManager.GetPlayersFromXML(@"..\..\players.xml");
+                var players = xmlManager.GetPlayersFromXML(xmlFilePath);
                 xmlManager.SavePlayersInSQLDb(players);
-                Console.WriteLine("\t Players imported!");
+                Console.WriteLine(PLAYERS_DATA_IMPORTED);
             }
-            
+
             // JSON Reports
             string reportsDirectoryPath = @"..\..\JsonReports";
             var json = new JsonReport(db, reportsDirectoryPath);
             json.GenerateAllTeams();
-            Console.WriteLine("\t JSON reports generated!");
+            Console.WriteLine(JSON_ACKNOWLEDGEMENT);
 
             //Use MySql and SQLite Databases
             var exl = new ExcelGenerator(reportsDirectoryPath);
 
             //Transfer data from JSON to MySql Database
-            if(exl.MySqlDb.GetAllTeams().Count == 0)
+            string jsonToMySQLSuccessMsg = "Json reports loaded in Mysql";
+            if (exl.MySqlDb.GetAllTeams().Count == 0)
             {
                 exl.MySqlDb.LoadJsonReportsInMySql();
-                Console.WriteLine("Json reports loaded in Mysql");
+                Console.WriteLine(jsonToMySQLSuccessMsg);
             }
-            
+
             //Generate Xlsx file
 
             //If Excel file exists throw exception 
             //exl.GenerateReport();
-            Console.WriteLine("\t Excel Salary Report Created!");
+            string excelSuccessMsg = "\t Excel Salary Report Created!";
+            Console.WriteLine(excelSuccessMsg);
 
             //Generate/Load From XML                
             string path = @"..\..\matchReport.xml";
+            string xmlSuccessMsg = "\t XML Matches Report Generated!";
             xmlManager.GenerateMatchesReport(path);
-            Console.WriteLine("\t XML Matches Report Generated!");
+            Console.WriteLine(xmlSuccessMsg);
 
             //Add matches from XML to Mongo            
             var matchesFromXml = xmlManager.GetMatchesFromXML(path);
@@ -94,7 +104,7 @@
             var fromMongo = mongoDb.Matches.GetAll();
             foreach (var match in fromMongo)
             {
-                Console.WriteLine(match.Date + " -> " + match.GuestTeam + " vs " + match.HostTeam + " Attendance: " + match.Attendance);
+                Console.WriteLine("{0} -> {1} vs {2} Attendance: {3}", match.Date, match.GuestTeam, match.HostTeam, match.Attendance);
             }
 
             //PDFReports

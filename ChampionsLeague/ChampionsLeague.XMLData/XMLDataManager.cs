@@ -3,8 +3,8 @@
     using System;
     using System.Linq;
     using System.Collections.Generic;
-    
-    using ChampionsLeague.Data;    
+
+    using ChampionsLeague.Data;
     using ChampionsLeague.Model;
     using System.Data.Entity.Validation;
 
@@ -13,7 +13,7 @@
     using System.Data.Entity.Validation;
     using System.Collections.Generic;
     using ChampionsLeague.MongoDb.Model;
-using ChampionsLeague.MongoDb.Data;
+    using ChampionsLeague.MongoDb.Data;
 
     public class XMLDataManager
     {
@@ -80,8 +80,8 @@ using ChampionsLeague.MongoDb.Data;
         }
 
         public ICollection<Player> GetPlayersFromXML(string filename)
-        {            
-            return this.parser.LoadPlayers(filename);     
+        {
+            return this.parser.LoadPlayers(filename);
         }
 
         public void SavePlayersInSQLDb(ICollection<Player> players)
