@@ -56,7 +56,7 @@
                                 currentMatch.Date = reader.ReadElementString();
                                 break;
                             case HostTeamXMLProp:
-                                currentMatch.HostTeam =reader.ReadElementString();
+                                currentMatch.HostTeam = reader.ReadElementString();
                                 break;
                             case GuestTeamXMLProp:
                                 currentMatch.GuestTeam = reader.ReadElementString();
@@ -65,9 +65,9 @@
                                 currentMatch.Stadium = reader.ReadElementString();
                                 break;
                             case TownXMLProp:
-                                string townName = reader.ReadElementString();   
+                                string townName = reader.ReadElementString();
                                 break;
-                            case AttendanceXMLProp:         
+                            case AttendanceXMLProp:
                                 currentMatch.Attendance = int.Parse(reader.ReadElementString());
                                 break;
                             default:
